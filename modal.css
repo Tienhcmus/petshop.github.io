@@ -1,0 +1,119 @@
+.modal-body a {
+  color: #58bff6;
+  text-decoration: none;
+}
+.modal-body a:hover {
+  color: #aaa;
+}
+.pull-right {
+  float: right;
+}
+.pull-left {
+  float: left;
+}
+.clear-fix {
+  clear: both;
+}
+/* Full-width input fields */
+input[type="text"],
+input[type="number"],
+input[type="password"] {
+  width: 100%;
+  padding: 5px;
+  margin: 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+
+/* Add a background color when the inputs get focus */
+input[type="text"]:focus,
+input[type="number"]:focus,
+input[type="password"]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+/* Add padding to container elements */
+.modal-content .container {
+  padding: 20px;
+  font-size: smaller;
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: 5% auto 5% auto; /* 5% from the top, 5% from the bottom and centered */
+  border: 1px solid #888;
+  width: 100%; /* Could be more or less, depending on screen size */
+}
+
+.modal-content .container hr {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.modal-content .container label {
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+
+/* Clear floats */
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+.modal-content .container a {
+  font-size: x-large;
+  font-weight: bolder;
+}
+.modal-content .container a:hover {
+  color: navy;
+}
+
+.container .contact input[type=submit] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.container .contact input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+.container .contact{
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+.container .contact , select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+}
+.container .contact input[type=text]
+{
+  background-color: white;
+}
+.container .contact label{
+  margin-bottom: 0px;
+}
+.modal-content{
+  width: 700px;
+}
+.error_form
+{
+	top: 12px;
+	color: rgb(216, 15, 15);
+    font-size: 15px;
+    font-family: Helvetica;
+}

@@ -1,0 +1,163 @@
+.card-news {
+  position: relative;
+  overflow: hidden;
+  margin: 5px;
+  width: 80%;
+  color: #000000;
+  text-align: right;
+  font-size: 16px;
+  background-color: #000000;
+}
+.card-news * {
+  box-sizing: border-box;
+  transition: all 0.35s ease;
+}
+.card-news img {
+  max-width: 100%;
+  backface-visibility: hidden;
+}
+.card-news figcaption {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 1;
+  opacity: 1;
+  padding: 30px 0 30px 10px;
+  background-color: #ffffff;
+  width: 40%;
+  transform: translateX(150%);
+}
+.card-news figcaption:before {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 100%;
+  content: "";
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 120px 120px 120px 0;
+  border-color: transparent #ffffff transparent transparent;
+}
+.card-news:after {
+  position: absolute;
+  bottom: 50%;
+  right: 40%;
+  content: "";
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 120px 120px 0 120px;
+  border-color: rgba(255, 255, 255, 0.5) transparent transparent transparent;
+  transform: translateY(-50%);
+  transition: all 0.35s ease;
+}
+.card-news h4,
+.card-news p {
+  line-height: 1.5em;
+  transform: translateX(-30px);
+  margin: 0;
+}
+.card-news h4 {
+  margin: 0 0 5px;
+  line-height: 1.1em;
+  font-weight: 900;
+  font-size: 1.4em;
+  opacity: 0.75;
+}
+.card-news a {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+}
+.card-news:hover img,
+.card-news.hover img {
+  zoom: 1;
+  filter: alpha(opacity=50);
+  opacity: 0.5;
+}
+
+.card-news:hover:after,
+.card-news.hover:after,
+.card-news:hover figcaption,
+.card-news.hover figcaption,
+.card-news:hover i,
+.card-news.hover i {
+  transform: translateX(0);
+  opacity: 1;
+}
+.box {
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+}
+.box .imgbox {
+  width: 100%;
+  height: 100%;
+}
+.box .imgbox img {
+  width: 100%;
+  height: 100%;
+  transition: transform 1.5s;
+}
+.box:hover .imgbox img {
+  transform: scale(1.1);
+}
+
+.box .details {
+  position: absolute;
+  top: 20px;
+  bottom: 20px;
+  left: 30px;
+  right: 30px;
+  background-color: rgba(112, 112, 112, 0.5);
+  transform: scaleY(0);
+  transition: transform 0.5s;
+}
+.box:hover .details {
+  transform: scaleY(1);
+}
+.box .details .content {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  text-align: center;
+  padding: 15px;
+  color: #ffffff;
+}
+
+.news{
+    width: 100%;
+    height: 200px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.news-icon img{
+    width: 200px;
+    height: 200px;
+    float: left;
+}
+.content{
+    float: left;
+    margin-left: 10px;
+}
+.news-title{
+    font-size: 25px;
+    text-align: left;
+    text-justify: newspaper;
+    font-weight: bold;
+}
+.news-content{
+    font-size: 15px;
+    height: 120px;
+    overflow: hidden;
+}
+.date-time{
+    font-size: x-small;
+    font-style: italic;
+    text-align: right;
+}

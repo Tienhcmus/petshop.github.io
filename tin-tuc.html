@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>SEMINAR</title>
+    <!-- Import Bootstrap, js and font awesome -->
+    <link rel="stylesheet" type="text/css" href="bootstrap-4.4.1-dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+    <link rel="stylesheet" type="text/css" href="modal.css" />
+    <link rel="stylesheet" type="text/css" href="cart.css" />
+    <link rel="stylesheet" href="card-news-stysheet.css">
+    <link href="https://fonts.googleapis.com/css2?family=Jura:wght@300;400&display=swap" rel="stylesheet">
+
+</head>
+
+<body data-spy="scroll" data-target=".sticky-sidebar .dropdown-content" data-offset="50">
+    <!-- Header -->
+    <header>
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-md"
+            style="background-color: rgb(242, 241, 236); padding-top: 0; padding-bottom: 0;">
+            <div class="container-fluid">
+                <!-- Logo -->
+                <a class="navbar-brand" href="#" style="width: 100px;">
+                    <img src="./images//logo/Brand1.png" alt="pet-store" width="150%" height="150%">
+                </a>
+                <!-- Login -->
+                <ul class="navbar-nav ml-auto" style="font-size: large;">
+                    <li class="nav-item">
+                        <div class="dropdown">
+                            <button id="header-button" type="button" data-toggle="dropdown" data-target="shopping-cart"
+                                class="dropdown-toggle">
+                                <i class="fas fa-shopping-cart"> </i> <span class="badge badge-danger">3</span></i>
+                            </button>
+                            <div class="dropdown-menu dropdown-menu-right">
+                                <div class="shopping-cart">
+                                    <ul class="shopping-cart-items">
+                                        <li class="clearfix">
+                                            <img src="./images/works/1.jpg" alt="item1" />
+                                            <span class="item-name">Product 1</span>
+                                            <span class="item-price">$849.99</span>
+                                            <span class="item-quantity">Số lượng: 01</span>
+                                        </li>
+                                        <div class="dropdown-divider"></div>
+                                        <li class="clearfix">
+                                            <img src="./images/works/1.jpg" alt="item1" />
+                                            <span class="item-name">Product 2</span>
+                                            <span class="item-price">$1,249.99</span>
+                                            <span class="item-quantity">Số lượng: 01</span>
+                                        </li>
+                                        <div class="dropdown-divider"></div>
+                                        <li class="clearfix">
+                                            <img src="./images/works/1.jpg" alt="item1" />
+                                            <span class="item-name">Product 3</span>
+                                            <span class="item-price">$129.99</span>
+                                            <span class="item-quantity">Số lượng: 01</span>
+                                        </li>
+                                    </ul>
+                                    <div class="dropdown-divider"></div>
+                                    <p>Tổng tiền: </p>
+                                    <a href="#" class="check-out">Thanh Toán</a>
+
+                                </div>
+                            </div>
+                    </li>
+                    <li class="nav-item">
+                        <button id="header-button" type="button" data-toggle="modal" data-target="#Signup">
+                            Đăng Ký
+                        </button>
+                    </li>
+                    <li class="nav-item">
+                        <button id="header-button" type="button" data-toggle="modal" data-target="#Signin">
+                            Đăng Nhập
+                        </button>
+                    </li>
+                </ul>
+            </div>
+            </div>
+        </nav>
+        <!-- Carousel -->
+        <div id="slides" class="carousel slide" data-ride="carousel" style="z-index: 1;">
+            <ul class="carousel-indicators">
+                <li data-target="#slides" data-slide-to="0" class="active"></li>
+                <li data-target="#slides" data-slide-to="1"></li>
+                <li data-target="#slides" data-slide-to="2"></li>
+                <li data-target="#slides" data-slide-to="3"></li>
+            </ul>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <a class="link-image" href="pet.html"><img src="./images/Banner/banner1.jpg" alt="pet"></a>
+                </div>
+                <div class="carousel-item">
+                    <a class="link-image" href="product.html"><img src="./images/Banner/banner2.jpg" alt="Sanpham"></a>
+                </div>
+                <div class="carousel-item">
+                    <a class="link-image" href="cham-soc.html"><img src="./images/Banner/banner3.jpg" alt="chamsoc"></a>
+                </div>
+                <div class="carousel-item">
+                    <a class="link-image" href="tin-tuc.html"><img src="./images/Banner/banner4.jpg" alt="tintuc"></a>
+                </div>
+            </div>
+            <!-- Left and right controls -->
+            <a class="carousel-control-prev" href="#slides" data-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+            </a>
+            <a class="carousel-control-next" href="#slides" data-slide="next">
+                <span class="carousel-control-next-icon"></span>
+            </a>
+        </div>
+
+        <!--Menu-->
+        <div class="menu" style="background-color: #17a2b8; z-index: 2; width: 100%; padding-left: 10px;">
+            <nav class="navbar navbar-expand-sm bg-info navbar-dark position-sticky" style="z-index: 2; padding: 0;">
+                <!-- Links -->
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html"> Trang chủ </a>
+                    </li>
+                    <!-- Dropdown -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" href="pet.html" id="navbarDropdown"> Hệ thống thú cưng
+                        </a>
+                        <div class="dropdown-content">
+                            <a class="dropdown-item" href="danh-sach-cho.html"> Chó </a>
+                            <a class="dropdown-item" href="danh-sach-meo.html"> Mèo </a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" href="product.html" id="navbarDropdown"> Sản phẩm
+                        </a>
+                        <div class="dropdown-content">
+                            <a class="dropdown-item" href="product.html#dog-food"> Thức ăn cho chó </a>
+                            <a class="dropdown-item" href="product.html#cat-food"> Thức ăn cho mèo </a>
+                            <a class="dropdown-item" href="product.html#sua-tam"> Sữa tắm </a>
+                            <a class="dropdown-item" href="product.html#other-product"> Phụ kiện </a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" href="cham-soc.html" id="navbarDropdown"> Chăm sóc thú cưng
+                        </a>
+                        <div class="dropdown-content">
+                            <a class="dropdown-item" href="#"> Cách chăm sóc chó </a>
+                            <a class="dropdown-item" href="#"> Cách chăm sóc mèo </a>
+                            <a class="dropdown-item" href="#"> Các dạng bệnh thường gặp và cách chữa trị </a>
+                            <a class="dropdown-item" href="#"> Lịch trình tiêm ngừa vắc xin </a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="tin-tuc.html"> Tin tức thú cưng </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="lien-he.html"> Liên hệ </a>
+                    </li>
+                </ul>
+                <div class="navbar-nav ml-auto">
+                    <!--Searching-->
+                    <form class="form-inline my-2 my-md-0">
+                        <div>
+                            <input class="form-control mr-sm-2" type="search" placeholder="Tìm Kiếm Sản Phẩm"
+                                aria-label="Search">
+                            <i class="fas fa-search" style="color: white; padding-right: 20px;"></i>
+                        </div>
+
+                    </form>
+                </div>
+
+            </nav>
+        </div>
+        <!-- Modal Sign up -->
+        <div class="modal fade" id="Signup">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <form id="signupform">
+                        <div class="container">
+                            <h3>Đăng Ký</h3>
+                            <p>Vui lòng điền vào mẫu này để tạo một tài khoản.</p>
+                            <hr>
+                            <div class="row">
+                                <div class="col-6">
+                                    <label for="fname"><b>Tên</b></label>
+                                    <input type="text" placeholder="Enter First Name" name="firstname"
+                                        id="sign_up_fname">
+                                    <span class="error-form" id="fname_error_message"></span>
+                                </div>
+                                <div class="col-6">
+                                    <label for="lname"><b>Họ</b></label>
+                                    <input type="text" placeholder="Enter Last Name" name="lastname" id="sign_up_lname">
+                                    <span class="error-form" id="lname_error_message"></span>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="col-3">
+                                    <label for="address"><b>Địa chỉ</b></label>
+                                </div>
+                                <div class="col-9" style="padding-left: 0px;">
+                                    <input type="text" placeholder="Enter Address" name="address" id="sign_up_addr">
+                                    <span class="error-form" id="addr_error_message"></span>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="col-3" style="padding-right: 0px;">
+                                    <label for="phone" style="margin-top: 0px;"><b>Số điện thoại</b></label>
+                                </div>
+                                <div class="col-9" style="padding-left: 0px;">
+                                    <input type="number" placeholder="Enter Phone Number" name="phone"
+                                        id="sign_up_phone">
+                                    <span class="error-form" id="phone_error_message"></span>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="col-4" style="padding-right: 0px;">
+                                    <label for="email"><b>Tên Đăng Nhập</b></label>
+                                </div>
+                                <div class="col-8" style="padding-left: 0px;">
+                                    <input type="text" placeholder="Enter User Name" name="username"
+                                        id="sign_up_username">
+                                    <span class="error-form" id="username_error_message"></span>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="col-4" style="padding-right: 0px;">
+                                    <label for="psw"><b>Mật Khẩu</b></label>
+                                </div>
+                                <div class="col-8" style="padding-left: 0px;">
+                                    <input type="password" placeholder="Enter Password" name="psw" id="sign_up_psw">
+                                    <span class="error-form" id="psw_error_message"></span>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="col-4" style="padding-right: 0px;">
+                                    <label for="psw-repeat"><b>Xác Nhận Mật Khẩu</b></label>
+                                </div>
+                                <div class="col-8" style="padding-left: 0px;">
+                                    <input type="password" placeholder="Repeat Password" name="pswrepeat"
+                                        id="sign_up_rpsw">
+                                    <span class="error-form" id="rpsw_error_message"></span>
+                                </div>
+                            </div>
+                            <hr>
+                            <button type="submit" class="registerbtn">Đăng Ký Tài Khoản</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal Sign in -->
+        <div class="modal fade" id="Signin">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <form>
+                        <div class="container">
+                            <h3>Đăng Nhập</h3>
+                            <p>Vui lòng điền vào mẫu này để đăng nhập tài khoản.</p>
+                            <hr>
+
+                            <div class="row">
+                                <div class="col-3" style="padding-right: 0px;">
+                                    <label for="email"><b>Tên Đăng Nhập</b></label>
+                                </div>
+                                <div class="col-9" style="padding-left: 0px;">
+                                    <input type="text" placeholder="Enter User Name" name="username" required>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="col-3" style="padding-right: 0px;">
+                                    <label for="psw"><b>Mật Khẩu</b></label>
+                                </div>
+                                <div class="col-9" style="padding-left: 0px;">
+                                    <input type="password" placeholder="Enter Password" name="psw" required>
+                                </div>
+                            </div>
+
+                            <hr>
+
+                            <button type="submit" class="registerbtn">Đăng Nhập</button>
+                        </div>
+
+                        <div class="container forgotpsw" style="padding-top: 0px;">
+                            <a href="#">Quên Mật Khẩu?</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </header>
+    <!--End Header -->
+
+    <!-- Content -->
+    <div class="container" style="padding: 20px;">
+        <div class="container">
+            <div class="pull-left">
+                <h4 class="inner-title">Tin Tức Thú Cưng</h4>
+            </div>
+            <div class="pull-right">
+                <div class="beta-breadcrumb font-large">
+                    <a href="index.html">Home</a> / <span>Tin Tức</span>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+    <div class="container-fluid" style="height: auto;">
+        <div class="row" style="margin-left: 20px; margin-right: 20px;">
+            <div class="col-md-9">
+                <div class="row">
+                    <div class="col-3 news-icon">
+                        <a href="#"><img src="images/news/khao-sat-thu-cung-760x490.jpg" alt="news-pet"></a>
+                    </div>
+                    <div class="col-9">
+                        <a class="news-title" href="#">
+                            Khảo sát -Chủ nhân của những chú chó hạnh phúc hơn chủ nhân của mèo
+                        </a>
+                        <p class="news-content">Mọi người thường nói những chú chó là người bạn tốt nhất, và theo một
+                            khảo sát mới nhất, điều mà họ nói hoàng toàn chính xác.</p>
+                        <p class="date-time"> 20:20 04/04/2020</p>
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-3 news-icon">
+                        <a href="#"><img src="images/news/Singapura_Cats-760x490.jpg" alt="news-pet"></a>
+                    </div>
+                    <div class="col-9">
+                        <a class="news-title" href="#">
+                            Top 5 loài mèo nhỏ nhất thế giới
+                        </a>
+                        <p class="news-content">Giống mèo nhỏ nhất thế giới luôn mang tới sự hấp dẫn dễ thương của những
+                            boss mèo con, và trong khi tất cả những con mèo đều xinh đẹp và mèo trưởng thành có một ân
+                            sủng không thể chối cãi và hấp dẫn tất cả chúng, thì nhiều chủ sở hữu mèo lại muốn giữ những
+                            ký ức đẹp về cuộc đời mèo con của họ, và ước rằng những chú mèo của họ sẽ luôn nhỏ bé và kéo
+                            dài thời gian bé nhỏ mãi! Nếu bạn đang cân nhắc việc nuôi một con mèo hoặc mèo con mới và hy
+                            vọng sẽ mang về một con mèo từ đầu nhỏ hơn của quy mô sẽ không phát triển đến kích thước đặc
+                            biệt lớn và sẽ giữ một vẻ ngoài giống với vẻ ngoài giống như con mèo nhỏ của chúng ngay cả
+                            khi đã trưởng thành , bạn có thể tự hỏi những giống mèo nào là một lựa chọn tốt.
+                        </p>
+                        <p class="date-time"> 20:20 04/04/2020</p>
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-3 news-icon">
+                        <a href="#"><img src="images/news/chủ-sỡ-hữu-chó-760x490.jpg" alt="news-pet"></a>
+                    </div>
+                    <div class="col-9">
+                        <a class="news-title" href="#">
+                            Sở hữu chó làm cho cuộc sống xã hội của bạn tốt hơn
+                        </a>
+                        <p class="news-content">Cuộc thăm dò của chủ nhân 2000 chú chó cho thấy một nữa trong số họ đã
+                            có những người bạn mới trong khi đưa thú cưng của họ đi dạo.</p>
+                        <p class="date-time"> 20:20 04/04/2020</p>
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-3 news-icon">
+                        <a href="#"><img src="images/news/hai-chú-chó-chiến-đấu-với-rắn-hổ-mang.jpg" alt="news-pet"></a>
+                    </div>
+                    <div class="col-9">
+                        <a class="news-title" href="#">
+                            Hai chú chó nuôi chiến đấu với rắn hổ mang để bảo vệ chủ nhỏ
+                        </a>
+                        <p class="news-content">Một sự việc cảm động xảy ra ở thành phố Kidapawan(Philoppines) về việc 2
+                            chú chó nuôi đã dung cảm tấn công con rắn hổ mang cực độc để không cho nó vào nơi có em bé
+                            đang nằm ngủ. Vụ việc được camera giám sát ghi lại được, cho thấy khoảnh khắc một con rắn hổ
+                            mang cực độc trườn vào sân vườn của một ngôi nhà. Vào thời điểm này, bé gái một tuổi Skye,
+                            con của vợ chồng chủ nhà, đang nằm ngủ ở ngay bên trong.</p>
+                        <p class="date-time"> 20:20 04/04/2020</p>
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-3 news-icon">
+                        <a href="#"><img
+                                src="images/news/4D9E53FD00000578-5883315-The_dog_s_training_quickly_kicks_in_and_he_begins_to_jump_up_and-a-2_1529942876368-634x490.jpg"
+                                alt="news-pet"></a>
+                    </div>
+                    <div class="col-9">
+                        <a class="news-title" href="#">
+                            Chú chó cứu người bằng phương pháp hồi sức tim mạch
+                        </a>
+                        <p class="news-content">Chú chó đã không do dự mà chạy ngay tới chỗ viên cảnh sát khi anh đột
+                            ngột ngã xuống, để thực hiện động tác hồi sức tim phổi nhằm giúp cứu sống anh ấy.</p>
+                        <p class="date-time"> 20:20 04/04/2020</p>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="col-md-3">
+                <div class="sticky-sidebar">
+                    <h6>Tin nổi bật</h6>
+                    <ul class="aside-menu" style="font-size: medium; margin: 5px;">
+                        <li><a href="#"> Title</a></li>
+                        <hr />
+                        <li><a href="#"> Title</a></li>
+                        <hr />
+                        <li><a href="#"> Title</a></li>
+                        <hr />
+                        <li><a href="#"> Title</a></li>
+                    </ul>
+                    <br />
+                    <div class="contact">
+                        <a href="lien-he.html">
+                            <span>Thông Tin Liên Hệ </span>
+                        </a>
+                        <ul class="aside-menu" style="font-size: medium;">
+                            <li>
+                                Địa chỉ cửa hàng: 227 Đường Nguyễn Văn Cừ, Phường 4, Quận 5,
+                                Hồ Chí Minh
+                            </li>
+                            <hr />
+                            <li>Số điện thoại: 0975814755</li>
+                            <br />
+
+                            <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.637215381392!2d106.67900811480058!3d10.762417592331024!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752f1bfc262bf1%3A0x4e843897f2900135!2zMjI3IMSQxrDhu51uZyBOZ3V54buFbiBWxINuIEPhu6ssIFBoxrDhu51uZyA0LCBRdeG6rW4gNSwgSOG7kyBDaMOtIE1pbmg!5e0!3m2!1sen!2s!4v1585388062839!5m2!1sen!2s"
+                                width="100%" height="100%" frameborder="0" style="border:0;" allowfullscreen=""
+                                aria-hidden="false" tabindex="0"></iframe>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <br />
+    </div>
+    <!-- End Content -->
+    <div class="space50">&nbsp;</div>
+    <!-- Footer -->
+    <footer>
+        <div style="background-color: rgb(242, 241, 236); margin-top: 20px; z-index: 1;">
+            <div class="row">
+                <div class="col-md-4" style="padding: 50px; font-size: 22px;">
+                    <div class="row">
+                        <a class="link-brand" href="lien-he.html"><img src="./images/logo/Brand1.png" alt="Pet-Store"
+                                width="80%" height="80%" /></a>
+                    </div>
+                    <p>
+                        <i class="fas fa-home"></i> Địa chỉ cửa hàng: 227 Đường Nguyễn Văn
+                        Cừ, Phường 4, Quận 5, Hồ Chí Minh
+                    </p>
+                    <p><i class="fa fa-phone"></i> Số điện thoại: 0975814755</p>
+                    <p>
+                        <i class="fas fa-plus-square"></i> Địa chỉ phòng khám: 227 Đường
+                        Nguyễn Văn Cừ, Phường 4, Quận 5, Hồ Chí Minh
+                    </p>
+                    <p><i class="fa fa-phone"></i> Số điện thoại: 0975814755</p>
+                </div>
+                <div class="col-md-4">
+                    <h1 style="padding-top: 70px">Giờ làm việc</h1>
+                    <h6>Sáng từ 7:00 - 11:30</h6>
+                    <h6>Chiều từ 13:00 - 18:30</h6>
+                    <h6>Hoạt động từ thứ 2 đến chủ nhật hàng tuần</h6>
+                    <h6>Trừ những ngày lễ, tết</h6>
+                </div>
+                <div class="col-md-4">
+                    <h2 style="padding-top: 75px">Dịch vụ cung cấp</h2>
+                    <h6>Cung cấp thú cưng và phụ kiện</h6>
+                    <h6>Hỗ trợ chăm sóc thú cưng</h6>
+                    <h6>Tư vấn và hướng dẫn</h6>
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.637215381392!2d106.67900811480058!3d10.762417592331024!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752f1bfc262bf1%3A0x4e843897f2900135!2zMjI3IMSQxrDhu51uZyBOZ3V54buFbiBWxINuIEPhu6ssIFBoxrDhu51uZyA0LCBRdeG6rW4gNSwgSOG7kyBDaMOtIE1pbmg!5e0!3m2!1sen!2s!4v1585388062839!5m2!1sen!2s"
+                        frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+<script src="./script.js"></script>
+<script type="text/javascript" src="jquery-3.4.1.min.js"></script>
+<script type="text/javascript" src="bootstrap-4.4.1-dist/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+
+</html>
