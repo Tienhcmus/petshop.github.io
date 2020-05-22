@@ -7,15 +7,17 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>SEMINAR</title>
     <!-- Import Bootstrap, js and font awesome -->
-    <link rel="stylesheet" type="text/css" href="bootstrap-4.4.1-dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="resource/bootstrap-4.4.1-dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="stylesheet.css" />
-    <link rel="stylesheet" type="text/css" href="modal.css" />
-    <link rel="stylesheet" type="text/css" href="cart.css" />
+    <link rel="stylesheet" type="text/css" href="resource/css/stylesheet.css" />
+    <link rel="stylesheet" type="text/css" href="resource/css/cart.css" />
+    <link rel="stylesheet" type="text/css" href="resource/css/card-news-stysheet.css" />
+    <link rel="stylesheet" type="text/css" href="resource/css/modal.css" />
     <link href="https://fonts.googleapis.com/css2?family=Jura:wght@300;400&display=swap" rel="stylesheet">
+
 </head>
 
-<body>
+<body data-spy="scroll" data-target=".sticky-sidebar .dropdown-content" data-offset="50">
     <!-- Header -->
     <header>
         <!-- Navigation-->
@@ -24,7 +26,7 @@
             <div class="container-fluid">
                 <!-- Logo -->
                 <a class="navbar-brand" href="#" style="width: 100px;">
-                    <img src="./images//logo/Brand1.png" alt="pet-store" width="150%" height="150%">
+                    <img src="resource/images/logo/Brand1.png" alt="pet-store" width="150%" height="150%">
                 </a>
                 <!-- Login -->
                 <ul class="navbar-nav ml-auto" style="font-size: large;">
@@ -38,21 +40,21 @@
                                 <div class="shopping-cart">
                                     <ul class="shopping-cart-items">
                                         <li class="clearfix">
-                                            <img src="./images/pet/phu-kien/vong-co-0.jpg" alt="item1" />
+                                            <img src="resource/images/pet/phu-kien/vong-co-0.jpg" alt="item1" />
                                             <span class="item-name">Vòng Cổ - 000</span>
                                             <span class="item-price">100.000</span>
                                             <span class="item-quantity">Số lượng: 01</span>
                                         </li>
                                         <div class="dropdown-divider"></div>
                                         <li class="clearfix">
-                                            <img src="./images/pet/phu-kien/vong-co-4.jpg" alt="item1" />
+                                            <img src="resource/images/pet/phu-kien/vong-co-4.jpg" alt="item1" />
                                             <span class="item-name">Vòng Kim Loại</span>
                                             <span class="item-price">100.000</span>
                                             <span class="item-quantity">Số lượng: 01</span>
                                         </li>
                                         <div class="dropdown-divider"></div>
                                         <li class="clearfix">
-                                            <img src="./images/pet/sua-tam/sua-tam-0.jpg" alt="item1" />
+                                            <img src="resource/images/pet/sua-tam/sua-tam-0.jpg" alt="item1" />
                                             <span class="item-name">Sữa Tắm S.O.S</span>
                                             <span class="item-price">100.000</span>
                                             <span class="item-quantity">Số lượng: 01</span>
@@ -60,8 +62,7 @@
                                     </ul>
                                     <div class="dropdown-divider"></div>
                                     <p>Tổng tiền: 300.000</p>
-                                    <a href="#" class="check-out">Thanh Toán</a>
-
+                                    <a href="cart-details.html" class="check-out">Thanh Toán</a>
                                 </div>
                             </div>
                     </li>
@@ -99,16 +100,16 @@
             </ul>
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <a class="link-image" href="pet.html"><img src="./images/Banner/banner1.jpg" alt="pet"></a>
+                    <a class="link-image" href="pet.html"><img src="resource/images/Banner/banner1.jpg" alt="pet"></a>
                 </div>
                 <div class="carousel-item">
-                    <a class="link-image" href="product.html"><img src="./images/Banner/banner2.jpg" alt="Sanpham"></a>
+                    <a class="link-image" href="product.html"><img src="resource/images/Banner/banner2.jpg" alt="Sanpham"></a>
                 </div>
                 <div class="carousel-item">
-                    <a class="link-image" href="dien-dan.html"><img src="./images/Banner/banner3.jpg" alt="chamsoc"></a>
+                    <a class="link-image" href="dien-dan.html"><img src="resource/images/Banner/banner3.jpg" alt="chamsoc"></a>
                 </div>
                 <div class="carousel-item">
-                    <a class="link-image" href="tin-tuc.html"><img src="./images/Banner/banner4.jpg" alt="tintuc"></a>
+                    <a class="link-image" href="tin-tuc.html"><img src="resource/images/Banner/banner4.jpg" alt="tintuc"></a>
                 </div>
             </div>
             <!-- Left and right controls -->
@@ -175,7 +176,6 @@
 
                     </form>
                 </div>
-
             </nav>
         </div>
         <!-- Modal Sign up -->
@@ -224,17 +224,6 @@
                             <br>
                             <div class="row">
                                 <div class="col-4" style="padding-right: 0px;">
-                                    <label for="email"><b>Tên Đăng Nhập</b></label>
-                                </div>
-                                <div class="col-8" style="padding-left: 0px;">
-                                    <input type="text" placeholder="Enter User Name" name="username"
-                                        id="sign_up_username">
-                                    <span class="error-form" id="username_error_message"></span>
-                                </div>
-                            </div>
-                            <br>
-                            <div class="row">
-                                <div class="col-4" style="padding-right: 0px;">
                                     <label for="psw"><b>Mật Khẩu</b></label>
                                 </div>
                                 <div class="col-8" style="padding-left: 0px;">
@@ -270,13 +259,12 @@
                             <h3>Đăng Nhập</h3>
                             <p>Vui lòng điền vào mẫu này để đăng nhập tài khoản.</p>
                             <hr>
-
                             <div class="row">
                                 <div class="col-3" style="padding-right: 0px;">
-                                    <label for="email"><b>Tên Đăng Nhập</b></label>
+                                    <label for="phone"><b>Số điện thoại</b></label>
                                 </div>
                                 <div class="col-9" style="padding-left: 0px;">
-                                    <input type="text" placeholder="Enter User Name" name="username" required>
+                                    <input type="text" placeholder="Enter Phone Number" name="phone" required>
                                 </div>
                             </div>
                             <br>
@@ -288,12 +276,9 @@
                                     <input type="password" placeholder="Enter Password" name="psw" required>
                                 </div>
                             </div>
-
                             <hr>
-
                             <button id="login-btn" type="submit" class="registerbtn">Đăng Nhập</button>
                         </div>
-
                         <div class="container forgotpsw" style="padding-top: 0px;">
                             <a href="#">Quên Mật Khẩu?</a>
                         </div>
@@ -679,7 +664,7 @@
             <div class="row">
                 <div class="col-md-4" style="padding: 50px; font-size: 22px;">
                     <div class="row">
-                        <a class="link-brand" href="lien-he.html"><img src="./images/logo/Brand1.png" alt="Pet-Store"
+                        <a class="link-brand" href="lien-he.html"><img src="resource/images/logo/Brand1.png" alt="Pet-Store"
                                 width="80%" height="80%" /></a>
                     </div>
                     <p>
@@ -715,15 +700,11 @@
     <!--End Footer -->
 </body>
 
-
-
-
-<script type="text/javascript" src="jquery-3.4.1.min.js"></script>
+<script type="text/javascript" src="resource/js/jquery-3.4.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
-<script src="./script.js"></script>
-<script src="./validation.js"></script>
-<script type="text/javascript" src="bootstrap-4.4.1-dist/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="resource/bootstrap-4.4.1-dist/js/bootstrap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script src='https://kit.fontawesome.com/a076d05399.js'></script>
-
+<script src="resource/js/script.js"></script>
+<script src="resource/js/validation.js"></script>
 </html>
