@@ -44,13 +44,13 @@ $(".add-to-cart").click(function () {
     // Gọi hàm hiển thị giỏ hàng
     displayShoppingCartItems();
 });
-// Hiển thị giỏ hàng ra table
+
 function displayShoppingCartItems() {
     if (sessionStorage["shopping-cart-items"] != null) {
         shoppingCartItems = JSON.parse(sessionStorage["shopping-cart-items"].toString()); // Chuyển thông tin từ JSON trong sessionStorage sang mảng shoppingCartItems.
 
         $(".shopping-cart > .shopping-cart-items").html("");
-        // Duyệt qua mảng shoppingCartItems để append từng item dòng vào table
+        // Duyệt qua mảng shoppingCartItems để append từng item
         $.each(shoppingCartItems, function (index, item) {
             let htmlString = "";
             htmlString += "<li>";
