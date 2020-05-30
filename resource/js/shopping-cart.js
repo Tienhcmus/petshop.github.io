@@ -2,6 +2,7 @@ let shoppingCartItems = [];
 // Kiểm tra nếu đã có sessionStorage["shopping-cart-items"] hay chưa?
 if (sessionStorage["shopping-cart-items"] != null) {
     shoppingCartItems = JSON.parse(sessionStorage["shopping-cart-items"].toString());
+    $(".dropdown > .badge").html(shoppingCartItems.length);
 }
 
 // Hiển thị thông tin từ giỏ hàng
@@ -13,7 +14,6 @@ $(".add-to-cart").click(function () {
     let price = button.attr("data-price"); // price của sản phẩm là thuộc tính data-price của button
     let image = button.attr("data-img"); //image của sản phẩm là thuộc tính data-img của button
     let quantity = 1; // Số lượng
-
 
     let item = {
         name: name,
@@ -37,6 +37,7 @@ $(".add-to-cart").click(function () {
     // Nếu mặt hàng chưa tồn tại trong giỏ hàng thì bổ sung vào mảng
     if (!exists) {
         shoppingCartItems.push(item);
+        $('.badge').html(shoppingCartItems.length);
     }
 
     // Lưu thông tin vào sessionStorage
