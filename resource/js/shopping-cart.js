@@ -1,8 +1,8 @@
 let shoppingCartItems = [];
+
 // Kiểm tra nếu đã có sessionStorage["shopping-cart-items"] hay chưa?
-if (sessionStorage["shopping-cart-items"] != null) {
-    shoppingCartItems = JSON.parse(sessionStorage["shopping-cart-items"].toString());
-    $(".dropdown > .badge").html(shoppingCartItems.length);
+if (localStorage["shopping-cart-items"] != null) {
+    shoppingCartItems = JSON.parse(localStorage["shopping-cart-items"].toString());
 }
 
 // Hiển thị thông tin từ giỏ hàng
@@ -37,19 +37,18 @@ $(".add-to-cart").click(function () {
     // Nếu mặt hàng chưa tồn tại trong giỏ hàng thì bổ sung vào mảng
     if (!exists) {
         shoppingCartItems.push(item);
-        $('.badge').html(shoppingCartItems.length);
     }
 
     // Lưu thông tin vào sessionStorage
-    sessionStorage["shopping-cart-items"] = JSON.stringify(shoppingCartItems); // Chuyển thông tin mảng shoppingCartItems sang JSON trước khi lưu vào sessionStorage
+    localStorage["shopping-cart-items"] = JSON.stringify(shoppingCartItems); // Chuyển thông tin mảng shoppingCartItems sang JSON trước khi lưu vào sessionStorage
     // Gọi hàm hiển thị giỏ hàng
     displayShoppingCartItems();
 });
 
 function displayShoppingCartItems() {
-    if (sessionStorage["shopping-cart-items"] != null) {
-        shoppingCartItems = JSON.parse(sessionStorage["shopping-cart-items"].toString()); // Chuyển thông tin từ JSON trong sessionStorage sang mảng shoppingCartItems.
-
+    if (localStorage["shopping-cart-items"] != null) {
+        shoppingCartItems = JSON.parse(localStorage["shopping-cart-items"].toString()); // Chuyển thông tin từ JSON trong sessionStorage sang mảng shoppingCartItems.
+        $("span .badge").html(shoppingCartItems.length);
         $(".shopping-cart > .shopping-cart-items").html("");
         // Duyệt qua mảng shoppingCartItems để append từng item
         $.each(shoppingCartItems, function (index, item) {
