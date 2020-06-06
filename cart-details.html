@@ -34,18 +34,17 @@
                         <div class="dropdown">
                             <button id="header-button" type="button" data-toggle="dropdown" data-target="shopping-cart"
                                 class="dropdown-toggle">
-                                <i class="fas fa-shopping-cart"> </i> <span class="badge badge-danger"></span></i>
+                                <i class="fas fa-shopping-cart"> </i> <span id="quantity-cart" class="badge badge-danger"></span>
                             </button>
                             <div class="dropdown-menu dropdown-menu-right">
                                 <div class="shopping-cart">
-                                    <ul class="shopping-cart-items">
-                                        
-                                    </ul>
+                                    <ul class="shopping-cart-items"> </ul>
                                     <div class="dropdown-divider"></div>
-                                    <p>Tổng tiền: </p>
+                                    <p class="total-cost"> Tổng tiền: </p>
                                     <a href="cart-details.html" class="check-out">Thanh Toán</a>
                                 </div>
                             </div>
+                        </div>
                     </li>
                     <li class="nav-item unsignin">
                         <button id="header-button" type="button" data-toggle="modal" data-target="#Signup">
@@ -84,13 +83,16 @@
                     <a class="link-image" href="pet.html"><img src="resource/images/Banner/banner1.jpg" alt="pet"></a>
                 </div>
                 <div class="carousel-item">
-                    <a class="link-image" href="product.html"><img src="resource/images/Banner/banner2.jpg" alt="Sanpham"></a>
+                    <a class="link-image" href="product.html"><img src="resource/images/Banner/banner2.jpg"
+                            alt="Sanpham"></a>
                 </div>
                 <div class="carousel-item">
-                    <a class="link-image" href="dien-dan.html"><img src="resource/images/Banner/banner3.jpg" alt="chamsoc"></a>
+                    <a class="link-image" href="cham-soc.html"><img src="resource/images/Banner/banner3.jpg"
+                            alt="chamsoc"></a>
                 </div>
                 <div class="carousel-item">
-                    <a class="link-image" href="tin-tuc.html"><img src="resource/images/Banner/banner4.jpg" alt="tintuc"></a>
+                    <a class="link-image" href="tin-tuc.html"><img src="resource/images/Banner/banner4.jpg"
+                            alt="tintuc"></a>
                 </div>
             </div>
             <!-- Left and right controls -->
@@ -130,7 +132,7 @@
                         </div>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link" href="dien-dan.html" id="navbarDropdown"> Chăm sóc thú cưng
+                        <a class="nav-link" href="cham-soc.html" id="navbarDropdown"> Chăm sóc thú cưng
                         </a>
                         <div class="dropdown-content">
                             <a class="dropdown-item" href="#"> Cách chăm sóc chó </a>
@@ -396,4 +398,6 @@
 <script src='https://kit.fontawesome.com/a076d05399.js'></script>
 <script src="resource/js/script.js"></script>
 <script src="resource/js/validation.js"></script>
+<script src="resource/js/shopping-cart.js"></script>
+<script src="resource/js/order.js"></script>
 </html>
