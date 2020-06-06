@@ -1,12 +1,14 @@
 let shoppingCartItems = [];
 
-// Kiểm tra nếu đã có sessionStorage["shopping-cart-items"] hay chưa?
+// Kiểm tra nếu đã có localStorage["shopping-cart-items"] hay chưa?
 if (localStorage["shopping-cart-items"] != null) {
     shoppingCartItems = JSON.parse(localStorage["shopping-cart-items"].toString());
+    console.log(JSON.stringify(shoppingCartItems));
+    // Hiển thị thông tin từ giỏ hàng
+    displayShoppingCartItems();
 }
 
-// Hiển thị thông tin từ giỏ hàng
-displayShoppingCartItems();
+
 
 $(".add-to-cart").click(function () {
     let button = $(this); // Lấy đối tượng mà người dùng click đặt tên là button
@@ -47,14 +49,14 @@ $(".add-to-cart").click(function () {
 
 function displayShoppingCartItems() {
     if (localStorage["shopping-cart-items"] != null) {
-        shoppingCartItems = JSON.parse(localStorage["shopping-cart-items"].toString()); // Chuyển thông tin từ JSON trong sessionStorage sang mảng shoppingCartItems.
+        shoppingCartItems = JSON.parse(localStorage["shopping-cart-items"].toString()); // Chuyển thông tin từ JSON trong sessionStorage sang mảng shoppingCartItems.       
         $("span .badge").html(shoppingCartItems.length);
         $(".shopping-cart > .shopping-cart-items").html("");
         // Duyệt qua mảng shoppingCartItems để append từng item
         $.each(shoppingCartItems, function (index, item) {
             let htmlString = "";
             htmlString += "<li>";
-            htmlString += "<img src='" + item.image +"' alt='' />";
+            htmlString += "<img src='" + item.image + "' alt='' />";
             htmlString += "<span class='item-name'>" + item.name + "</span>";
             htmlString += "<span class='item-price'>" + item.price + "</span>";
             htmlString += "<span class='item-quantity'>Số lượng: " + item.quantity + "</span>";
