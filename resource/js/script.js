@@ -7,17 +7,9 @@ function onScroll(e) {
 };
 document.addEventListener('scroll', onScroll);
 
-$('.sign-in').hide();
+
 $('.manage-pet').hide();
 $('.profile-edit').hide();
-$('#login-btn').click(function (){
-    $('.sign-in').show();
-    $('.unsignin').hide();
-});
-$('.logout').click(function (){
-    $('.sign-in').hide();
-    $('.unsignin').show();
-});
 $('.show-history').click(function (){
     $('.manage-pet').hide();
     $('.profile-edit').hide();
