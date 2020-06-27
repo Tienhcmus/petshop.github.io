@@ -3,7 +3,6 @@ let login = false;
 if (sessionStorage["isLogin"] != null) {
     login = JSON.parse(sessionStorage["isLogin"].toString());
 }
-console.log(false);
 if (login == false) {
     $(".sign-in").hide();
     $(".unsignin").show();

@@ -15,9 +15,21 @@
     <link rel="stylesheet" type="text/css" href="resource/css/modal.css" />
     <link href="https://fonts.googleapis.com/css2?family=Jura:wght@300;400&display=swap" rel="stylesheet">
 
+
 </head>
 
 <body data-spy="scroll" data-target=".sticky-sidebar .dropdown-content" data-offset="50">
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="/__/firebase/7.15.5/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="/__/firebase/7.15.5/firebase-analytics.js"></script>
+
+    <!-- Initialize Firebase -->
+    <script src="/__/firebase/init.js"></script>
+    	
+<script src="/__/firebase/7.15.4/firebase-database.js"></script>
     <!-- Header -->
     <header>
         <!-- Navigation-->
@@ -39,7 +51,7 @@
                             <div class="dropdown-menu dropdown-menu-right">
                                 <div class="shopping-cart">
                                     <ul class="shopping-cart-items">
-                                        
+
                                     </ul>
                                     <div class="dropdown-divider"></div>
                                     <p class="total-cost"></p>
@@ -84,13 +96,16 @@
                     <a class="link-image" href="pet.html"><img src="resource/images/Banner/banner1.jpg" alt="pet"></a>
                 </div>
                 <div class="carousel-item">
-                    <a class="link-image" href="product.html"><img src="resource/images/Banner/banner2.jpg" alt="Sanpham"></a>
+                    <a class="link-image" href="product.html"><img src="resource/images/Banner/banner2.jpg"
+                            alt="Sanpham"></a>
                 </div>
                 <div class="carousel-item">
-                    <a class="link-image" href="cham-soc.html"><img src="resource/images/Banner/banner3.jpg" alt="chamsoc"></a>
+                    <a class="link-image" href="cham-soc.html"><img src="resource/images/Banner/banner3.jpg"
+                            alt="chamsoc"></a>
                 </div>
                 <div class="carousel-item">
-                    <a class="link-image" href="tin-tuc.html"><img src="resource/images/Banner/banner4.jpg" alt="tintuc"></a>
+                    <a class="link-image" href="tin-tuc.html"><img src="resource/images/Banner/banner4.jpg"
+                            alt="tintuc"></a>
                 </div>
             </div>
             <!-- Left and right controls -->
@@ -245,7 +260,8 @@
                                     <label for="phone"><b>Số điện thoại</b></label>
                                 </div>
                                 <div class="col-9" style="padding-left: 0px;">
-                                    <input id="login-phone" type="text" placeholder="Enter Phone Number" name="phone" required>
+                                    <input id="login-phone" type="text" placeholder="Enter Phone Number" name="phone"
+                                        required>
                                 </div>
                             </div>
                             <br>
@@ -254,7 +270,8 @@
                                     <label for="psw"><b>Mật Khẩu</b></label>
                                 </div>
                                 <div class="col-9" style="padding-left: 0px;">
-                                    <input id="login-psw" type="password" placeholder="Enter Password" name="psw" required>
+                                    <input id="login-psw" type="password" placeholder="Enter Password" name="psw"
+                                        required>
                                 </div>
                             </div>
                             <hr>
@@ -285,8 +302,8 @@
                         <div class="row">
                             <div class="col-md-3 col-sm-6 col-12">
                                 <div class="card card-product mb-3">
-                                    <a class="link-image" href="#"><img class="card-img-top" src="resource/images/pet/dog/corgi/corgi-0.jpg"
-                                            alt="Pet-0"></a>
+                                    <a class="link-image" href="#"><img class="card-img-top"
+                                            src="resource/images/pet/dog/corgi/corgi-0.jpg" alt="Pet-0"></a>
                                     <div class="card-body">
                                         <h5 class="card-title" style="font-size: x-large;"> Corgi-001 </h5>
                                         <div>
@@ -300,8 +317,8 @@
                             </div>
                             <div class="col-md-3 col-sm-6 col-12">
                                 <div class="card card-product mb-3">
-                                    <a class="link-image" href="#"><img class="card-img-top" src="resource/images/pet/dog/samoyed/samoyed-0.jpg"
-                                            alt="Pet-3"></a>
+                                    <a class="link-image" href="#"><img class="card-img-top"
+                                            src="resource/images/pet/dog/samoyed/samoyed-0.jpg" alt="Pet-3"></a>
                                     <div class="card-body">
                                         <h5 class="card-title" style="font-size: x-large;"> Samoyed - 000 </h5>
                                         <div>
@@ -315,8 +332,8 @@
                             </div>
                             <div class="col-md-3 col-sm-6 col-12">
                                 <div class="card card-product mb-3">
-                                    <a class="link-image" href="#"><img class="card-img-top" src="resource/images/pet/cat/meo-tai-cup/tai-cup-1.jpg"
-                                            alt="Pet-1"></a>
+                                    <a class="link-image" href="#"><img class="card-img-top"
+                                            src="resource/images/pet/cat/meo-tai-cup/tai-cup-1.jpg" alt="Pet-1"></a>
                                     <div class="card-body">
                                         <h5 class="card-title" style="font-size: x-large;">Mèo Tai Cụp - 001 </h5>
                                         <div>
@@ -330,8 +347,8 @@
                             </div>
                             <div class="col-md-3 col-sm-6 col-12">
                                 <div class="card card-product mb-3">
-                                    <a class="link-image" href="#"><img class="card-img-top" src="resource/images/pet/cat/meo-xiem/meo-xiem-1.jpg"
-                                            alt="Pet-2"></a>
+                                    <a class="link-image" href="#"><img class="card-img-top"
+                                            src="resource/images/pet/cat/meo-xiem/meo-xiem-1.jpg" alt="Pet-2"></a>
                                     <div class="card-body">
                                         <h5 class="card-title" style="font-size: x-large;"> Mèo Xiêm - 002 </h5>
                                         <div>
@@ -362,52 +379,59 @@
                         <div class="row">
                             <div class="col-md-3 col-sm-6 col-12">
                                 <div class="card card-product mb-3">
-                                    <a class="link-image" href="#"><img class="card-img-top" src="resource/images/pet/phu-kien/vong-co-5.jpg"
-                                            alt="Product-0"></a>
+                                    <a class="link-image" href="#"><img class="card-img-top"
+                                            src="resource/images/pet/phu-kien/vong-co-5.jpg" alt="Product-0"></a>
                                     <div class="card-body">
                                         <h6 class="card-title" style="font-size: x-large;"> Vòng Cổ Gai </h6>
                                         <div>
                                             <a href="#">Mô tả</a>
                                         </div>
                                         <div>
-                                            <a href="#" data-name="Vòng Cổ Gai Cho Chó" data-price="100000" data-img="resource/images/pet/phu-kien/vong-co-5.jpg" class="btn btn-primary">Mua</a>
+                                            <a href="#" data-name="Vòng Cổ Gai Cho Chó" data-price="100000"
+                                                data-img="resource/images/pet/phu-kien/vong-co-5.jpg"
+                                                class="btn btn-primary">Mua</a>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-md-3 col-sm-6 col-12">
                                 <div class="card card-product mb-3">
-                                    <a class="link-image" href="#"><img class="card-img-top" src="resource/images/pet/sua-tam/sua-tam-0.jpg"
-                                            alt="Product-1"></a>
+                                    <a class="link-image" href="#"><img class="card-img-top"
+                                            src="resource/images/pet/sua-tam/sua-tam-0.jpg" alt="Product-1"></a>
                                     <div class="card-body">
                                         <h6 class="card-title"> Sữa Tắm SOS </h6>
                                         <div>
                                             <a href="#">Mô tả</a>
                                         </div>
                                         <div>
-                                            <a href="#" data-name="Sữa Tắm S.O.S" data-price="100000" data-img="resource/images/pet/sua-tam/sua-tam-0.jpg" class="btn btn-primary">Mua</a>
+                                            <a href="#" data-name="Sữa Tắm S.O.S" data-price="100000"
+                                                data-img="resource/images/pet/sua-tam/sua-tam-0.jpg"
+                                                class="btn btn-primary">Mua</a>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-md-3 col-sm-6 col-12">
                                 <div class="card card-product mb-3">
-                                    <a class="link-image" href="#"><img class="card-img-top" src="resource/images/pet/thuc-an-cho/pate.jpg"
-                                            alt="Product-2"></a>
+                                    <a class="link-image" href="#"><img class="card-img-top"
+                                            src="resource/images/pet/thuc-an-cho/pate.jpg" alt="Product-2"></a>
                                     <div class="card-body">
                                         <h6 class="card-title"> Pate Pedigree </h6>
                                         <div>
                                             <a href="#">Mô tả</a>
                                         </div>
                                         <div>
-                                            <a href="#" data-name="Pate Pedigree" data-price="100000" data-img="resource/images/pet/thuc-an-cho/pate.jpg" class="btn btn-primary">Mua</a>
+                                            <a href="#" data-name="Pate Pedigree" data-price="100000"
+                                                data-img="resource/images/pet/thuc-an-cho/pate.jpg"
+                                                class="btn btn-primary">Mua</a>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-md-3 col-sm-6 col-12">
                                 <div class="card card-product mb-3">
-                                    <a class="link-image" href="#"><img class="card-img-top" src="resource/images/pet/thuc-an-meo/whiskas-junior.jpg"
+                                    <a class="link-image" href="#"><img class="card-img-top"
+                                            src="resource/images/pet/thuc-an-meo/whiskas-junior.jpg"
                                             alt="Product-3"></a>
                                     <div class="card-body">
                                         <h6 class="card-title"> Whiskas Junior </h6>
@@ -415,7 +439,9 @@
                                             <a href="#">Mô tả</a>
                                         </div>
                                         <div>
-                                            <a href="#" data-name="Whiskas Junior" data-price="100000" data-img="resource/images/pet/thuc-an-meo/whiskas-junior.jpg" class="btn btn-primary">Mua</a>
+                                            <a href="#" data-name="Whiskas Junior" data-price="100000"
+                                                data-img="resource/images/pet/thuc-an-meo/whiskas-junior.jpg"
+                                                class="btn btn-primary">Mua</a>
                                         </div>
                                     </div>
                                 </div>
@@ -447,7 +473,8 @@
                     <div class="row">
                         <div class="col-md-3 col-sm-6 col-12">
                             <div class="card card-product mb-3">
-                                <a class="link-image" href="#"><img class="card-img-top" src="resource/images/pet/Cham-soc/index/cach-tam-cho-cho.jpg"
+                                <a class="link-image" href="#"><img class="card-img-top"
+                                        src="resource/images/pet/Cham-soc/index/cach-tam-cho-cho.jpg"
                                         alt="cham-soc-0"></a>
                                 <div class="card-body">
                                     <h6 class="card-title"> Cách chăm sóc chó </h6>
@@ -457,8 +484,8 @@
                         </div>
                         <div class="col-md-3 col-sm-6 col-12">
                             <div class="card card-product mb-3">
-                                <a class="link-image" href="#"><img class="card-img-top" src="resource/images/pet/Cham-soc/index/cham-soc-meo.jpg"
-                                        alt="cham-soc-1"></a>
+                                <a class="link-image" href="#"><img class="card-img-top"
+                                        src="resource/images/pet/Cham-soc/index/cham-soc-meo.jpg" alt="cham-soc-1"></a>
                                 <div class="card-body">
                                     <h6 class="card-title"> Cách chăm sóc mèo </h6>
                                     <a href="#" class="btn btn-primary"> Xem thêm </a>
@@ -467,7 +494,8 @@
                         </div>
                         <div class="col-md-3 col-sm-6 col-12">
                             <div class="card card-product mb-3">
-                                <a class="link-image" href="#"><img class="card-img-top" src="resource/images/pet/Cham-soc/index/bẹnh-ho-cui-o-cho.jpg"
+                                <a class="link-image" href="#"><img class="card-img-top"
+                                        src="resource/images/pet/Cham-soc/index/bẹnh-ho-cui-o-cho.jpg"
                                         alt="cham-soc-2"></a>
                                 <div class="card-body">
                                     <h6 class="card-title"> Các loại bệnh thường gặp </h6>
@@ -477,8 +505,8 @@
                         </div>
                         <div class="col-md-3 col-sm-6 col-12">
                             <div class="card card-product mb-3">
-                                <a class="link-image" href="#"><img class="card-img-top" src="resource/images/pet/Cham-soc/index/vaccin-cho.jpg"
-                                        alt="cham-soc-3"></a>
+                                <a class="link-image" href="#"><img class="card-img-top"
+                                        src="resource/images/pet/Cham-soc/index/vaccin-cho.jpg" alt="cham-soc-3"></a>
                                 <div class="card-body">
                                     <h6 class="card-title"> Lịch trình tiêm ngừa vắc xin </h6>
                                     <a href="#" class="btn btn-primary"> Xem thêm </a>
@@ -545,8 +573,8 @@
             <div class="row">
                 <div class="col-md-4" style="padding: 50px; font-size: 22px;">
                     <div class="row">
-                        <a class="link-brand" href="lien-he.html"><img src="resource/images/logo/Brand1.png" alt="Pet-Store"
-                                width="80%" height="80%" /></a>
+                        <a class="link-brand" href="lien-he.html"><img src="resource/images/logo/Brand1.png"
+                                alt="Pet-Store" width="80%" height="80%" /></a>
                     </div>
                     <p>
                         <i class="fas fa-home"></i> Địa chỉ cửa hàng: 227 Đường Nguyễn Văn
@@ -590,4 +618,5 @@
 <script src="resource/js/validation.js"></script>
 <script src="resource/js/shopping-cart.js"></script>
 <script src="resource/js/login.js"></script>
+<script src="resource/js/data.js"></script>
 </html>
