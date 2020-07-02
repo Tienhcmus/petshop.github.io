@@ -6,7 +6,7 @@
   float: right;
   position: relative;
   width: 320px;
-  height: 300px;
+  height: auto;
   overflow: auto;
 }
 .shopping-cart .shopping-cart-items {

@@ -47,7 +47,8 @@ $(".add-to-cart").click(function () {
 });
 
 function displayShoppingCartItems() {
-    let count=0;
+    let count = 0
+    let sum = 0
     if (sessionStorage["shopping-cart-items"] != null) {
         shoppingCartItems = JSON.parse(sessionStorage["shopping-cart-items"].toString()); // Chuyển thông tin từ JSON trong sessionStorage sang mảng shoppingCartItems.       
 
@@ -68,6 +69,9 @@ function displayShoppingCartItems() {
             htmlString += "</li>";
             htmlString += "<div class='dropdown-divider'></div>";
             $(".shopping-cart > .shopping-cart-items:last").append(htmlString);
+            sum += item.price*item.quantity;
         });
+        let cost = new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'VND' }).format(sum);
+        $(".total-cost").html("Tổng Tiền: " + cost)
     }
 }
