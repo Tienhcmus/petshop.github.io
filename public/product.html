@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>SEMINAR</title>
+    <title>Pet Shop</title>
     <!-- Import Bootstrap, js and font awesome -->
     <link rel="stylesheet" type="text/css" href="resource/bootstrap-4.4.1-dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -14,10 +14,20 @@
     <link rel="stylesheet" type="text/css" href="resource/css/card-news-stysheet.css" />
     <link rel="stylesheet" type="text/css" href="resource/css/modal.css" />
     <link href="https://fonts.googleapis.com/css2?family=Jura:wght@300;400&display=swap" rel="stylesheet">
-
 </head>
 
 <body data-spy="scroll" data-target=".sticky-sidebar .dropdown-content" data-offset="50">
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="/__/firebase/7.15.5/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="/__/firebase/7.15.5/firebase-analytics.js"></script>
+
+    <!-- Initialize Firebase -->
+    <script src="/__/firebase/init.js"></script>
+
+    <script src="/__/firebase/7.15.4/firebase-database.js"></script>
     <!-- Header -->
     <header>
         <!-- Navigation-->
@@ -34,18 +44,18 @@
                         <div class="dropdown">
                             <button id="header-button" type="button" data-toggle="dropdown" data-target="shopping-cart"
                                 class="dropdown-toggle">
-                                <i class="fas fa-shopping-cart"> </i> <span id="quantity-cart"
-                                    class="badge badge-danger"></span>
+                                <i class="fas fa-shopping-cart"> </i> <span class="badge badge-danger"></span></i>
                             </button>
                             <div class="dropdown-menu dropdown-menu-right">
                                 <div class="shopping-cart">
-                                    <ul class="shopping-cart-items"> </ul>
+                                    <ul class="shopping-cart-items">
+
+                                    </ul>
                                     <div class="dropdown-divider"></div>
-                                    <p class="total-cost"> Tổng tiền: </p>
+                                    <p class="total-cost"></p>
                                     <a href="cart-details.html" class="check-out">Thanh Toán</a>
                                 </div>
                             </div>
-                        </div>
                     </li>
                     <li class="nav-item unsignin">
                         <button id="header-button" type="button" data-toggle="modal" data-target="#Signup">
@@ -166,7 +176,7 @@
         <div class="modal fade" id="Signup">
             <div class="modal-dialog">
                 <div class="modal-content">
-                    <form id="signupform">
+                    <form id="signupform" action="#" method="POST">
                         <div class="container">
                             <h3>Đăng Ký</h3>
                             <p>Vui lòng điền vào mẫu này để tạo một tài khoản.</p>
@@ -227,7 +237,7 @@
                                 </div>
                             </div>
                             <hr>
-                            <button type="submit" class="registerbtn">Đăng Ký Tài Khoản</button>
+                            <button class="registerbtn">Đăng Ký Tài Khoản</button>
                         </div>
                     </form>
                 </div>
@@ -238,7 +248,7 @@
         <div class="modal fade" id="Signin">
             <div class="modal-dialog">
                 <div class="modal-content">
-                    <form>
+                    <form action="#" method="POST">
                         <div class="container">
                             <h3>Đăng Nhập</h3>
                             <p>Vui lòng điền vào mẫu này để đăng nhập tài khoản.</p>
@@ -248,7 +258,8 @@
                                     <label for="phone"><b>Số điện thoại</b></label>
                                 </div>
                                 <div class="col-9" style="padding-left: 0px;">
-                                    <input type="text" placeholder="Enter Phone Number" name="phone" required>
+                                    <input id="login-phone" type="text" placeholder="Enter Phone Number" name="phone"
+                                        required>
                                 </div>
                             </div>
                             <br>
@@ -257,11 +268,12 @@
                                     <label for="psw"><b>Mật Khẩu</b></label>
                                 </div>
                                 <div class="col-9" style="padding-left: 0px;">
-                                    <input type="password" placeholder="Enter Password" name="psw" required>
+                                    <input id="login-psw" type="password" placeholder="Enter Password" name="psw"
+                                        required>
                                 </div>
                             </div>
                             <hr>
-                            <button id="login-btn" type="submit" class="registerbtn">Đăng Nhập</button>
+                            <button id="login-btn" class="registerbtn">Đăng Nhập</button>
                         </div>
                         <div class="container forgotpsw" style="padding-top: 0px;">
                             <a href="#">Quên Mật Khẩu?</a>
