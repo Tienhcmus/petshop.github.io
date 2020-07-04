@@ -280,3 +280,26 @@ input[type="radio"] {
 .card .collapse{
   font-size: medium;
 }
+
+.admin{
+  box-sizing: border-box;
+  padding-right: 15px;
+}
+#detail{
+  padding-top: 5px !important;
+}
+.admin-sidebar{
+  background-color: #4e73df;
+  background-image: linear-gradient(180deg,#4e73df 10%,#224abe 100%);
+  color: white;
+}
+.admin-list{
+  padding-left: 10px;
+}
+.admin-list a{
+  padding-left: 10px;
+  color: white;
+}
+.admin-list a:hover{
+  color: rosybrown !important;
+}

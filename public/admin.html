@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Pet Shop</title>
+    <!-- Import Bootstrap, js and font awesome -->
+    <link rel="stylesheet" type="text/css" href="resource/bootstrap-4.4.1-dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="resource/css/stylesheet.css" />
+    <link rel="stylesheet" type="text/css" href="resource/css/cart.css" />
+    <link rel="stylesheet" type="text/css" href="resource/css/card-news-stysheet.css" />
+    <link rel="stylesheet" type="text/css" href="resource/css/modal.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Jura:wght@300;400&display=swap" rel="stylesheet">
+</head>
+
+<body data-spy="scroll" data-target=".sticky-sidebar .dropdown-content" data-offset="50">
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="/__/firebase/7.15.5/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="/__/firebase/7.15.5/firebase-analytics.js"></script>
+
+    <!-- Initialize Firebase -->
+    <script src="/__/firebase/init.js"></script>
+
+    <script src="/__/firebase/7.15.4/firebase-database.js"></script>
+    <!-- Header -->
+    <header>
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-md"
+            style="background-color: rgb(242, 241, 236); padding-top: 0; padding-bottom: 0;">
+            <div class="container-fluid">
+                <!-- Logo -->
+                <a class="navbar-brand" href="#" style="width: 100px;">
+                    <img src="resource/images/logo/Brand1.png" alt="pet-store" width="150%" height="150%">
+                </a>
+                <!-- Login -->
+                <li class="nav-item unsignin" style="list-style: none;">
+                    <button id="header-button" type="button" data-toggle="modal" data-target="#Signin">
+                        Đăng Nhập
+                    </button>
+                </li>
+                <li class="nav-item sign-in">
+                    <button id="header-button" type="button" class="username">
+                        Tên Người Dùng
+                    </button>
+                </li>
+                <li class="nav-item sign-in">
+                    <button id="header-button" type="button" class="logout">
+                        Đăng Xuất
+                    </button>
+                </li>
+                </ul>
+            </div>
+            </div>
+        </nav>
+        <!-- Modal Sign up -->
+        <div class="modal fade" id="Signup">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <form id="signupform" action="#" method="POST">
+                        <div class="container">
+                            <h3>Đăng Ký</h3>
+                            <p>Vui lòng điền vào mẫu này để tạo một tài khoản.</p>
+                            <hr>
+                            <div class="row">
+                                <div class="col-6">
+                                    <label for="fname"><b>Tên</b></label>
+                                    <input type="text" placeholder="Enter First Name" name="firstname"
+                                        id="sign_up_fname">
+                                    <span class="error-form" id="fname_error_message"></span>
+                                </div>
+                                <div class="col-6">
+                                    <label for="lname"><b>Họ</b></label>
+                                    <input type="text" placeholder="Enter Last Name" name="lastname" id="sign_up_lname">
+                                    <span class="error-form" id="lname_error_message"></span>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="col-3">
+                                    <label for="address"><b>Địa chỉ</b></label>
+                                </div>
+                                <div class="col-9" style="padding-left: 0px;">
+                                    <input type="text" placeholder="Enter Address" name="address" id="sign_up_addr">
+                                    <span class="error-form" id="addr_error_message"></span>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="col-3" style="padding-right: 0px;">
+                                    <label for="phone" style="margin-top: 0px;"><b>Số điện thoại</b></label>
+                                </div>
+                                <div class="col-9" style="padding-left: 0px;">
+                                    <input type="number" placeholder="Enter Phone Number" name="phone"
+                                        id="sign_up_phone">
+                                    <span class="error-form" id="phone_error_message"></span>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="col-4" style="padding-right: 0px;">
+                                    <label for="psw"><b>Mật Khẩu</b></label>
+                                </div>
+                                <div class="col-8" style="padding-left: 0px;">
+                                    <input type="password" placeholder="Enter Password" name="psw" id="sign_up_psw">
+                                    <span class="error-form" id="psw_error_message"></span>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="col-4" style="padding-right: 0px;">
+                                    <label for="psw-repeat"><b>Xác Nhận Mật Khẩu</b></label>
+                                </div>
+                                <div class="col-8" style="padding-left: 0px;">
+                                    <input type="password" placeholder="Repeat Password" name="pswrepeat"
+                                        id="sign_up_rpsw">
+                                    <span class="error-form" id="rpsw_error_message"></span>
+                                </div>
+                            </div>
+                            <hr>
+                            <button class="registerbtn">Đăng Ký Tài Khoản</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal Sign in -->
+        <div class="modal fade" id="Signin">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <form id="signinform" action="#" method="POST">
+                        <div class="container">
+                            <h3>Đăng Nhập</h3>
+                            <p>Vui lòng điền vào mẫu này để đăng nhập tài khoản.</p>
+                            <hr>
+                            <div class="row">
+                                <div class="col-3" style="padding-right: 0px;">
+                                    <label for="phone"><b>Số điện thoại</b></label>
+                                </div>
+                                <div class="col-9" style="padding-left: 0px;">
+                                    <input id="login-phone" type="text" placeholder="Enter Phone Number" name="phone"
+                                        required>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="col-3" style="padding-right: 0px;">
+                                    <label for="psw"><b>Mật Khẩu</b></label>
+                                </div>
+                                <div class="col-9" style="padding-left: 0px;">
+                                    <input id="login-psw" type="password" placeholder="Enter Password" name="psw"
+                                        required>
+                                </div>
+                            </div>
+                            <hr>
+                            <button id="login-btn" class="loginbtn">Đăng Nhập</button>
+                        </div>
+                        <div class="container forgotpsw" style="padding-top: 0px;">
+                            <a href="lien-he.html">Quên Mật Khẩu?</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </header>
+    <!--End Header -->
+    <br>
+    <!-- Content -->
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-3 admin admin-sidebar">
+                <h3>Quản Lý</h3>
+                <hr style="background-color: aliceblue;">
+                <ul style="list-style: none;">
+                    <li class="admin-list">
+                        <a href="#detail" class="userlist"> Tài Khoản </a>
+                    </li>
+                    <li class="admin-list">
+                        <a href="#detail" class="productlist"> Sản Phẩm </a>
+                    </li>
+                    <li class="admin-list">
+                        <a href="#detail" class="orderlist"> Đơn Hàng </a>
+                    </li>
+                    <li class="admin-list">
+                        <a href="#detail" class="feedbacklist"> Phản Hồi </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-9 admin">
+                <div id="#detail" class="admin admin-detail">
+                    <div class="info">
+                        <h3 class="title-manage">Danh Sách Tài Khoản</h3>
+                        <hr style="background-color: aliceblue;">
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Content -->
+
+    <!-- Footer -->
+    <footer>
+        <div style="background-color: rgb(242, 241, 236); margin-top: 20px; z-index: 1;">
+            <div class="row">
+                <div class="col-md-4" style="padding: 50px; font-size: 22px;">
+                    <div class="row">
+                        <a class="link-brand" href="lien-he.html"><img src="resource/images/logo/Brand1.png"
+                                alt="Pet-Store" width="80%" height="80%" /></a>
+                    </div>
+                    <p>
+                        <i class="fas fa-home"></i> Địa chỉ cửa hàng: 227 Đường Nguyễn Văn
+                        Cừ, Phường 4, Quận 5, Hồ Chí Minh
+                    </p>
+                    <p><i class="fa fa-phone"></i> Số điện thoại: 0975814755</p>
+                    <p>
+                        <i class="fas fa-plus-square"></i> Địa chỉ phòng khám: 227 Đường
+                        Nguyễn Văn Cừ, Phường 4, Quận 5, Hồ Chí Minh
+                    </p>
+                    <p><i class="fa fa-phone"></i> Số điện thoại: 0975814755</p>
+                </div>
+                <div class="col-md-4">
+                    <h1 style="padding-top: 70px">Giờ làm việc</h1>
+                    <h6>Sáng từ 7:00 - 11:30</h6>
+                    <h6>Chiều từ 13:00 - 18:30</h6>
+                    <h6>Hoạt động từ thứ 2 đến chủ nhật hàng tuần</h6>
+                    <h6>Trừ những ngày lễ, tết</h6>
+                </div>
+                <div class="col-md-4">
+                    <h2 style="padding-top: 75px">Dịch vụ cung cấp</h2>
+                    <h6>Cung cấp thú cưng và phụ kiện</h6>
+                    <h6>Hỗ trợ chăm sóc thú cưng</h6>
+                    <h6>Tư vấn và hướng dẫn</h6>
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.637215381392!2d106.67900811480058!3d10.762417592331024!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752f1bfc262bf1%3A0x4e843897f2900135!2zMjI3IMSQxrDhu51uZyBOZ3V54buFbiBWxINuIEPhu6ssIFBoxrDhu51uZyA0LCBRdeG6rW4gNSwgSOG7kyBDaMOtIE1pbmg!5e0!3m2!1sen!2s!4v1585388062839!5m2!1sen!2s"
+                        frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!--End Footer -->
+</body>
+
+<script type="text/javascript" src="resource/js/jquery-3.4.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
+<script type="text/javascript" src="resource/bootstrap-4.4.1-dist/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src='https://kit.fontawesome.com/a076d05399.js'></script>
+<!-- Resister and login -->
+<script>
+    let database = firebase.database();
+    let ref = database.ref('users');
+
+
+    if (sessionStorage["isadmin"] != true) {
+        $(".title-manage").text("Vui lòng đăng nhập tài khoản admin")
+        $(".sign-in").hide();
+        $(".unsignin").show();
+    } else {
+        $(".sign-in").show();
+        $(".username").html("admin");
+        $(".unsignin").hide();
+    }
+
+    $(".loginbtn").click(function () {
+        let phone = $("#login-phone").val();
+        let psw = $("#login-psw").val();
+        ref.orderByChild('username').equalTo(phone).on('value', snapshop => {
+            if (snapshop.val() == "null") {
+                alert("Tài khoản này chưa tồn tại");
+            } else {
+                let keys = Object.keys(snapshop.val());
+                let userdata = snapshop.val();
+                userdata = userdata[keys];
+                const originPassword = userdata.password;
+                console.log(originPassword)
+                if (originPassword.equalTo(psw)) {
+                    $(".sign-in").show();
+                    $(".unsignin").hide();
+                    $(".username").html(userdata.username);
+                    sessionStorage.setItem("isadmin", true)
+                    alert("Đăng nhập thành công")
+                } else {
+                    alert("Đăng nhập thất bại")
+                    sessionStorage.setItem("isadmin", false)
+                }
+
+            }
+        })
+    })
+
+    $(".logout").click(function () {
+        $(".sign-in").hide();
+        login = false;
+        sessionStorage["isLogin"] = JSON.stringify(login);
+        $(".unsignin").show();
+    });
+
+    $(".userlist").click(function () {
+        if (sessionStorage["isadmin"] != true) {
+            $(".title-manage").text("Vui lòng đăng nhập tài khoản admin")
+        } else {
+            $(".title-manage").text("Danh Sách Tài Khoản")
+        }
+        let userlist = database.ref('users');
+        userlist.on("value", snapshot => {
+            let i = 1
+            snapshot.forEach(element => {
+                let list = JSON.stringify(element.val())
+                list = JSON.parse(list)
+                console.log("User " + i + " information: ")
+                console.log("Username: " + list.name)
+                console.log("Phone: " + list.phone)
+                console.log("Password: " + list.password)
+                console.log("Address: " + list.address)
+                i++
+            });
+        })
+    })
+
+    $(".productlist").click(function () {
+        if (sessionStorage["isadmin"] != true) {
+            $(".title-manage").text("Vui lòng đăng nhập tài khoản admin")
+        } else {
+            $(".title-manage").text("Danh Sách Sản Phẩm")
+        }
+        let productlist = database.ref('product');
+        productlist.on("value", snapshot => {
+            let i = 1
+            snapshot.forEach(element => {
+                let list = JSON.stringify(element.val())
+                list = JSON.parse(list)
+                console.log("Product " + i + " information: ")
+                console.log("Product Name: " + list.name)
+                console.log("Price: " + list.price)
+                i++
+            });
+        })
+    })
+
+    $(".orderlist").click(function () {
+        if (sessionStorage["isadmin"] != true) {
+            $(".title-manage").text("Vui lòng đăng nhập tài khoản admin")
+        } else {
+            $(".title-manage").text("Danh Sách Đơn Hàng")
+        }
+        let orderlist = database.ref('order');
+        orderlist.on("value", snapshot => {
+            let i = 1
+            snapshot.forEach(element => {
+                let list = JSON.stringify(element.val())
+                list = JSON.parse(list)
+                console.log("Order " + i + " information: ")
+                console.log("Time: " + list.time)
+                console.log("Phone: " + list.phone)
+                let itemlist = JSON.parse(list.item)
+                itemlist.forEach(element => {
+                    console.log("item name: " + element.name)
+                    console.log("item price: " + element.price)
+                });
+                console.log("Total cost: " + list.totalcost)
+                console.log("Status: " + list.status)
+                i++
+            });
+        })
+    })
+
+    $(".feedbacklist").click(function () {
+        if (sessionStorage["isadmin"] != true) {
+            $(".title-manage").text("Vui lòng đăng nhập tài khoản admin")
+        } else {
+            $(".title-manage").text("Danh Sách Phản Hồi")
+        }
+        let feedbacklist = database.ref('feedback');
+        feedbacklist.on("value", snapshot => {
+            let i = 1
+            snapshot.forEach(element => {
+                let list = JSON.stringify(element.val())
+                list = JSON.parse(list)
+                console.log("Feedback " + i + " information: ")
+                console.log("Time: " + list.time)
+                console.log("Phone: " + list.phone)
+                console.log("Feedback: " + list.feedback)
+                i++
+            });
+        })
+    })
+
+
+</script>
+
+</html>
