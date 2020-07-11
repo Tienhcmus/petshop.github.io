@@ -10,9 +10,8 @@
     <link rel="stylesheet" type="text/css" href="resource/bootstrap-4.4.1-dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="resource/css/stylesheet.css" />
-    <link rel="stylesheet" type="text/css" href="resource/css/cart.css" />
-    <link rel="stylesheet" type="text/css" href="resource/css/card-news-stysheet.css" />
     <link rel="stylesheet" type="text/css" href="resource/css/modal.css" />
+    <link rel="stylesheet" href="resource/css/admin.css">
     <link href="https://fonts.googleapis.com/css2?family=Jura:wght@300;400&display=swap" rel="stylesheet">
 </head>
 
@@ -39,97 +38,26 @@
                     <img src="resource/images/logo/Brand1.png" alt="pet-store" width="150%" height="150%">
                 </a>
                 <!-- Login -->
-                <li class="nav-item unsignin" style="list-style: none;">
-                    <button id="header-button" type="button" data-toggle="modal" data-target="#Signin">
-                        Đăng Nhập
-                    </button>
-                </li>
-                <li class="nav-item sign-in">
-                    <button id="header-button" type="button" class="username">
-                        Tên Người Dùng
-                    </button>
-                </li>
-                <li class="nav-item sign-in">
-                    <button id="header-button" type="button" class="logout">
-                        Đăng Xuất
-                    </button>
-                </li>
+                <ul class="navbar-nav ml-auto" style="font-size: large;">
+                    <li class="nav-item unsignin" style="list-style: none;">
+                        <button id="header-button" type="button" data-toggle="modal" data-target="#Signin">
+                            Đăng Nhập
+                        </button>
+                    </li>
+                    <li class="nav-item sign-in">
+                        <button id="header-button" type="button" class="username">
+                            Tên Người Dùng
+                        </button>
+                    </li>
+                    <li class="nav-item sign-in">
+                        <button id="header-button" type="button" class="logout">
+                            Đăng Xuất
+                        </button>
+                    </li>
                 </ul>
             </div>
             </div>
         </nav>
-        <!-- Modal Sign up -->
-        <div class="modal fade" id="Signup">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <form id="signupform" action="#" method="POST">
-                        <div class="container">
-                            <h3>Đăng Ký</h3>
-                            <p>Vui lòng điền vào mẫu này để tạo một tài khoản.</p>
-                            <hr>
-                            <div class="row">
-                                <div class="col-6">
-                                    <label for="fname"><b>Tên</b></label>
-                                    <input type="text" placeholder="Enter First Name" name="firstname"
-                                        id="sign_up_fname">
-                                    <span class="error-form" id="fname_error_message"></span>
-                                </div>
-                                <div class="col-6">
-                                    <label for="lname"><b>Họ</b></label>
-                                    <input type="text" placeholder="Enter Last Name" name="lastname" id="sign_up_lname">
-                                    <span class="error-form" id="lname_error_message"></span>
-                                </div>
-                            </div>
-                            <br>
-                            <div class="row">
-                                <div class="col-3">
-                                    <label for="address"><b>Địa chỉ</b></label>
-                                </div>
-                                <div class="col-9" style="padding-left: 0px;">
-                                    <input type="text" placeholder="Enter Address" name="address" id="sign_up_addr">
-                                    <span class="error-form" id="addr_error_message"></span>
-                                </div>
-                            </div>
-                            <br>
-                            <div class="row">
-                                <div class="col-3" style="padding-right: 0px;">
-                                    <label for="phone" style="margin-top: 0px;"><b>Số điện thoại</b></label>
-                                </div>
-                                <div class="col-9" style="padding-left: 0px;">
-                                    <input type="number" placeholder="Enter Phone Number" name="phone"
-                                        id="sign_up_phone">
-                                    <span class="error-form" id="phone_error_message"></span>
-                                </div>
-                            </div>
-                            <br>
-                            <div class="row">
-                                <div class="col-4" style="padding-right: 0px;">
-                                    <label for="psw"><b>Mật Khẩu</b></label>
-                                </div>
-                                <div class="col-8" style="padding-left: 0px;">
-                                    <input type="password" placeholder="Enter Password" name="psw" id="sign_up_psw">
-                                    <span class="error-form" id="psw_error_message"></span>
-                                </div>
-                            </div>
-                            <br>
-                            <div class="row">
-                                <div class="col-4" style="padding-right: 0px;">
-                                    <label for="psw-repeat"><b>Xác Nhận Mật Khẩu</b></label>
-                                </div>
-                                <div class="col-8" style="padding-left: 0px;">
-                                    <input type="password" placeholder="Repeat Password" name="pswrepeat"
-                                        id="sign_up_rpsw">
-                                    <span class="error-form" id="rpsw_error_message"></span>
-                                </div>
-                            </div>
-                            <hr>
-                            <button class="registerbtn">Đăng Ký Tài Khoản</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-
         <!-- Modal Sign in -->
         <div class="modal fade" id="Signin">
             <div class="modal-dialog">
@@ -173,37 +101,113 @@
     <!--End Header -->
     <br>
     <!-- Content -->
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-3 admin admin-sidebar">
-                <h3>Quản Lý</h3>
-                <hr style="background-color: aliceblue;">
-                <ul style="list-style: none;">
-                    <li class="admin-list">
-                        <a href="#detail" class="userlist"> Tài Khoản </a>
-                    </li>
-                    <li class="admin-list">
-                        <a href="#detail" class="productlist"> Sản Phẩm </a>
-                    </li>
-                    <li class="admin-list">
-                        <a href="#detail" class="orderlist"> Đơn Hàng </a>
-                    </li>
-                    <li class="admin-list">
-                        <a href="#detail" class="feedbacklist"> Phản Hồi </a>
-                    </li>
-                </ul>
-            </div>
-            <div class="col-9 admin">
-                <div id="#detail" class="admin admin-detail">
-                    <div class="info">
-                        <h3 class="title-manage">Danh Sách Tài Khoản</h3>
-                        <hr style="background-color: aliceblue;">
+    <div class="container-fluid" style="height: fit-content !important">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-3 admin admin-sidebar">
+                    <h3>Quản Lý</h3>
+                    <hr style="background-color: rgb(167, 207, 241);">
+                    <ul style="list-style: none;">
+                        <li class="admin-list">
+                            <a href="#detail" class="userlist"> Tài Khoản </a>
+                        </li>
+                        <hr>
+                        <li class="admin-list">
+                            <a href="#detail" class="productlist"> Sản Phẩm </a>
+                        </li>
+                        <hr>
+                        <li class="admin-list">
+                            <a href="#detail" class="orderlist"> Đơn Hàng </a>
+                        </li>
+                        <hr>
+                        <li class="admin-list">
+                            <a href="#detail" class="feedbacklist"> Phản Hồi </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-9 admin">
+                    <div id="#detail" class="admin admin-detail">
+                        <div class="info">
+                            <h3 class="title-manage">Danh Sách Tài Khoản</h3>
+                            <hr style="background-color: aliceblue;">
+                            <div class="list">
+                                <table class="Userlist">
+                                    <thead>
+                                        <tr>
+                                            <th>Tên Người Dùng</th>
+                                            <th>Địa Chỉ</th>
+                                            <th>Số Điện Thoại</th>
+                                            <th>Mật Khẩu</th>
+                                            <th>Sửa</th>
+                                            <th>Xóa</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    </tbody>
+                                </table>
+                                <br>
+                                <div class="modal" id="editModal">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <!-- Modal body -->
+                                            <div class="modal-body">
+                                                <h3>Cập nhật thông tin cho tài khoản:</h3>
+                                                <h4 id="editphone"></h4>
+                                                <label for="name">Tên Người Dùng:</label>
+                                                <input type="text" class="form-control" id="editname"
+                                                    placeholder="Nhập Tên" name="name">
+                                                <label for="addr">Địa Chỉ:</label>
+                                                <input type="text" class="form-control" id="editaddr"
+                                                    placeholder="Nhập Mật Khẩu" name="addr">
+                                                <label for="pswd">Mật Khẩu:</label>
+                                                <input type="text" class="form-control" id="editpwd"
+                                                    placeholder="Nhập Mật Khẩu" name="pswd">
+                                                <button id="updateInfo">Cập Nhật</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <br>
+                                <div>
+                                    <button type="button" data-toggle="collapse" data-target="#addUser">Thêm Người
+                                        Dùng</button>
+                                    <div id="addUser" class="collapse">
+                                        <label for="name">Tên Người Dùng:</label>
+                                        <input type="text" class="form-control" id="name" placeholder="Nhập Tên"
+                                            name="name">
+                                        <label for="addr">Địa Chỉ:</label>
+                                        <input type="text" class="form-control" id="addr" placeholder="Nhập Địa Chỉ"
+                                            name="addr">
+                                        <label for="phone">Số Điện Thoại:</label>
+                                        <input type="number" class="form-control" id="phone" placeholder="Nhập Mật Khẩu"
+                                            name="phone">
+                                        <label for="psw">Mật Khẩu:</label>
+                                        <input type="text" class="form-control" id="psw" placeholder="Nhập Mật Khẩu"
+                                            name="psw">
+                                        <button id="addUserInfo" data-toggle="modal"
+                                            data-target="#notificationModal">Thêm</button>
+                                    </div>
+                                </div>
+                                <!-- The Notification -->
+                                <div class="modal" id="notificationModal">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-body">
+                                                <p id="nofi"></p>
+                                                <button type="button" class="btn btn-danger"
+                                                    data-dismiss="modal">Đóng</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-
                 </div>
             </div>
         </div>
     </div>
+
     <!-- End Content -->
 
     <!-- Footer -->
@@ -258,20 +262,18 @@
     let database = firebase.database();
     let ref = database.ref('users');
 
-
-    if (sessionStorage["isadmin"] != true) {
-        $(".title-manage").text("Vui lòng đăng nhập tài khoản admin")
-        $(".sign-in").hide();
-        $(".unsignin").show();
+    let userlist_key = 0
+    if (sessionStorage["isadmin"] != "1") {
+        LogoutSuccess()
     } else {
-        $(".sign-in").show();
-        $(".username").html("admin");
-        $(".unsignin").hide();
+        LoginSuccess()
+        LoadUserList()
     }
 
-    $(".loginbtn").click(function () {
+    $("#signinform").submit(function () {
         let phone = $("#login-phone").val();
         let psw = $("#login-psw").val();
+        let temp = 0
         ref.orderByChild('username').equalTo(phone).on('value', snapshop => {
             if (snapshop.val() == "null") {
                 alert("Tài khoản này chưa tồn tại");
@@ -281,15 +283,12 @@
                 userdata = userdata[keys];
                 const originPassword = userdata.password;
                 console.log(originPassword)
-                if (originPassword.equalTo(psw)) {
-                    $(".sign-in").show();
-                    $(".unsignin").hide();
-                    $(".username").html(userdata.username);
-                    sessionStorage.setItem("isadmin", true)
+                if (originPassword == psw) {
+                    LoginSuccess() //Đăng nhập thành công = 1
                     alert("Đăng nhập thành công")
                 } else {
                     alert("Đăng nhập thất bại")
-                    sessionStorage.setItem("isadmin", false)
+                    sessionStorage["isadmin"] = "0"  //Chưa đăng nhập = 0
                 }
 
             }
@@ -298,32 +297,13 @@
 
     $(".logout").click(function () {
         $(".sign-in").hide();
-        login = false;
-        sessionStorage["isLogin"] = JSON.stringify(login);
+        sessionStorage["isadmin"] = "0"
+        userlist_key = "0"
         $(".unsignin").show();
+        LogoutSuccess()
     });
 
-    $(".userlist").click(function () {
-        if (sessionStorage["isadmin"] != true) {
-            $(".title-manage").text("Vui lòng đăng nhập tài khoản admin")
-        } else {
-            $(".title-manage").text("Danh Sách Tài Khoản")
-        }
-        let userlist = database.ref('users');
-        userlist.on("value", snapshot => {
-            let i = 1
-            snapshot.forEach(element => {
-                let list = JSON.stringify(element.val())
-                list = JSON.parse(list)
-                console.log("User " + i + " information: ")
-                console.log("Username: " + list.name)
-                console.log("Phone: " + list.phone)
-                console.log("Password: " + list.password)
-                console.log("Address: " + list.address)
-                i++
-            });
-        })
-    })
+    $(".userlist").click(LoadUserList())
 
     $(".productlist").click(function () {
         if (sessionStorage["isadmin"] != true) {
@@ -392,6 +372,113 @@
             });
         })
     })
+
+
+    //Thêm người dùng
+    $("#addUserInfo").click(function () {
+        $("#nofi").html("");
+        let name = $("#name").val();
+        let addr = $("#addr").val();
+        let phone = $("#phone").val();
+        let psw = $("#psw").val();
+        let info = {
+            name: name,
+            address: addr,
+            phone: phone,
+            password: psw
+        }
+        let err = ""
+        if(name == ''){
+            err +="Vui lòng nhập tên.<br>"
+        }
+        if(addr == ''){
+            err +="Vui lòng nhập địa chỉ.<br>"
+        }
+        if(phone.length != 10){
+            err +="Vui lòng đúng số điện thoại.<br>"
+        }
+        if(psw == ''){
+            err +="Vui lòng mật khẩu.<br>"
+        }
+        $("#nofi").html("Đăng ký thất bại. <br>" + err)
+        if (name != '' && addr != '' && phone.length == 10) {
+            ref.orderByChild('phone').equalTo(phone).on('value', snapshop => {
+                let resisterToken = JSON.stringify(snapshop.val())
+                console.log(resisterToken)
+                if (resisterToken == "null") {
+                    ref.push(info)
+                    $("#nofi").html("Đăng ký thành công")
+                }
+            })
+        }
+    })
+
+    //Cập nhật thông tin người dùng
+    $("#updateInfo").click(function(){
+        
+    })
+
+
+
+
+    function LoginSuccess() {
+        $(".username").html("ADMIN");
+        $(".sign-in").show();
+        $(".unsignin").hide();
+        sessionStorage["isadmin"] = "1";
+    }
+
+    function LogoutSuccess() {
+        $(".title-manage").text("Vui lòng đăng nhập tài khoản admin")
+        $(".sign-in").hide();
+        $(".unsignin").show();
+        $(".list").hide();
+        userlist_key = "0";
+    }
+
+    function LoadUserList() {
+        if (userlist_key != "1" && sessionStorage["isadmin"] == "1") {
+            $(".list").show();
+            $(".title-manage").text("Danh Sách Tài Khoản")
+            let userlist = database.ref('users');
+            userlist.on("value", snapshot => {
+                let i = 1
+                snapshot.forEach(element => {
+                    let list = JSON.stringify(element.val())
+                    list = JSON.parse(list)
+                    if (list.phone != "admin") {
+                        let tabledesign = "";
+                        tabledesign += "<tr>";
+                        tabledesign += "<td>" + list.name + "</td>";
+                        tabledesign += "<td>" + list.address + "</td>";
+                        tabledesign += "<td>" + list.phone + "</td>";
+                        tabledesign += "<td>" + list.password + "</td>";
+                        tabledesign += "<td><a href='#' id='editIcon' data-toggle='modal' data-target='#editModal' data-name='" + list.name + "' data-addr='" + list.address + "' data-phone='" + list.phone + "' data-psw='" + list.password + "'><i class='fa fa-cog'></i></a></td>";
+                        tabledesign += "<td><button id='removeIcon' type='button' class='btn btn-danger btn-sm' data-phone='" + list.phone + "'>X</button></td>";
+                        tabledesign += "</tr>";
+                        $("table > tbody:last").append(tabledesign);
+                    }
+                });
+
+                $("#editIcon").click(function(){
+                    let temp = $(this)
+                    temp = temp.attr("data-phone")
+                    alert(temp)
+                    console.log("1")
+                })
+            })
+            userlist_key = "1"
+        }
+    }
+
+    function DeleteUser() {
+
+    }
+
+    function UpdateUser() {
+
+    }
+
 
 
 </script>

@@ -289,17 +289,29 @@ input[type="radio"] {
   padding-top: 5px !important;
 }
 .admin-sidebar{
-  background-color: #4e73df;
-  background-image: linear-gradient(180deg,#4e73df 10%,#224abe 100%);
-  color: white;
+  color: black;
 }
 .admin-list{
   padding-left: 10px;
+  height: 60px;
 }
 .admin-list a{
-  padding-left: 10px;
-  color: white;
+  position: absolute;
+  padding-left:40px;
+  padding-top: 10px;
+  color: black;
+  box-sizing: border-box;
+  width: 190px;
+  height: 60px;
+  font-size: x-large;
+  font-weight: bold;
+  overflow: hidden;
 }
 .admin-list a:hover{
-  color: rosybrown !important;
+  color: white !important;
+  background-color: #60646e;
+  background-image: linear-gradient(180deg,#a3a3a3 10%,#31343d 100%);
+}
+.admin h3{
+  font-weight: bold;
 }
