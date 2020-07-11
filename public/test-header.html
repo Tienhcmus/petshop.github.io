@@ -7,7 +7,10 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>SEMINAR</title>
 
-<!-- The core Firebase JS SDK is always required and must be listed first -->
+
+</head>
+<body>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
 <script src="/__/firebase/7.15.3/firebase-app.js"></script>
 
 <!-- TODO: Add SDKs for Firebase products that you want to use
@@ -16,11 +19,44 @@
 
 <!-- Initialize Firebase -->
 <script src="/__/firebase/init.js"></script>
-</head>
-<body>
+<script src="/__/firebase/7.15.4/firebase-database.js"></script>
 
-<input type="text" placeholder="name" id="name">
-<input type="text" placeholder="age" id="age">
-<button id="submit">Submit</button>
+<input type="text" placeholder="tên sản phẩm" id="name">
+<input type="text" placeholder="giá" id="price">
+<input type="text" placeholder="url" id="url">
+<input type="text" placeholder="Chi tiết" id="details">
+<button id="Add">thêm</button>
 </body>
+<script type="text/javascript" src="resource/js/jquery-3.4.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
+<script type="text/javascript" src="resource/bootstrap-4.4.1-dist/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src='https://kit.fontawesome.com/a076d05399.js'></script>
+<script>
+let database = firebase.database();
+let ref = database.ref('products');
+
+
+
+
+$("#Add").click(function(){
+    let name = $("#name").val()
+let price = $("#price").val()
+let url = $("#url").val()
+let details = $("#details").val()
+    let productInfo = {
+    name : name,
+    price : price,
+    url : url,
+    details : details
+}
+    ref.orderByChild('name').equalTo(productInfo.name).on('value', snapshop => {
+                let resisterToken = JSON.stringify(snapshop.val())
+                if (resisterToken == "null") {
+                    ref.push(productInfo)
+                    alert("Đăng ký thành công")
+                }
+            })
+})
+</script>
 </html>

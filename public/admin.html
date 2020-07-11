@@ -131,7 +131,7 @@
                             <h3 class="title-manage">Danh Sách Tài Khoản</h3>
                             <hr style="background-color: aliceblue;">
                             <div class="list">
-                                <table class="Userlist">
+                                <table class="Userlist" id="tablelist">
                                     <thead>
                                         <tr>
                                             <th>Tên Người Dùng</th>
@@ -163,6 +163,7 @@
                                                 <input type="text" class="form-control" id="editpwd"
                                                     placeholder="Nhập Mật Khẩu" name="pswd">
                                                 <button id="updateInfo">Cập Nhật</button>
+                                                <button type="button" data-dismiss="modal">Đóng</button>
                                             </div>
                                         </div>
                                     </div>
@@ -388,17 +389,17 @@
             password: psw
         }
         let err = ""
-        if(name == ''){
-            err +="Vui lòng nhập tên.<br>"
+        if (name == '') {
+            err += "Vui lòng nhập tên.<br>"
         }
-        if(addr == ''){
-            err +="Vui lòng nhập địa chỉ.<br>"
+        if (addr == '') {
+            err += "Vui lòng nhập địa chỉ.<br>"
         }
-        if(phone.length != 10){
-            err +="Vui lòng đúng số điện thoại.<br>"
+        if (phone.length != 10) {
+            err += "Vui lòng đúng số điện thoại.<br>"
         }
-        if(psw == ''){
-            err +="Vui lòng mật khẩu.<br>"
+        if (psw == '') {
+            err += "Vui lòng mật khẩu.<br>"
         }
         $("#nofi").html("Đăng ký thất bại. <br>" + err)
         if (name != '' && addr != '' && phone.length == 10) {
@@ -414,12 +415,28 @@
     })
 
     //Cập nhật thông tin người dùng
-    $("#updateInfo").click(function(){
-        
+    $("#updateInfo").click(function () {
+        let phone = sessionStorage["editPhone"]
+        let editname = $("#editname").val()
+        let editaddr = $("#editaddr").val()
+        let editpsw = $("#editpwd").val()
+        ref.orderByChild('phone').equalTo(phone).on('value', snapshop => {
+            if (snapshop != "null") {
+                let keys = Object.keys(snapshop.val());
+                let userdata = snapshop.val();
+                userdata = userdata[keys];
+                if (editname != '') {
+                    database.ref("users/" + keys[0] + "/name").set(editname)
+                }
+                if (editaddr != '') {
+                    database.ref("users/" + keys[0] + "/address").set(editaddr)
+                }
+                if (editpsw != '') {
+                    database.ref("users/" + keys[0] + "/password").set(editpsw)
+                }
+            }
+        })
     })
-
-
-
 
     function LoginSuccess() {
         $(".username").html("ADMIN");
@@ -442,7 +459,7 @@
             $(".title-manage").text("Danh Sách Tài Khoản")
             let userlist = database.ref('users');
             userlist.on("value", snapshot => {
-                let i = 1
+                $("table > tbody").html("");
                 snapshot.forEach(element => {
                     let list = JSON.stringify(element.val())
                     list = JSON.parse(list)
@@ -457,29 +474,43 @@
                         tabledesign += "<td><button id='removeIcon' type='button' class='btn btn-danger btn-sm' data-phone='" + list.phone + "'>X</button></td>";
                         tabledesign += "</tr>";
                         $("table > tbody:last").append(tabledesign);
+
+                        $("[id*=editIcon]").each(function () {
+                    $(this).click(function () {
+                        let temp = $(this)
+                        let phone = temp.attr("data-phone")
+                        let name = temp.attr("data-name")
+                        let addr = temp.attr("data-addr")
+                        let psw = temp.attr("data-psw")
+                        console.log(name + ", " + phone + ", ")
+                        $("#editphone").text(phone)
+                        sessionStorage["editPhone"] = phone
+                    })
+                })
+                $("[id*=removeIcon]").each(function () {
+                    $(this).click(function () {
+                        let temp = $(this)
+                        let phone = temp.attr("data-phone")
+                        ref.orderByChild('phone').equalTo(phone).on('value', snapshop => {
+                            if (snapshop != "null") {
+                                let keys = Object.keys(snapshop.val());
+                                let userdata = snapshop.val();
+                                userdata = userdata[keys];
+                                database.ref("users/" + keys[0]).remove()
+                            }
+                        })
+                        LoadUserList()
+                    })
+                })
                     }
                 });
-
-                $("#editIcon").click(function(){
-                    let temp = $(this)
-                    temp = temp.attr("data-phone")
-                    alert(temp)
-                    console.log("1")
-                })
             })
             userlist_key = "1"
+            
         }
     }
 
-    function DeleteUser() {
-
-    }
-
-    function UpdateUser() {
-
-    }
-
-
+    
 
 </script>
 
