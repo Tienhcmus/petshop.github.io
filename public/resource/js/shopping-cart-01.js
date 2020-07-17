@@ -66,7 +66,7 @@ $(document).ready(function () {
             $.each(shoppingCartItems, function (index, item) {
                 let htmlString = "";
                 htmlString += "<li>";
-                htmlString += "<img src='" + item.image + "' alt='' />";
+                htmlString += "<img src='../" + item.image + "' alt='' />";
                 htmlString += "<span class='item-name'>" + item.name + "</span>";
                 htmlString += "<span class='item-price'>" + item.price + "</span>";
                 htmlString += "<span class='item-quantity'>Số lượng: " + item.quantity + "</span>";

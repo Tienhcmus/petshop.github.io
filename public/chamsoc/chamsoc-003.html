@@ -30,16 +30,281 @@
 
     <script src="/__/firebase/7.15.4/firebase-database.js"></script>
     <!-- Header -->
-    <header class="header-script">
-        <script>
-            let database = firebase.database();
-            let headerRef = database.ref();
-            headerRef.on("value", snapshot => {
-                let html = ''
-                html += snapshot.child("header01").val()
-                $(".header-script").html(html)
-            })
-        </script>
+    <header>
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-md"
+            style="background-color: rgb(242, 241, 236); padding-top: 0; padding-bottom: 0;">
+            <div class="container-fluid">
+                <!-- Logo -->
+                <a class="navbar-brand" href="../index.html" style="width: 100px;">
+                    <img src="../resource/images/logo/Brand1.png" alt="pet-store" width="150%" height="150%">
+                </a>
+                <!-- Login -->
+                <ul class="navbar-nav ml-auto" style="font-size: large;">
+                    <li class="nav-item">
+                        <div class="dropdown">
+                            <button id="header-button" type="button" data-toggle="dropdown" data-target="shopping-cart"
+                                class="dropdown-toggle">
+                                <i class="fas fa-shopping-cart"> </i> <span id="quantity-cart"
+                                    class="badge badge-danger"></span></i>
+                            </button>
+                            <div class="dropdown-menu dropdown-menu-right">
+                                <div class="shopping-cart">
+                                    <ul class="shopping-cart-items">
+
+                                    </ul>
+                                    <div class="dropdown-divider"></div>
+                                    <p class="total-cost"></p>
+                                    <a href="../cart-details.html"
+                                        class="check-out">Thanh Toán</a>
+                                </div>
+                            </div>
+                    </li>
+                    <li class="nav-item unsignin">
+                        <button id="header-button" type="button" data-toggle="modal" data-target="#Signup">
+                            Đăng Ký
+                        </button>
+                    </li>
+                    <li class="nav-item unsignin">
+                        <button id="header-button" type="button" data-toggle="modal" data-target="#Signin">
+                            Đăng Nhập
+                        </button>
+                    </li>
+                    <li class="nav-item sign-in">
+                        <button id="header-button" type="button" class="username">
+                            Tên Người Dùng
+                        </button>
+                    </li>
+                    <li class="nav-item sign-in">
+                        <button id="header-button" type="button" class="logout">
+                            Đăng Xuất
+                        </button>
+                    </li>
+                </ul>
+            </div>
+            </div>
+        </nav>
+        <!-- Carousel -->
+        <div id="slides" class="carousel slide" data-ride="carousel" style="z-index: 1;">
+            <ul class="carousel-indicators">
+                <li data-target="#slides" data-slide-to="0" class="active"></li>
+                <li data-target="#slides" data-slide-to="1"></li>
+                <li data-target="#slides" data-slide-to="2"></li>
+                <li data-target="#slides" data-slide-to="3"></li>
+            </ul>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <a class="link-image" href="../pet.html"><img
+                            src="../resource/images/Banner/banner1.jpg" alt="pet"></a>
+                </div>
+                <div class="carousel-item">
+                    <a class="link-image" href="../product.html"><img
+                            src="../resource/images/Banner/banner2.jpg" alt="Sanpham"></a>
+                </div>
+                <div class="carousel-item">
+                    <a class="link-image" href="../cham-soc.html"><img
+                            src="../resource/images/Banner/banner3.jpg" alt="chamsoc"></a>
+                </div>
+                <div class="carousel-item">
+                    <a class="link-image" href="../tin-tuc.html"><img
+                            src="../resource/images/Banner/banner4.jpg" alt="tintuc"></a>
+                </div>
+            </div>
+            <!-- Left and right controls -->
+            <a class="carousel-control-prev" href="#slides" data-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+            </a>
+            <a class="carousel-control-next" href="#slides" data-slide="next">
+                <span class="carousel-control-next-icon"></span>
+            </a>
+        </div>
+
+        <!--Menu-->
+        <div class="menu" style="background-color: #17a2b8; z-index: 2; width: 100%; padding-left: 10px;">
+            <nav class="navbar navbar-expand-sm bg-info navbar-dark position-sticky" style="z-index: 2; padding: 0;">
+                <!-- Links -->
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html"> Trang chủ </a>
+                    </li>
+                    <!-- Dropdown -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" href="../pet.html"
+                            id="navbarDropdown"> Hệ thống thú cưng
+                        </a>
+                        <div class="dropdown-content">
+                            <a class="dropdown-item"
+                                href="../danh-sach-cho.html"> Chó </a>
+                            <a class="dropdown-item"
+                                href="../danh-sach-meo.html"> Mèo </a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" href="../product.html"
+                            id="navbarDropdown"> Sản phẩm
+                        </a>
+                        <div class="dropdown-content">
+                            <a class="dropdown-item"
+                                href="../product.html#dog-food"> Thức ăn cho
+                                chó </a>
+                            <a class="dropdown-item"
+                                href="../product.html#cat-food"> Thức ăn cho
+                                mèo </a>
+                            <a class="dropdown-item"
+                                href="../product.html#sua-tam"> Sữa tắm </a>
+                            <a class="dropdown-item"
+                                href="../product.html#other-product"> Phụ kiện
+                            </a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" href="../cham-soc.html"
+                            id="navbarDropdown"> Chăm sóc thú cưng
+                        </a>
+                        <div class="dropdown-content">
+                            <a class="dropdown-item"
+                                href="chamsoc-000.html"> Hướng dẫn
+                                dành cho người mới </a>
+                            <a class="dropdown-item"
+                                href="chamsoc-001.html"> Tiêm Ngừa
+                                Vaccine Cho Thú Cưng Và Những Điều Cần Biết </a>
+                            <a class="dropdown-item"
+                                href="chamsoc-002.html"> 5 Bệnh
+                                Thường Gặp Ở Thú Cưng </a>
+
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../tin-tuc.html"> Tin tức
+                            thú cưng </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../lien-he.html"> Liên hệ
+                        </a>
+                    </li>
+                </ul>
+                <div class="navbar-nav ml-auto">
+                    <!--Searching-->
+                    <form class="search-form form-inline my-2 my-md-0">
+                        <div>
+                            <input id="search-text" class="form-control mr-sm-2" type="search"
+                                placeholder="Tìm Kiếm Sản Phẩm" aria-label="Search">
+                            <button class="search-btn" type="submit"><i class="fa fa-search"></i></button>
+                        </div>
+                    </form>
+                </div>
+            </nav>
+        </div>
+        <!-- Modal Sign up -->
+        <div class="modal fade" id="Signup">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <form id="signupform" action="#" method="POST">
+                        <div class="container">
+                            <h3>Đăng Ký</h3>
+                            <p>Vui lòng điền vào mẫu này để tạo một tài khoản.</p>
+                            <hr>
+                            <div class="row">
+                                <div class="col-6">
+                                    <label for="fname"><b>Tên</b></label>
+                                    <input type="text" placeholder="Enter First Name" name="firstname"
+                                        id="sign_up_fname">
+                                    <span class="error-form" id="fname_error_message"></span>
+                                </div>
+                                <div class="col-6">
+                                    <label for="lname"><b>Họ</b></label>
+                                    <input type="text" placeholder="Enter Last Name" name="lastname" id="sign_up_lname">
+                                    <span class="error-form" id="lname_error_message"></span>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="col-3">
+                                    <label for="address"><b>Địa chỉ</b></label>
+                                </div>
+                                <div class="col-9" style="padding-left: 0px;">
+                                    <input type="text" placeholder="Enter Address" name="address" id="sign_up_addr">
+                                    <span class="error-form" id="addr_error_message"></span>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="col-3" style="padding-right: 0px;">
+                                    <label for="phone" style="margin-top: 0px;"><b>Số điện thoại</b></label>
+                                </div>
+                                <div class="col-9" style="padding-left: 0px;">
+                                    <input type="number" placeholder="Enter Phone Number" name="phone"
+                                        id="sign_up_phone">
+                                    <span class="error-form" id="phone_error_message"></span>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="col-4" style="padding-right: 0px;">
+                                    <label for="psw"><b>Mật Khẩu</b></label>
+                                </div>
+                                <div class="col-8" style="padding-left: 0px;">
+                                    <input type="password" placeholder="Enter Password" name="psw" id="sign_up_psw">
+                                    <span class="error-form" id="psw_error_message"></span>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="col-4" style="padding-right: 0px;">
+                                    <label for="psw-repeat"><b>Xác Nhận Mật Khẩu</b></label>
+                                </div>
+                                <div class="col-8" style="padding-left: 0px;">
+                                    <input type="password" placeholder="Repeat Password" name="pswrepeat"
+                                        id="sign_up_rpsw">
+                                    <span class="error-form" id="rpsw_error_message"></span>
+                                </div>
+                            </div>
+                            <hr>
+                            <button class="registerbtn">Đăng Ký Tài Khoản</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal Sign in -->
+        <div class="modal fade" id="Signin">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <form action="#" method="POST">
+                        <div class="container">
+                            <h3>Đăng Nhập</h3>
+                            <p>Vui lòng điền vào mẫu này để đăng nhập tài khoản.</p>
+                            <hr>
+                            <div class="row">
+                                <div class="col-3" style="padding-right: 0px;">
+                                    <label for="phone"><b>Số điện thoại</b></label>
+                                </div>
+                                <div class="col-9" style="padding-left: 0px;">
+                                    <input id="login-phone" type="text" placeholder="Enter Phone Number" name="phone"
+                                        required>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="col-3" style="padding-right: 0px;">
+                                    <label for="psw"><b>Mật Khẩu</b></label>
+                                </div>
+                                <div class="col-9" style="padding-left: 0px;">
+                                    <input id="login-psw" type="password" placeholder="Enter Password" name="psw"
+                                        required>
+                                </div>
+                            </div>
+                            <hr>
+                            <button id="login-btn" class="loginbtn">Đăng Nhập</button>
+                        </div>
+                        <div class="container forgotpsw" style="padding-top: 0px;">
+                            <a href="../lien-he.html">Quên Mật Khẩu?</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
     </header>
     <!--End Header -->
 
@@ -93,6 +358,6 @@
 <script src='https://kit.fontawesome.com/a076d05399.js'></script>
 <script src="../resource/js/script.js"></script>
 <script src="../resource/js/login.js"></script>
-<script src="../resource/js/shopping-cart.js"></script>
+<script src="../resource/js/shopping-cart-01.js"></script>
 
 </html>
