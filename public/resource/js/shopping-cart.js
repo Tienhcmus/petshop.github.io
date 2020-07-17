@@ -64,18 +64,19 @@ $(document).ready(function () {
             $(".shopping-cart > .shopping-cart-items").html("");
             // Duyệt qua mảng shoppingCartItems để append từng item
             $.each(shoppingCartItems, function (index, item) {
+                let price = convert(item.price)
                 let htmlString = "";
                 htmlString += "<li>";
                 htmlString += "<img src='" + item.image + "' alt='' />";
                 htmlString += "<span class='item-name'>" + item.name + "</span>";
-                htmlString += "<span class='item-price'>" + item.price + "</span>";
+                htmlString += "<span class='item-price'>" + price + "</span>";
                 htmlString += "<span class='item-quantity'>Số lượng: " + item.quantity + "</span>";
                 htmlString += "</li>";
                 htmlString += "<div class='dropdown-divider'></div>";
                 $(".shopping-cart > .shopping-cart-items:last").append(htmlString);
                 sum += item.price * item.quantity;
             });
-            let cost = new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'VND' }).format(sum);
+            let cost = convert(sum);
             $(".total-cost").html("Tổng Tiền: " + cost)
         }
     }

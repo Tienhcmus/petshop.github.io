@@ -7,12 +7,12 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Pet Shop</title>
     <!-- Import Bootstrap, js and font awesome -->
-    <link rel="stylesheet" type="text/css" href="resource/bootstrap-4.4.1-dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../resource/bootstrap-4.4.1-dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="resource/css/stylesheet.css" />
-    <link rel="stylesheet" type="text/css" href="resource/css/cart.css" />
-    <link rel="stylesheet" type="text/css" href="resource/css/card-news-stysheet.css" />
-    <link rel="stylesheet" type="text/css" href="resource/css/modal.css" />
+    <link rel="stylesheet" type="text/css" href="../../../resource/css/stylesheet.css" />
+    <link rel="stylesheet" type="text/css" href="../../../resource/css/cart.css" />
+    <link rel="stylesheet" type="text/css" href="../../../resource/css/card-news-stysheet.css" />
+    <link rel="stylesheet" type="text/css" href="../../../resource/css/modal.css" />
     <link href="https://fonts.googleapis.com/css2?family=Jura:wght@300;400&display=swap" rel="stylesheet">
 </head>
 
@@ -28,13 +28,6 @@
     <script src="/__/firebase/init.js"></script>
 
     <script src="/__/firebase/7.15.4/firebase-database.js"></script>
-
-    <script>
-        function convert(value) {
-            value = Number(value);
-            return new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'VND' }).format(value);
-        }
-    </script>
     <!-- Header -->
     <header>
         <!-- Navigation-->
@@ -42,8 +35,8 @@
             style="background-color: rgb(242, 241, 236); padding-top: 0; padding-bottom: 0;">
             <div class="container-fluid">
                 <!-- Logo -->
-                <a class="navbar-brand" href="index.html" style="width: 100px;">
-                    <img src="resource/images/logo/Brand1.png" alt="pet-store" width="150%" height="150%">
+                <a class="navbar-brand" href="https://petshopwebsite-707ef.firebaseapp.com/" style="width: 100px;">
+                    <img src="../../../resource/images/logo/Brand1.png" alt="pet-store" width="150%" height="150%">
                 </a>
                 <!-- Login -->
                 <ul class="navbar-nav ml-auto" style="font-size: large;">
@@ -61,7 +54,8 @@
                                     </ul>
                                     <div class="dropdown-divider"></div>
                                     <p class="total-cost"></p>
-                                    <a href="cart-details.html" class="check-out">Thanh Toán</a>
+                                    <a href="https://petshopwebsite-707ef.firebaseapp.com/cart-details.html"
+                                        class="check-out">Thanh Toán</a>
                                 </div>
                             </div>
                     </li>
@@ -99,19 +93,20 @@
             </ul>
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <a class="link-image" href="pet.html"><img src="resource/images/Banner/banner1.jpg" alt="pet"></a>
+                    <a class="link-image" href="https://petshopwebsite-707ef.firebaseapp.com/pet.html"><img
+                            src="../../../resource/images/Banner/banner1.jpg" alt="pet"></a>
                 </div>
                 <div class="carousel-item">
-                    <a class="link-image" href="product.html"><img src="resource/images/Banner/banner2.jpg"
-                            alt="Sanpham"></a>
+                    <a class="link-image" href="https://petshopwebsite-707ef.firebaseapp.com/product.html"><img
+                            src="../../../resource/images/Banner/banner2.jpg" alt="Sanpham"></a>
                 </div>
                 <div class="carousel-item">
-                    <a class="link-image" href="cham-soc.html"><img src="resource/images/Banner/banner3.jpg"
-                            alt="chamsoc"></a>
+                    <a class="link-image" href="https://petshopwebsite-707ef.firebaseapp.com/cham-soc.html"><img
+                            src="../../../resource/images/Banner/banner3.jpg" alt="chamsoc"></a>
                 </div>
                 <div class="carousel-item">
-                    <a class="link-image" href="tin-tuc.html"><img src="resource/images/Banner/banner4.jpg"
-                            alt="tintuc"></a>
+                    <a class="link-image" href="https://petshopwebsite-707ef.firebaseapp.com/tin-tuc.html"><img
+                            src="../../../resource/images/Banner/banner4.jpg" alt="tintuc"></a>
                 </div>
             </div>
             <!-- Left and right controls -->
@@ -129,49 +124,61 @@
                 <!-- Links -->
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="index.html"> Trang chủ </a>
+                        <a class="nav-link" href="https://petshopwebsite-707ef.firebaseapp.com/"> Trang chủ </a>
                     </li>
                     <!-- Dropdown -->
                     <li class="nav-item dropdown">
-                        <a class="nav-link" href="pet.html" id="navbarDropdown"> Hệ thống thú cưng
+                        <a class="nav-link" href="https://petshopwebsite-707ef.firebaseapp.com/pet.html"
+                            id="navbarDropdown"> Hệ thống thú cưng
                         </a>
                         <div class="dropdown-content">
-                            <a class="dropdown-item" href="danh-sach-cho.html"> Chó </a>
-                            <a class="dropdown-item" href="danh-sach-meo.html"> Mèo </a>
+                            <a class="dropdown-item"
+                                href="https://petshopwebsite-707ef.firebaseapp.com/danh-sach-cho.html"> Chó </a>
+                            <a class="dropdown-item"
+                                href="https://petshopwebsite-707ef.firebaseapp.com/danh-sach-meo.html"> Mèo </a>
                         </div>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link" href="product.html" id="navbarDropdown"> Sản phẩm
+                        <a class="nav-link" href="https://petshopwebsite-707ef.firebaseapp.com/product.html"
+                            id="navbarDropdown"> Sản phẩm
                         </a>
                         <div class="dropdown-content">
-                            <a class="dropdown-item" href="product.html#dog-food"> Thức ăn cho
+                            <a class="dropdown-item"
+                                href="https://petshopwebsite-707ef.firebaseapp.com/product.html#dog-food"> Thức ăn cho
                                 chó </a>
-                            <a class="dropdown-item" href="product.html#cat-food"> Thức ăn cho
+                            <a class="dropdown-item"
+                                href="https://petshopwebsite-707ef.firebaseapp.com/product.html#cat-food"> Thức ăn cho
                                 mèo </a>
-                            <a class="dropdown-item" href="product.html#sua-tam"> Sữa tắm </a>
-                            <a class="dropdown-item" href="product.html#other-product"> Phụ kiện
+                            <a class="dropdown-item"
+                                href="https://petshopwebsite-707ef.firebaseapp.com/product.html#sua-tam"> Sữa tắm </a>
+                            <a class="dropdown-item"
+                                href="https://petshopwebsite-707ef.firebaseapp.com/product.html#other-product"> Phụ kiện
                             </a>
                         </div>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link" href="cham-soc.html" id="navbarDropdown"> Chăm sóc thú cưng
+                        <a class="nav-link" href="https://petshopwebsite-707ef.firebaseapp.com/cham-soc.html"
+                            id="navbarDropdown"> Chăm sóc thú cưng
                         </a>
                         <div class="dropdown-content">
-                            <a class="dropdown-item" href="chamsoc/chamsoc-000.html"> Hướng dẫn
+                            <a class="dropdown-item"
+                                href="https://petshopwebsite-707ef.firebaseapp.com/chamsoc/chamsoc-000.html"> Hướng dẫn
                                 dành cho người mới </a>
-                            <a class="dropdown-item" href="chamsoc/chamsoc-001.html"> Tiêm Ngừa
+                            <a class="dropdown-item"
+                                href="https://petshopwebsite-707ef.firebaseapp.com/chamsoc/chamsoc-001.html"> Tiêm Ngừa
                                 Vaccine Cho Thú Cưng Và Những Điều Cần Biết </a>
-                            <a class="dropdown-item" href="chamsoc/chamsoc-002.html"> 5 Bệnh
+                            <a class="dropdown-item"
+                                href="https://petshopwebsite-707ef.firebaseapp.com/chamsoc/chamsoc-002.html"> 5 Bệnh
                                 Thường Gặp Ở Thú Cưng </a>
 
                         </div>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="tin-tuc.html"> Tin tức
+                        <a class="nav-link" href="https://petshopwebsite-707ef.firebaseapp.com/tin-tuc.html"> Tin tức
                             thú cưng </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="lien-he.html"> Liên hệ
+                        <a class="nav-link" href="https://petshopwebsite-707ef.firebaseapp.com/lien-he.html"> Liên hệ
                         </a>
                     </li>
                 </ul>
@@ -291,11 +298,12 @@
                             <button id="login-btn" class="loginbtn">Đăng Nhập</button>
                         </div>
                         <div class="container forgotpsw" style="padding-top: 0px;">
-                            <a href="lien-he.html">Quên Mật Khẩu?</a>
+                            <a href="https://petshopwebsite-707ef.firebaseapp.com/lien-he.html">Quên Mật Khẩu?</a>
                         </div>
                     </form>
                 </div>
             </div>
+
         </div>
     </header>
     <!--End Header -->
@@ -304,11 +312,11 @@
     <div class="container" style="padding: 20px;">
         <div class="container">
             <div class="pull-left">
-                <h3 class="inner-title">Thú Cưng</h3>
+                <h3 class="inner-title">Chi Tiết Sản phẩm</h3>
             </div>
             <div class="pull-right">
                 <div class="beta-breadcrumb font-large">
-                    <a href="index.html">Home</a> / <span>Thú Cưng</span>
+                    <a href="../../../index.html">Home</a> / <span>Sản Phẩm</span>
                 </div>
             </div>
             <div class="clearfix">
@@ -319,98 +327,129 @@
         <div id="content" class="space-top-none">
             <div class="space60">&nbsp;</div>
             <div class="row">
-                <div class="col-md-3">
-                    <div class="sticky-sidebar">
-                        <a href="#">
-                            <h6>Danh sách thú cưng</h6>
-                        </a>
-                        <ul class="aside-menu" style="font-size: medium;">
-                            <li><a href="danh-sach-cho.html"><i class="fas fa-dog"></i> Chó</a></li>
-                            <hr>
-                            <li><a href="danh-sach-meo.html"><i class="fas fa-cat"></i> Mèo</a></li>
+                <div class="col-9">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <img src="../../../resource/images/pet/dog/pull/pull-0.jpg" alt="" style="width: 270px; height: 340px;">
+                        </div>
+                        <div class="col-sm-8">
+                            <div class="single-item-body">
+                                <p class="single-item-title">Chó Bull - 000</p>
+                                <p class="single-item-price">
+                                    <span style="font-size: 30px;">Giá: 7.000.000</span>
+                                    &emsp;<a class="add-to-cart btn btn-outline-warning" data-name="Bull - 000" data-price="7000000" data-img="../../../resource/images/pet/dog/pull/pull-0.jpg" > Mua</a>
+                                </p>
+                            </div>
+                            <div class="clearfix"></div>
+                            <div class="space20">&nbsp;</div>
+                            <div class="single-item-desc">
+                                <p>Chó Bull Anh (English Bulldog) là một giống chó chiến cổ có tổ tiên là chó ngao châu Á. Ban đầu chúng được lai tạo để tham gia các trận đấu máu me với Bò thời trung cổ. Sau thế kỷ 19, Bull Anh đã được lai tạo để trở thành giống chó cảnh với ngoại hình nhỏ nhắn, xinh xắn và thân thiện hơn.</p>
+                                <p>
+                                    &nbsp;
+                                    
+                                    <div class="clearfix"></div>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="desc">
+                        <ul class="nav nav-tabs" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link active" data-toggle="tab" href="#desc">Mô tả</a>
+                            </li>
                         </ul>
+                        <div class="tab-content">
+                            <div id="desc" class="container tab-pane active"><br>
+                                <h4>THÔNG TIN CƠ BẢN</h4>
+                                <p>+ CHÓ BULL PHÁP <br>
+                                    + Ngày sinh: 30/05/2020 <br>
+                                    + Vaccine: đã tiêm phòng 2 mũi vaccine <br>
+                                    + Đã tẩy giun <br>
+                                    + Có nguồn gốc rõ ràng <br>
+                                    + Đảm bảo đạt tiêu chuẩn chiều cao, cân nặng… <br>
+                                    + Không dị tật, bệnh tật</p>
+                                <br>
+                                <h4>GIẤY TỜ ĐI KÈM</h4>
+                                <p>+ Hợp đồng mua bán, giấy chứng nhận nguồn gốc rõ ràng, sổ tiêm phòng, giấy bảo hành và hướng dẫn chăm sóc chó con <br>
+                                    + Bảo hành sức khỏe dài hạn <br>
+                                    + Hỗ trợ khám chữa bệnh tại nhà (Tp.HCM). <br>
+                                    + Bảo hành toàn diện 3 ngày đầu tiên. <br>
+                                    + Hỗ trợ vận chuyển toàn quốc
+                                </p>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="col-md-9">
-                    <a href="danh-sach-cho.html">
-                        <h4>Danh sách chó</h4>
-                    </a>
-                    <div class="product-group">
-                        <div id="dog-list" class="row">
-                            <script>
-                                let database = firebase.database()
-                                let doglistRef = database.ref('pet/dog')
-                                doglistRef.on("value", snapshot => {
-                                    let id = 0
-                                    let doglistData = snapshot.val()
-                                    doglistData.forEach(element => {
-                                        let price = convert(element.price)
-                                        let html = ''
-                                        html += '<div class="col-sm-4">'
-                                        html += '<div class="card card-product mb-3">'
-                                        html += '<a class="link-image" href="'+ element.url +'"><img class="card-img-top" src="' + element.img + '"'
-                                        html += 'alt="dog"></a>'
-                                        html += '<div class="card-body">'
-                                        html += '<h5 class="card-title" style="font-size: x-large;"> ' + element.name + '</h5>'
-                                        html += '<p class="card-text"> Giá: ' + price + '</p>'
-                                        html += '<button data-name="' + element.name + '" data-price="' + element.price + '"'
-                                        html += 'data-img="' + element.img + '"'
-                                        html += 'class="add-to-cart btn btn-primary">Mua</button>'
-                                        html += '</div>'
-                                        html += '</div>'
-                                        html += '</div>'
-                                        $("#dog-list:last").append(html)
-                                    });
-                                }) 
-                            </script>
-                        </div>
-                        <a href="pets/dog/corgi/corgi-000.html"></a>
-                    </div>
-                    <div class="space50">&nbsp;</div>
-                    <a href="danh-sach-meo.html">
-                        <h4>Danh sách mèo</h4>
-                    </a>
-                    <div class="product-group">
-                        <div id="cat-list" class="row">
-                            <script>
-                                let catlistRef = database.ref('pet/cat')
-                                catlistRef.on("value", snapshot => {
-                                    let catlistData = snapshot.val()
-                                    catlistData.forEach(element => {
-                                        let price = convert(element.price)
-                                        let html = ''
-                                        html += '<div class="col-sm-4">'
-                                        html += '<div class="card card-product mb-3">'
-                                        html += '<a class="link-image" href="'+ element.url+'"><img class="card-img-top" src="' + element.img + '"'
-                                        html += 'alt="cat"></a>'
-                                        html += '<div class="card-body">'
-                                        html += '<h5 class="card-title" style="font-size: x-large;"> ' + element.name + '</h5>'
-                                        html += '<p class="card-text"> Giá: ' + price + '</p>'
-                                        html += '<button data-name="' + element.name + '" data-price="' + price + '"'
-                                        html += 'data-img="' + element.img + '"'
-                                        html += 'class="add-to-cart btn btn-primary">Mua</button>'
-                                        html += '</div>'
-                                        html += '</div>'
-                                        html += '</div>'
-                                        $("#cat-list:last").append(html)
-                                    });
-                                }) 
-                            </script>
+                <div class="col-3">      
+                    <div class="widget">
+                        <h6 class="widget-title">Sản Phẩm Mới</h6>
+                        <div class="widget-body">
+                            <div class="beta-sales beta-lists">
+                                <div class="beta-sales beta-lists">
+                                    <div class="media beta-sales-item">
+                                        <a href="../../../product.html"><img src="../../../resource/images/pet/phu-kien/vong-co-5.jpg" alt=""></a>
+                                        <div class="media-body">
+                                            <p>Vòng Cổ - 005 </p>
+                                            <span class="beta-sales-price">Giá: 100.000</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="beta-sales beta-lists">
+                                    <div class="media beta-sales-item">
+                                        <a href="../../../product.html"><img src="../../../resource/images/pet/sua-tam/sua-tam-0.jpg" alt=""></a>
+                                        <div class="media-body">
+                                            <p>Sữa Tắm S.O.S </p>
+                                            <span class="beta-sales-price">Giá: 100.000</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="beta-sales beta-lists">
+                                    <div class="media beta-sales-item">
+                                        <a href="../../../product.html"><img src="../../../resource/images/pet/thuc-an-meo/whiskas-junior.jpg" alt=""></a>
+                                        <div class="media-body">
+                                            <p>Whiskas Junior </p>
+                                            <span class="beta-sales-price">Giá: 100.000</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
+            <div class="space50">&nbsp;</div>
+
+            <div class="beta-products-list">
+
+                <h4>Sản Phẩm Cùng Loại</h4>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="card card-product">
+                            <a class="link-image" href="pull-001.html"><img class="card-img-top" src="../../../resource/images/pet/dog/pull/pull-1.jpg"
+                                    alt="pull-1"></a>
+                            <div class="card-body">
+                                <h5 class="card-title"> Bull - 001 </h5>
+                                <p class="card-text"> Giá: 7.000.000 </p>
+                                <a class="add-to-cart btn btn-primary" data-name="Chó Bull - 001" data-price="7000000" data-img="resource/images/pet/dog/pull/pull-1.jpg">Mua</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
         </div>
     </div>
-    </div>
     <!-- End Content-->
+
     <!-- Footer -->
     <footer class="footer-script">
         <script>
             let footerRef = database.ref();
             footerRef.on("value", snapshot => {
                 let html = ''
-                html += snapshot.child("footer").val()
+                html += snapshot.child("footer03").val()
                 $(".footer-script").html(html)
             })
         </script>
@@ -418,13 +457,12 @@
     <!--End Footer -->
 </body>
 
-<script type="text/javascript" src="resource/js/jquery-3.4.1.min.js"></script>
+<script type="text/javascript" src="../../../resource/js/jquery-3.4.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
-<script type="text/javascript" src="resource/bootstrap-4.4.1-dist/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../../../resource/bootstrap-4.4.1-dist/js/bootstrap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script src='https://kit.fontawesome.com/a076d05399.js'></script>
-<script src="resource/js/login.js"></script>
-<script src="resource/js/script.js"></script>
-<script src="resource/js/shopping-cart.js"></script>
-
+<script src="../../../resource/js/login.js"></script>
+<script src="../../../resource/js/script.js"></script>
+<script src="../../../resource/js/shopping-cart.js"></script>
 </html>
