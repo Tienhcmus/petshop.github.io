@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Pet Shop</title>
+    <!-- Import Bootstrap, js and font awesome -->
+    <link rel="stylesheet" type="text/css" href="../../../resource/bootstrap-4.4.1-dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="../../../resource/css/stylesheet.css" />
+    <link rel="stylesheet" type="text/css" href="../../../resource/css/cart.css" />
+    <link rel="stylesheet" type="text/css" href="../../../resource/css/card-news-stysheet.css" />
+    <link rel="stylesheet" type="text/css" href="../../../resource/css/modal.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Jura:wght@300;400&display=swap" rel="stylesheet">
+</head>
+
+<body data-spy="scroll" data-target=".sticky-sidebar .dropdown-content" data-offset="50">
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="/__/firebase/7.15.5/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="/__/firebase/7.15.5/firebase-analytics.js"></script>
+
+    <!-- Initialize Firebase -->
+    <script src="/__/firebase/init.js"></script>
+
+    <script src="/__/firebase/7.15.4/firebase-database.js"></script>
+    <!-- Header -->
+    <header>
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-md"
+            style="background-color: rgb(242, 241, 236); padding-top: 0; padding-bottom: 0;">
+            <div class="container-fluid">
+                <!-- Logo -->
+                <a class="navbar-brand" href="https://petshopwebsite-707ef.firebaseapp.com/" style="width: 100px;">
+                    <img src="../../../resource/images/logo/Brand1.png" alt="pet-store" width="150%" height="150%">
+                </a>
+                <!-- Login -->
+                <ul class="navbar-nav ml-auto" style="font-size: large;">
+                    <li class="nav-item">
+                        <div class="dropdown">
+                            <button id="header-button" type="button" data-toggle="dropdown" data-target="shopping-cart"
+                                class="dropdown-toggle">
+                                <i class="fas fa-shopping-cart"> </i> <span id="quantity-cart"
+                                    class="badge badge-danger"></span></i>
+                            </button>
+                            <div class="dropdown-menu dropdown-menu-right">
+                                <div class="shopping-cart">
+                                    <ul class="shopping-cart-items">
+
+                                    </ul>
+                                    <div class="dropdown-divider"></div>
+                                    <p class="total-cost"></p>
+                                    <a href="https://petshopwebsite-707ef.firebaseapp.com/cart-details.html"
+                                        class="check-out">Thanh Toán</a>
+                                </div>
+                            </div>
+                    </li>
+                    <li class="nav-item unsignin">
+                        <button id="header-button" type="button" data-toggle="modal" data-target="#Signup">
+                            Đăng Ký
+                        </button>
+                    </li>
+                    <li class="nav-item unsignin">
+                        <button id="header-button" type="button" data-toggle="modal" data-target="#Signin">
+                            Đăng Nhập
+                        </button>
+                    </li>
+                    <li class="nav-item sign-in">
+                        <button id="header-button" type="button" class="username">
+                            Tên Người Dùng
+                        </button>
+                    </li>
+                    <li class="nav-item sign-in">
+                        <button id="header-button" type="button" class="logout">
+                            Đăng Xuất
+                        </button>
+                    </li>
+                </ul>
+            </div>
+            </div>
+        </nav>
+        <!-- Carousel -->
+        <div id="slides" class="carousel slide" data-ride="carousel" style="z-index: 1;">
+            <ul class="carousel-indicators">
+                <li data-target="#slides" data-slide-to="0" class="active"></li>
+                <li data-target="#slides" data-slide-to="1"></li>
+                <li data-target="#slides" data-slide-to="2"></li>
+                <li data-target="#slides" data-slide-to="3"></li>
+            </ul>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <a class="link-image" href="https://petshopwebsite-707ef.firebaseapp.com/pet.html"><img
+                            src="../../../resource/images/Banner/banner1.jpg" alt="pet"></a>
+                </div>
+                <div class="carousel-item">
+                    <a class="link-image" href="https://petshopwebsite-707ef.firebaseapp.com/product.html"><img
+                            src="../../../resource/images/Banner/banner2.jpg" alt="Sanpham"></a>
+                </div>
+                <div class="carousel-item">
+                    <a class="link-image" href="https://petshopwebsite-707ef.firebaseapp.com/cham-soc.html"><img
+                            src="../../../resource/images/Banner/banner3.jpg" alt="chamsoc"></a>
+                </div>
+                <div class="carousel-item">
+                    <a class="link-image" href="https://petshopwebsite-707ef.firebaseapp.com/tin-tuc.html"><img
+                            src="../../../resource/images/Banner/banner4.jpg" alt="tintuc"></a>
+                </div>
+            </div>
+            <!-- Left and right controls -->
+            <a class="carousel-control-prev" href="#slides" data-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+            </a>
+            <a class="carousel-control-next" href="#slides" data-slide="next">
+                <span class="carousel-control-next-icon"></span>
+            </a>
+        </div>
+
+        <!--Menu-->
+        <div class="menu" style="background-color: #17a2b8; z-index: 2; width: 100%; padding-left: 10px;">
+            <nav class="navbar navbar-expand-sm bg-info navbar-dark position-sticky" style="z-index: 2; padding: 0;">
+                <!-- Links -->
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://petshopwebsite-707ef.firebaseapp.com/"> Trang chủ </a>
+                    </li>
+                    <!-- Dropdown -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" href="https://petshopwebsite-707ef.firebaseapp.com/pet.html"
+                            id="navbarDropdown"> Hệ thống thú cưng
+                        </a>
+                        <div class="dropdown-content">
+                            <a class="dropdown-item"
+                                href="https://petshopwebsite-707ef.firebaseapp.com/danh-sach-cho.html"> Chó </a>
+                            <a class="dropdown-item"
+                                href="https://petshopwebsite-707ef.firebaseapp.com/danh-sach-meo.html"> Mèo </a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" href="https://petshopwebsite-707ef.firebaseapp.com/product.html"
+                            id="navbarDropdown"> Sản phẩm
+                        </a>
+                        <div class="dropdown-content">
+                            <a class="dropdown-item"
+                                href="https://petshopwebsite-707ef.firebaseapp.com/product.html#dog-food"> Thức ăn cho
+                                chó </a>
+                            <a class="dropdown-item"
+                                href="https://petshopwebsite-707ef.firebaseapp.com/product.html#cat-food"> Thức ăn cho
+                                mèo </a>
+                            <a class="dropdown-item"
+                                href="https://petshopwebsite-707ef.firebaseapp.com/product.html#sua-tam"> Sữa tắm </a>
+                            <a class="dropdown-item"
+                                href="https://petshopwebsite-707ef.firebaseapp.com/product.html#other-product"> Phụ kiện
+                            </a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" href="https://petshopwebsite-707ef.firebaseapp.com/cham-soc.html"
+                            id="navbarDropdown"> Chăm sóc thú cưng
+                        </a>
+                        <div class="dropdown-content">
+                            <a class="dropdown-item"
+                                href="https://petshopwebsite-707ef.firebaseapp.com/chamsoc/chamsoc-000.html"> Hướng dẫn
+                                dành cho người mới </a>
+                            <a class="dropdown-item"
+                                href="https://petshopwebsite-707ef.firebaseapp.com/chamsoc/chamsoc-001.html"> Tiêm Ngừa
+                                Vaccine Cho Thú Cưng Và Những Điều Cần Biết </a>
+                            <a class="dropdown-item"
+                                href="https://petshopwebsite-707ef.firebaseapp.com/chamsoc/chamsoc-002.html"> 5 Bệnh
+                                Thường Gặp Ở Thú Cưng </a>
+
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://petshopwebsite-707ef.firebaseapp.com/tin-tuc.html"> Tin tức
+                            thú cưng </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://petshopwebsite-707ef.firebaseapp.com/lien-he.html"> Liên hệ
+                        </a>
+                    </li>
+                </ul>
+                <div class="navbar-nav ml-auto">
+                    <!--Searching-->
+                    <form class="search-form form-inline my-2 my-md-0">
+                        <div>
+                            <input id="search-text" class="form-control mr-sm-2" type="search"
+                                placeholder="Tìm Kiếm Sản Phẩm" aria-label="Search">
+                            <button class="search-btn" type="submit"><i class="fa fa-search"></i></button>
+                        </div>
+                    </form>
+                </div>
+            </nav>
+        </div>
+        <!-- Modal Sign up -->
+        <div class="modal fade" id="Signup">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <form id="signupform" action="#" method="POST">
+                        <div class="container">
+                            <h3>Đăng Ký</h3>
+                            <p>Vui lòng điền vào mẫu này để tạo một tài khoản.</p>
+                            <hr>
+                            <div class="row">
+                                <div class="col-6">
+                                    <label for="fname"><b>Tên</b></label>
+                                    <input type="text" placeholder="Enter First Name" name="firstname"
+                                        id="sign_up_fname">
+                                    <span class="error-form" id="fname_error_message"></span>
+                                </div>
+                                <div class="col-6">
+                                    <label for="lname"><b>Họ</b></label>
+                                    <input type="text" placeholder="Enter Last Name" name="lastname" id="sign_up_lname">
+                                    <span class="error-form" id="lname_error_message"></span>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="col-3">
+                                    <label for="address"><b>Địa chỉ</b></label>
+                                </div>
+                                <div class="col-9" style="padding-left: 0px;">
+                                    <input type="text" placeholder="Enter Address" name="address" id="sign_up_addr">
+                                    <span class="error-form" id="addr_error_message"></span>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="col-3" style="padding-right: 0px;">
+                                    <label for="phone" style="margin-top: 0px;"><b>Số điện thoại</b></label>
+                                </div>
+                                <div class="col-9" style="padding-left: 0px;">
+                                    <input type="number" placeholder="Enter Phone Number" name="phone"
+                                        id="sign_up_phone">
+                                    <span class="error-form" id="phone_error_message"></span>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="col-4" style="padding-right: 0px;">
+                                    <label for="psw"><b>Mật Khẩu</b></label>
+                                </div>
+                                <div class="col-8" style="padding-left: 0px;">
+                                    <input type="password" placeholder="Enter Password" name="psw" id="sign_up_psw">
+                                    <span class="error-form" id="psw_error_message"></span>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="col-4" style="padding-right: 0px;">
+                                    <label for="psw-repeat"><b>Xác Nhận Mật Khẩu</b></label>
+                                </div>
+                                <div class="col-8" style="padding-left: 0px;">
+                                    <input type="password" placeholder="Repeat Password" name="pswrepeat"
+                                        id="sign_up_rpsw">
+                                    <span class="error-form" id="rpsw_error_message"></span>
+                                </div>
+                            </div>
+                            <hr>
+                            <button class="registerbtn">Đăng Ký Tài Khoản</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal Sign in -->
+        <div class="modal fade" id="Signin">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <form action="#" method="POST">
+                        <div class="container">
+                            <h3>Đăng Nhập</h3>
+                            <p>Vui lòng điền vào mẫu này để đăng nhập tài khoản.</p>
+                            <hr>
+                            <div class="row">
+                                <div class="col-3" style="padding-right: 0px;">
+                                    <label for="phone"><b>Số điện thoại</b></label>
+                                </div>
+                                <div class="col-9" style="padding-left: 0px;">
+                                    <input id="login-phone" type="text" placeholder="Enter Phone Number" name="phone"
+                                        required>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="col-3" style="padding-right: 0px;">
+                                    <label for="psw"><b>Mật Khẩu</b></label>
+                                </div>
+                                <div class="col-9" style="padding-left: 0px;">
+                                    <input id="login-psw" type="password" placeholder="Enter Password" name="psw"
+                                        required>
+                                </div>
+                            </div>
+                            <hr>
+                            <button id="login-btn" class="loginbtn">Đăng Nhập</button>
+                        </div>
+                        <div class="container forgotpsw" style="padding-top: 0px;">
+                            <a href="https://petshopwebsite-707ef.firebaseapp.com/lien-he.html">Quên Mật Khẩu?</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </header>
+    <!--End Header -->
+
+    <!-- Content -->
+    <div class="container" style="padding: 20px;">
+        <div class="container">
+            <div class="pull-left">
+                <h3 class="inner-title">Chi Tiết Sản phẩm</h3>
+            </div>
+            <div class="pull-right">
+                <div class="beta-breadcrumb font-large">
+                    <a href="../../../index.html">Home</a> / <span>Sản Phẩm</span>
+                </div>
+            </div>
+            <div class="clearfix">
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div id="content" class="space-top-none">
+            <div class="space60">&nbsp;</div>
+            <div class="row">
+                <div class="col-9">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <img src="../../../resource/images/pet/dog/corgi/corgi-1.jpg" alt="" style="width: 270px; height: 340px;">
+                        </div>
+                        <div class="col-sm-8">
+                            <div class="single-item-body">
+                                <p class="single-item-title">Chó Corgi - 001</p>
+                                <p class="single-item-price">
+                                    <span style="font-size: 30px;">Giá: 10.000.000</span>
+                                    &emsp;<a class="add-to-cart btn btn-outline-warning" data-name="Chó Corgi - 001" data-price="10000000" data-img="resource/images/pet/dog/corgi/corgi-1.jpg"> Mua</a>
+                                </p>
+                            </div>
+                            <div class="clearfix"></div>
+                            <div class="space20">&nbsp;</div>
+                            <div class="single-item-desc">
+                                <p>Chó Shiba Inu là 1 trong 6 giống chó bản địa có nguồn gốc lâu đời của Nhật Bản. Giống chó nhỏ này trước đây từng được sử dụng chủ yếu trong các cuộc săn bắt chim và lợn rừng.
+
+                                    Trong tiếng Nhật, tên Shiba có nghĩa là “cây bụi”, chúng được đặt tên theo bụi cây ở những nơi đi săn. Theo ngôn ngữ cổ, Shiba còn có nghĩa là nhỏ bé, có thể vì kích thước cơ thể nhỏ gọn nên được đặt tên này.
+                                    
+                                    Shiba từng đứng bên bờ vực tuyệt chủng vì thiếu lương thực trong chiến tranh thế giới thứ 2. Số lượng còn lại được lai tạo và nhân giống sau chiến tranh và phát triển cho đến ngày nay.</p>
+                                <p>
+                                    &nbsp;
+                                    
+                                    <div class="clearfix"></div>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="desc">
+                        <ul class="nav nav-tabs" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link active" data-toggle="tab" href="#desc">Mô tả</a>
+                            </li>
+                        </ul>
+                        <div class="tab-content">
+                            <div id="desc" class="container tab-pane active"><br>
+                                <h4>THÔNG TIN CƠ BẢN</h4>
+                                <p>+ Ngày sinh: 20/04/2020 <br>
+                                    + Giới tính: Đực <br>
+                                    + Ngày tiêm mũi 1: 29/05/2020 <br>
+                                    + Có thể xuất từ: 20/06/2020</p>
+                                <br>
+                                <p class="center"><img src="../../../resource/images/dog/corgi/pembroke-welsh-corgi-700x675.jpg" alt="corgi"></p>
+                                <h4>GIẤY TỜ ĐI KÈM</h4>
+                                <p>+ Giấy chứng nhận nguồn gốc xuất xứ <br>
+                                   + Hợp đồng mua bán <br>
+                                   + Cẩm nang hướng dẫn kỹ thuật chăm sóc.
+                                </p>
+                                <br>
+                                <h4>QUÀ TẶNG ĐI KÈM</h4>
+                                <p>+ Bát ăn <br>
+                                    + Dây dắt cún. <br>
+                                    + Vòng cổ chuông. <br>
+                                    + Xương đồ chơi. <br>
+                                    + Khăn tắm siêu thấm. <br>
+                                    + Lược chải lông.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3">      
+                    <div class="widget">
+                        <h6 class="widget-title">Sản Phẩm Mới</h6>
+                        <div class="widget-body">
+                            <div class="beta-sales beta-lists">
+                                <div class="beta-sales beta-lists">
+                                    <div class="media beta-sales-item">
+                                        <a href="../../../product.html"><img src="../../../resource/images/pet/phu-kien/vong-co-5.jpg" alt=""></a>
+                                        <div class="media-body">
+                                            <p>Vòng Cổ - 005 </p>
+                                            <span class="beta-sales-price">Giá: 100.000</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="beta-sales beta-lists">
+                                    <div class="media beta-sales-item">
+                                        <a href="../../../product.html"><img src="../../../resource/images/pet/sua-tam/sua-tam-0.jpg" alt=""></a>
+                                        <div class="media-body">
+                                            <p>Sữa Tắm S.O.S </p>
+                                            <span class="beta-sales-price">Giá: 100.000</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="beta-sales beta-lists">
+                                    <div class="media beta-sales-item">
+                                        <a href="../../../product.html"><img src="../../../resource/images/pet/thuc-an-meo/whiskas-junior.jpg" alt=""></a>
+                                        <div class="media-body">
+                                            <p>Whiskas Junior </p>
+                                            <span class="beta-sales-price">Giá: 100.000</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="space50">&nbsp;</div>
+
+            <div class="beta-products-list">
+
+                <h4>Sản Phẩm Cùng Loại</h4>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="card card-product">
+                            <a class="link-image" href="corgi-000.html"><img class="card-img-top" src="../../../resource/images/pet/dog/corgi/corgi-1.jpg"
+                                    alt="corgi-0"></a>
+                            <div class="card-body">
+                                <h5 class="card-title"> Corgi - 000 </h5>
+                                <p class="card-text"> Giá: 8.500.000 </p>
+                                <a class="add-to-cart btn btn-primary" data-name="Corgi - 000" data-price="8500000" data-img="../../../resource/images/pet/dog/corgi/corgi-0.jpg">Mua</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="card card-product">
+                            <a class="link-image" href="corgi-002.html"><img class="card-img-top" src="../../../resource/images/pet/dog/corgi/corgi-2.jpg"
+                                    alt="corgi-0"></a>
+                            <div class="card-body">
+                                <h5 class="card-title"> Corgi - 002 </h5>
+                                <p class="card-text"> Giá: 6.000.000 </p>
+                                <a class="add-to-cart btn btn-primary" data-name="Chó Corgi - 002" data-price="6000000" data-img="resource/images/pet/dog/corgi/corgi-2.jpg">Mua</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Content-->
+
+    <!-- Footer -->
+    <footer class="footer-script">
+        <script>
+            let footerRef = database.ref();
+            footerRef.on("value", snapshot => {
+                let html = ''
+                html += snapshot.child("footer03").val()
+                $(".footer-script").html(html)
+            })
+        </script>
+    </footer>
+    <!--End Footer -->
+</body>
+
+<script type="text/javascript" src="../../../resource/js/jquery-3.4.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
+<script type="text/javascript" src="../../../resource/bootstrap-4.4.1-dist/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src='https://kit.fontawesome.com/a076d05399.js'></script>
+<script src="../../../resource/js/login.js"></script>
+<script src="../../../resource/js/script.js"></script>
+<script src="../../../resource/js/shopping-cart.js"></script>
+</html>
