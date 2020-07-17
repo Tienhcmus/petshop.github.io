@@ -1,4 +1,3 @@
-
 let ref = database.ref('users');
 
 let login = false;
