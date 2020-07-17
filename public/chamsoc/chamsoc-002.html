@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>SEMINAR</title>
+    <!-- Import Bootstrap, js and font awesome -->
+    <link rel="stylesheet" type="text/css" href="../resource/bootstrap-4.4.1-dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="../resource/css/stylesheet.css" />
+    <link rel="stylesheet" type="text/css" href="../resource/css/cart.css" />
+    <link rel="stylesheet" type="text/css" href="../resource/css/card-news-stysheet.css" />
+    <link rel="stylesheet" type="text/css" href="../resource/css/modal.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Jura:wght@300;400&display=swap" rel="stylesheet">
+
+</head>
+
+<body data-spy="scroll" data-target=".sticky-sidebar .dropdown-content" data-offset="50">
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="/__/firebase/7.15.5/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="/__/firebase/7.15.5/firebase-analytics.js"></script>
+
+    <!-- Initialize Firebase -->
+    <script src="/__/firebase/init.js"></script>
+
+    <script src="/__/firebase/7.15.4/firebase-database.js"></script>
+    <!-- Header -->
+    <header>
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-md"
+            style="background-color: rgb(242, 241, 236); padding-top: 0; padding-bottom: 0;">
+            <div class="container-fluid">
+                <!-- Logo -->
+                <a class="navbar-brand" href="../index.html" style="width: 100px;">
+                    <img src="../resource/images/logo/Brand1.png" alt="pet-store" width="150%" height="150%">
+                </a>
+                <!-- Login -->
+                <ul class="navbar-nav ml-auto" style="font-size: large;">
+                    <li class="nav-item">
+                        <div class="dropdown">
+                            <button id="header-button" type="button" data-toggle="dropdown" data-target="shopping-cart"
+                                class="dropdown-toggle">
+                                <i class="fas fa-shopping-cart"> </i> <span id="quantity-cart"
+                                    class="badge badge-danger"></span>
+                            </button>
+                            <div class="dropdown-menu dropdown-menu-right">
+                                <div class="shopping-cart">
+                                    <ul class="shopping-cart-items"> </ul>
+                                    <div class="dropdown-divider"></div>
+                                    <p class="total-cost"> Tổng tiền: </p>
+                                    <a href="../cart-details.html" class="check-out">Thanh Toán</a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-item unsignin">
+                        <button id="header-button" type="button" data-toggle="modal" data-target="#Signup">
+                            Đăng Ký
+                        </button>
+                    </li>
+                    <li class="nav-item unsignin">
+                        <button id="header-button" type="button" data-toggle="modal" data-target="#Signin">
+                            Đăng Nhập
+                        </button>
+                    </li>
+                    <li class="nav-item sign-in">
+                        <button id="header-button" type="button" class="username">
+                            Tên Người Dùng
+                        </button>
+                    </li>
+                    <li class="nav-item sign-in">
+                        <button id="header-button" type="button" class="logout">
+                            Đăng Xuất
+                        </button>
+                    </li>
+                </ul>
+            </div>
+            </div>
+        </nav>
+        <!-- Carousel -->
+        <div id="slides" class="carousel slide" data-ride="carousel" style="z-index: 1;">
+            <ul class="carousel-indicators">
+                <li data-target="#slides" data-slide-to="0" class="active"></li>
+                <li data-target="#slides" data-slide-to="1"></li>
+                <li data-target="#slides" data-slide-to="2"></li>
+                <li data-target="#slides" data-slide-to="3"></li>
+            </ul>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <a class="link-image" href="../pet.html"><img src="../resource/images/Banner/banner1.jpg"
+                            alt="pet"></a>
+                </div>
+                <div class="carousel-item">
+                    <a class="link-image" href="../product.html"><img src="../resource/images/Banner/banner2.jpg"
+                            alt="Sanpham"></a>
+                </div>
+                <div class="carousel-item">
+                    <a class="link-image" href="../cham-soc.html"><img src="../resource/images/Banner/banner3.jpg"
+                            alt="chamsoc"></a>
+                </div>
+                <div class="carousel-item">
+                    <a class="link-image" href="../tin-tuc.html"><img src="../resource/images/Banner/banner4.jpg"
+                            alt="tintuc"></a>
+                </div>
+            </div>
+            <!-- Left and right controls -->
+            <a class="carousel-control-prev" href="#slides" data-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+            </a>
+            <a class="carousel-control-next" href="#slides" data-slide="next">
+                <span class="carousel-control-next-icon"></span>
+            </a>
+        </div>
+
+        <!--Menu-->
+        <div class="menu" style="background-color: #17a2b8; z-index: 2; width: 100%; padding-left: 10px;">
+            <nav class="navbar navbar-expand-sm bg-info navbar-dark position-sticky" style="z-index: 2; padding: 0;">
+                <!-- Links -->
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html"> Trang chủ </a>
+                    </li>
+                    <!-- Dropdown -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" href="../pet.html" id="navbarDropdown"> Hệ thống thú cưng
+                        </a>
+                        <div class="dropdown-content">
+                            <a class="dropdown-item" href="../danh-sach-cho.html"> Chó </a>
+                            <a class="dropdown-item" href="../danh-sach-meo.html"> Mèo </a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" href="../product.html" id="navbarDropdown"> Sản phẩm
+                        </a>
+                        <div class="dropdown-content">
+                            <a class="dropdown-item" href="../product.html#dog-food"> Thức ăn cho chó </a>
+                            <a class="dropdown-item" href="../product.html#cat-food"> Thức ăn cho mèo </a>
+                            <a class="dropdown-item" href="../product.html#sua-tam"> Sữa tắm </a>
+                            <a class="dropdown-item" href="../product.html#other-product"> Phụ kiện </a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" href="../cham-soc.html" id="navbarDropdown"> Chăm sóc thú cưng
+                        </a>
+                        <div class="dropdown-content">
+                            <a class="dropdown-item" href="#"> Cách chăm sóc chó </a>
+                            <a class="dropdown-item" href="#"> Cách chăm sóc mèo </a>
+                            <a class="dropdown-item" href="#"> Các dạng bệnh thường gặp và cách chữa trị </a>
+                            <a class="dropdown-item" href="#"> Lịch trình tiêm ngừa vắc xin </a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../tin-tuc.html"> Tin tức thú cưng </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../lien-he.html"> Liên hệ </a>
+                    </li>
+                </ul>
+                <div class="navbar-nav ml-auto">
+                    <!--Searching-->
+                    <form class="form-inline my-2 my-md-0">
+                        <div>
+                            <input class="form-control mr-sm-2" type="search" placeholder="Tìm Kiếm Sản Phẩm"
+                                aria-label="Search">
+                            <i class="fas fa-search" style="color: white; padding-right: 20px;"></i>
+                        </div>
+
+                    </form>
+                </div>
+            </nav>
+        </div>
+        <!-- Modal Sign up -->
+        <div class="modal fade" id="Signup">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <form id="signupform">
+                        <div class="container">
+                            <h3>Đăng Ký</h3>
+                            <p>Vui lòng điền vào mẫu này để tạo một tài khoản.</p>
+                            <hr>
+                            <div class="row">
+                                <div class="col-6">
+                                    <label for="fname"><b>Tên</b></label>
+                                    <input type="text" placeholder="Enter First Name" name="firstname"
+                                        id="sign_up_fname">
+                                    <span class="error-form" id="fname_error_message"></span>
+                                </div>
+                                <div class="col-6">
+                                    <label for="lname"><b>Họ</b></label>
+                                    <input type="text" placeholder="Enter Last Name" name="lastname" id="sign_up_lname">
+                                    <span class="error-form" id="lname_error_message"></span>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="col-3">
+                                    <label for="address"><b>Địa chỉ</b></label>
+                                </div>
+                                <div class="col-9" style="padding-left: 0px;">
+                                    <input type="text" placeholder="Enter Address" name="address" id="sign_up_addr">
+                                    <span class="error-form" id="addr_error_message"></span>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="col-3" style="padding-right: 0px;">
+                                    <label for="phone" style="margin-top: 0px;"><b>Số điện thoại</b></label>
+                                </div>
+                                <div class="col-9" style="padding-left: 0px;">
+                                    <input type="number" placeholder="Enter Phone Number" name="phone"
+                                        id="sign_up_phone">
+                                    <span class="error-form" id="phone_error_message"></span>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="col-4" style="padding-right: 0px;">
+                                    <label for="psw"><b>Mật Khẩu</b></label>
+                                </div>
+                                <div class="col-8" style="padding-left: 0px;">
+                                    <input type="password" placeholder="Enter Password" name="psw" id="sign_up_psw">
+                                    <span class="error-form" id="psw_error_message"></span>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="col-4" style="padding-right: 0px;">
+                                    <label for="psw-repeat"><b>Xác Nhận Mật Khẩu</b></label>
+                                </div>
+                                <div class="col-8" style="padding-left: 0px;">
+                                    <input type="password" placeholder="Repeat Password" name="pswrepeat"
+                                        id="sign_up_rpsw">
+                                    <span class="error-form" id="rpsw_error_message"></span>
+                                </div>
+                            </div>
+                            <hr>
+                            <button type="submit" class="registerbtn">Đăng Ký Tài Khoản</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal Sign in -->
+        <div class="modal fade" id="Signin">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <form>
+                        <div class="container">
+                            <h3>Đăng Nhập</h3>
+                            <p>Vui lòng điền vào mẫu này để đăng nhập tài khoản.</p>
+                            <hr>
+                            <div class="row">
+                                <div class="col-3" style="padding-right: 0px;">
+                                    <label for="phone"><b>Số điện thoại</b></label>
+                                </div>
+                                <div class="col-9" style="padding-left: 0px;">
+                                    <input type="text" placeholder="Enter Phone Number" name="phone" required>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="col-3" style="padding-right: 0px;">
+                                    <label for="psw"><b>Mật Khẩu</b></label>
+                                </div>
+                                <div class="col-9" style="padding-left: 0px;">
+                                    <input type="password" placeholder="Enter Password" name="psw" required>
+                                </div>
+                            </div>
+                            <hr>
+                            <button id="login-btn" type="submit" class="registerbtn">Đăng Nhập</button>
+                        </div>
+                        <div class="container forgotpsw" style="padding-top: 0px;">
+                            <a href="#">Quên Mật Khẩu?</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </header>
+    <!--End Header -->
+
+    <!-- Content -->
+    <div class="container" style="padding: 20px;">
+        <div class="container">
+            <div class="pull-left">
+                <h4 class="inner-title">Tin Tức Thú Cưng</h4>
+            </div>
+            <div class="pull-right">
+                <div class="beta-breadcrumb font-large">
+                    <a href="../index.html">Home</a> / <span>Tin Tức</span>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+    <div class="container-fluid news-form">
+        <div class="row news-article">
+            <div class="col-md-9">
+                <h1 class='news-article-title'> 5 Bệnh Thường Gặp Ở Thú Cưng</h1>
+                <hr>
+                <div class='news-article-content'>
+                    <p> <br>
+                        <h4>1. BỆNH CARÊ ( SÀI SỐT - DISTEMPER )</h4>
+                        <br>
+                        <h6>Triệu Chứng</h6> <br>
+                        &emsp; Hầu hết chó mắc bệnh ở thể cấp tính với các triệu chứng điển hình: sốt cao từ 39- 42 độ
+                        C,
+                        các niêm mạc đều bị viêm, mắt chó bị sưng húp, chảy nước mắt và có ghèn liên tục. <br>
+
+                        &emsp;&emsp;- Chó thở khó khăn, khò khè và rên rỉ do viêm phổi cấp có mủ. <br>
+
+                        &emsp;&emsp;- Chó bị viêm niêm mạc đường tiêu hoá, thể hiện nôn mửa liên tục, tiêu chảy có máu
+                        và niêm mạc nhầy. Hội chứng viêm ruột làm cho chó kiệt sức và chết nhanh vì mất nước, mất máu,
+                        chất điện giải. <br>
+
+                        &emsp;&emsp;- Hội chứng thần kinh cũng thấy xảy ra phổ biến ở chó bệnh như run rẩy, đi lại xiêu
+                        vẹo, lên cơn co giật, mắt trợn ngược, chảy nước dãi. Trên mặt, da bụng, bẹn, nách của chó thường
+                        có những nốt mụn mủ như hạt đậu vỡ ra và khô đóng vẩy. <br>
+
+                        &emsp;&emsp;- Bệnh phổ biến và gây chết chó con từ 2 - 6 tháng tuổi. Chó trưởng thành trên một
+                        năm tuổi ít thấy mắc bệnh. <br>
+
+                        &emsp;Một số chó sau khi điều trị khỏi bệnh thường có di chứng thần kinh như : đi choải chân,
+                        run rẩy khi đi lại...<br>
+                        <br>&emsp;
+                        <p class="center"> <img src="../resource/images/take-care/poppie1-520x400.jpg" alt="sick"></p>
+                        <br>
+
+                        <h6>Phòng Bệnh</h6> <br>
+                        &emsp;&emsp;- Tiêm phòng cho chó lúc 3 tháng tuổi bằng vaccine phòng bệnh Carê (VN) hoặc dùng
+                        vaccin DHPPi + L (Hà lan): phòng cùng lúc 5 bệnh Carê, Viêm gan truyền nhiễm, Parvovirus, Phó
+                        cúm, Lepto . <br>
+                        &emsp;&emsp;- Thực hiện vệ sinh thú y và chăm sóc, nuôi dưỡng tốt giúp chó có sức đề kháng chống
+                        lại bệnh. <br>
+                        &emsp;&emsp;- Chuồng trại và môi trường thả chó phải làm vệ sinh định kỳ, hạn chế môi giới
+                        truyền bệnh và chống ô nhiễm. <br>
+                        <br>
+
+                        <h6>Điều Trị</h6>
+                        <br>
+                        &emsp;&emsp;- Bệnh chưa có thuốc điều trị đặc hiệu, khi chó bệnh thì phải cách ly để tránh lây
+                        nhiễm sang chó khỏe khác và đưa chó đến các phòng mạch Thú y để được hướng dẫn điều trị. <br>
+
+                        &emsp;&emsp;- Có thể sử dụng một trong các loại thuốc kháng sinh trị nhiễm khuẩn kế phát
+                        như:Vime-Tobra, Amoxi 15 % LA, Vimexyson C.O.D, Spectylo, Lincocin 10%.... Kết hợp với các thuốc
+                        bồi dưỡng, trợ sức sau: vitamin C, B. complex fortified , Paravet, Atropin, Na.campho,... <br>
+
+                        &emsp; Do chó bị tiêu chảy nhiều, nên truyền dịch Glucose 5% bù đắp nước và chất điện giải để
+                        chó mau hồi phục. <br>
+                        <br>
+                        <h4>2. BỆNH HO CŨI CHÓ (VIÊN KHÍ QUẢN PHẾ QUẢN TRUYỀN NHIỄM)</h4> <br>
+                        <br>
+                        &emsp;&emsp;- Bệnh gây ra nhiều nhất ở chó dưới 6 tháng tuổi, chó nhập từ nước ngoài, chó chuyển
+                        vùng vào
+                        đợt đợt rét lạnh, ẩm ướt hoặc chó bị nhiều stress bất lợi khác... đều có khả năng mang bệnh <br>
+                        &emsp;&emsp;- Bệnh lây lan nhanh làm chết nhiều chó với các triệu chứng ho khạc kéo dài từ 7- 21
+                        ngày do viêm
+                        đường hô hấp trên, mặc dù lúc đầu vẫn ăn khỏe, nhanh nhẹn, không sốt, khó có thể biết chó đã
+                        mang bệnh. <br>
+                        &emsp;&emsp;- Quan sát kỹ: mắt không trong sáng, có rử ghèn, gương mũi luôn luôn khô, ráp và
+                        chảy dịch xanh,
+                        hay liếm mũi rồi nuốt dịch, hắt hơi khi có nhiều dịch chảy ra...bệnh chuyển sang mạn tính, chó
+                        gầy sút nhanh do kế phát các bệnh vi khuẩn, virus khác: Parvovirus, Carre... tiêu chảy, phân nát
+                        có nhày máu, hôi tanh , nôn ra dịch nhớt vàng từ dạ dày lẫn nhớt, rối loạn chức năng gan, thận
+                        và chết đột ngột do khó thở, trụy hô hấp, mất nước và trụy tim mạch. <br>
+                        &emsp;&emsp;- Bệnh thường diễn biến kéo dài tới nhiều tuần, thậm chí tới 2 tháng. Những con được
+                        chữa trị
+                        theo triệu chứng, tưởng chừng đã khỏi, sau vài tuần bị lại, tỷ lệ tử vong rất cao. <br>
+                        &emsp;&emsp;- Cách phòng tốt nhất: Tiêm vắc xin. <br>
+                        <br>
+                        <h4>3. BỆNH VIÊM DẠ DÀY – RUỘT TRÊN CHÓ VÀ CÁCH CHỮA.</h4> <br>
+                        <br>
+                        <h6>Nguyên Nhân</h6> <br>
+                        &emsp;Bệnh phổ biến xảy ra quanh năm thường thấy nhiều vào mùa hè khi thời tiết nóng và mưa ẩm
+                        ướt. Có 3 nguyên nhân có thể gây ra viêm dạ dày và ruột cấp ở chó. <br>
+                        &emsp;&emsp;- Do giun móc (Ancylostoma caninum) : giun móc có những móc nhọn bằng kitin cắm vào
+                        vách ruột non ở phần tá tràng, không tràng để hút máu, tạo ra những tổn thương và xuất huyết
+                        trong tổ chức niêm mạc ruột. Vi khuẩn có sẵn trong niêm mạc ruột sẽ xâm nhập vào những chỗ bị
+                        tổn thương gây thành bệnh viêm ruột cấp. <br>
+                        &emsp;&emsp;- Do virus: Virus Parvo, Virus Carê khi xâm nhập vào hệ thống tiêu hóa của chó phát
+                        triển nhanh chóng, phá hoại niêm mạc dạ dày và ruột. <br>
+                        &emsp;&emsp;- Do vi khuẩn : Chó ăn uống phải thức ăn và nước uống có chứa vi khuẩn thương hàn
+                        (Salmonella), vi khuẩn yếm khí (Clostridium), vi khuẩn E.Coli... Những vi khuẩn này sẽ phát
+                        triển trong niêm mạc đường tiêu hóa gây ra bệnh viêm dạ dày và ruột cấp. <br>
+                        <br>
+                        <h6>Triệu Chứng</h6> <br>
+                        &emsp;&emsp;- Vài ngày đầu chó ít ăn hoặc bỏ ăn, sốt 39,5 - 40oC, có kèm theo các cơn run rẩy.
+                        Sau đó, chó nôn mửa liên tục đồng thời tiêu chảy nặng, phân lúc đầu táo bón sau loãng có màu xám
+                        vàng, có lẫn niêm mạc dạ dày và ruột lầy nhầy, có mùi rất tanh.
+                        <br>
+
+                        &emsp;&emsp;- Do nôn mửa và tiêu chảy liên tục, chó mất nước thể hiệûn: mắt trũng, bụng thót, da
+                        nhăn nheo. Khi bị mất nước chó không được điều trị kịp thời sẽ chết sau một vài ngày.
+                        <br>
+
+                        &emsp;&emsp;- Thời kỳ cuối của bệnh, chó thường chảy máu ruột nên phân có màu nâu sẫm hoặc lờ đờ
+                        như máu cá. Trước khi chết thân nhiệt chó thường hạ thấp . Thời kỳ này chó không đi được, kiệt
+                        sức, nằm một chỗ và chết.
+                        <br>
+
+                        &emsp;&emsp;- Bệnh viêm dạ dày và ruột cấp nếu không chữa trị kịp thời, chăm sóc chu đáo thì chó
+                        sẽ chết 90 - 100% trong thời gian 2 - 4 ngày. Một số chó qua khỏi nhưng chuyển thành thể viêm dạ
+                        dày ruột mãn tính. Thể bệnh này làm chó bị gầy còm, thiếu máu do kém ăn, lúc thì táo bón, lúc
+                        thì tiêu chảy. <br>
+                        <br>
+                        <h6>Phòng Bệnh</h6> <br>
+                        &emsp;&emsp;- Cho chó ăn thức ăn nấu chín, không cho ăn thịt sống và trứng sống, vì trong thịt
+                        sống và trứng sống dễ bị nhiễm các loại vi khuẩn gây bệnh đường tiêu hóa như: vi khuẩn thương
+                        hàn, trực khuẩn yếm khí, trực khuẩn E.Coli. Không cho chó ăn thức ăn ôi thối, cho uống nước sạch
+                        không nhiễm bẩn.
+                        <br>
+
+                        &emsp;&emsp;- Thực hiện tẩy giun sán định kỳ cho chó bằng Vimectin cứ 3- 4 tháng tẩy 1 lần để
+                        tránh gây tác hại cơ giới dẫn đến viêm ruột cấp.- Định kỳ tiêm phòng vaccine chống bệnh Carê và
+                        Parvovirus.
+                        <br>
+                        <br>
+                        <h6>Điều Trị </h6> <br>
+                        &emsp;Nguyên tắc chung là chẩn đoán đúng nguyên nhân gây bệnh từ đó điều trị nguyên nhân kết hợp
+                        với điều trị triệu chứng, trợ sức và trợ tim mạch. <br>
+
+                        &emsp;Điều trị bằng một trong các loại kháng sinh sau:Spectylo : liều 1ml/ 3 - 5 kg thể
+                        trọng.Tylenro 5 + 5 : liều 1ml/10kg thể trọng/ngày. <br>
+                        &emsp;Kết hợp với điều trị triệu chứng và bồi dưỡng bằng các loại như : <br>
+                        &emsp;&emsp;- Vime C : liều 500mg/con/ngày. <br>
+
+                        &emsp;&emsp;- Vitamin B6 : liều 1ml/con/ngày. <br>
+
+                        &emsp;&emsp;- Vitaral : liều 1ml/10kg <br>
+
+                        &emsp;&emsp;- PParavet : liều 1ml/4 kg <br>
+
+                        &emsp;&emsp;- P.Atropin : liều 2ml/10 -15 kg <br>
+
+                        &emsp;&emsp;- PNa.campho : liều 2 - 4 ml/con/ngày. <br>
+
+                        &emsp;&emsp;- Truyền glucose 5% để cung cấp nước và chất điện giải giúp chó mau hồi phục. <br>
+                        <br>
+                        <h4> 4. BỆNH GHẺ DEMODEX</h4> <br>
+                        <br>
+                        <h6>Triệu Chứng </h6> <br>
+                        &emsp;&emsp;Ghẻ Demodex được phân loại thành 2 dạng: khu trú hoặc toàn thân dựa vào đánh giá
+                        tình trạng bệnh và cách xử lí đối với từng loại. <br>
+                        &emsp;&emsp;Ghẻ Demodex đôi khi không gây ngứa, tuy nhiên bệnh ghẻ toàn thân và ở bàn chân có
+                        thể gây đau đớn dữ dội. Vùng rụng lông có thể bị đóng vảy và đỏ lên <br>
+                        &emsp;&emsp;Ghẻ Demodex khu trú thường có vùng tổn thương nhỏ và riêng biệt, ghẻ Demodex toàn
+                        thân có những vùng tổn thương lớn hơn và có nhiễm khuẩn thứ phát. <br>
+                        &emsp;Ghẻ Demodex khu trú được đặc trưng bởi vùng rụng lông ít (ít hơn 5 – 12 điểm), nhỏ, vùng tổn
+                        thương có giới hạn và thường xảy ra trên chó con. Việc điều trị dễ dàng đạt hiệu quả cao. <br>
+                        &emsp;Ghẻ Demodex toàn thân là dạng bệnh trầm trọng, gây ra tình trạng thú bị rụng lông toàn thân, da
+                        đóng vảy và tiết dịch, biểu hiện lờ đờ, sốt và nhiễm trùng huyết do nhiễm khuẩn thứ phát. Mụn,
+                        mụn mủ, đỏ da, tăng sắc tố mô là tổn thương kế phát của bệnh ghẻ Demodex toàn thân. Ghẻ Demodex
+                        toàn thân có thể xảy ra ở thú non hoặc thú trưởng thành. Thú trưởng thành thường ít bị mắc bệnh
+                        hơn nhưng khi mắc bệnh thì việc điều trị rất khó khăn. Để điều trị đạt hiệu quả cần kết hợp điều
+                        trị kí sinh trùng, nhiễm khuẩn kế phát và các nguyên nhân tiềm ẩn khác, đồng thời sử dụng các
+                        loại thuốc hỗ trợ tăng sức đề kháng. <br>
+                        <br>
+                        <p class="center"><img src="../resource/images/take-care/benh-mo-bao-long-o-cho-4.jpg" alt=""></p>
+                        <br>
+                        <br> <h6>Chuẩn Đoán</h6> <br>
+                        &emsp;Tất cả thú có triệu chứng ngứa, viêm da sâu, mụn, mụn mủ, đóng vảy nên được xem xét là ghẻ Demodex. Nếu nghi ngờ, nên nhổ lông vùng da bệnh (ghẻ Demodex canis sống trong nang lông) hoặc cạo da sâu vùng da bị bệnh.Để vật phẩm (lông được nhổ/ da cạo sâu) lên phiến kính, cho vài giọt paraffin phủ lên trên và xem dưới độ phân giải thấp. Tăng độ phân giải ở khu vực kiểm tra để xem được chi tiết hơn. Ghẻ vẫn sống 1 khoảng thời gian trong dung dịch paraffin lỏng, do đó có thể thấy được sự di chuyển của cái ghẻ.Cái ghẻ nhỏ, dài và thường có dạng giống như điếu xì gà với các chân ngắn đặc trưng ở mặt sau của ghẻ. Bốn cặp chân được định vị ở nửa phần thân trước của cái ghẻ và lỗ sinh dục của con cái ở phía sau của cặp chân cuối.  <br>
+
+                        &emsp;&emsp;Demodex canis <br>
+                        
+                        &emsp;Cái ghẻ sinh sống bình thường ở da chó/ mèo, phát hiện được 1 con cái ghẻ thì đó không phải là triệu chứng, phải tìm được số lượng ghẻ nhiều, có thể phát hiện cả trứng mới là dấu hiệu.Cạo lông và ép da... ... cho đến khi đẩy được cái ghẻ khỏi phần sâu của nang lông. <br>
+                        
+                         
+                        
+                        &emsp;&emsp;Vòng đời <br>
+                        
+                        &emsp;Toàn bộ vòng đời của cái ghẻ xảy ra trên kí chủ, truyền từ mẹ cho con trong vài ngày đầu đời khi thú non bú sữa. Ấu trùng nở ra từ trứng và phát triển thành con đực, con cái sau 2 – 3 giai đoạn phát triển, toàn bộ vòng đời của ghẻ xảy ra mất khoảng 3 tuần. <br> 
+                        
+                         
+                        
+                        &emsp;&emsp;Kiểm soát bệnh ghẻ do Demodex toàn thân: <br>
+                        
+                        &emsp;Bệnh có thể liên quan đến các nguyên nhân tiềm ẩn, tất cả thú bị ghẻ do Demodex toàn thân nên được điều trị kết hợp với kháng sinh để ngăn ngừa phụ nhiễm và giúp hồi phục nhanh. Tiến trình điều trị tùy thuộc vào mức độ trầm trọng của bệnh và kết quả đánh giá tế bào học. ­ <br>
+                        
+                        &emsp;Nếu kiểm tra tế bào học có cầu khuẩn và chủ yếu là Staphylococcus intermedius nên điều trị bằng kháng sinh từ 3 – 8 tuần. ­<br>
+                        &emsp;Nếu kiểm tra tế bào có số lượng lớn là trực khuẩn, nên làm kháng sinh đồ để chọn ra kháng sinh có hiệu quả cao nhất. Kháng sinh được lựa chọn để điều trị viêm da có mủ phải là loại đạt hàm lượng cao trên da và khả năng diệt khuẩn tối ưu nhất. Điều quan trọng là phù hợp với độ dài của điều trị, giải quyết được các tổn thương của viêm da mủ. <br>
+                        <br>
+                        <h6> Tiến hành điều trị và theo dõi</h6> <br>
+                        &emsp;Tiến trình điều trị tùy vào từng cá thể. Kiểm tra ghẻ Demodex trên chó mỗi tháng. Mỗi lần cạo da phải đếm số ghẻ, nhộng, ấu trùng và trứng để kiểm tra dưới kính hiển vi với độ phân giải 40 hoặc 100. <br>
+                        &emsp;&emsp;- Nếu số lượng ghẻ và tình trạng lâm sàng không thay đổi, nên thay đổi liệu pháp điều trị. <br>
+                        &emsp;&emsp;- Nếu không phát hiện giai đoạn thành thục đầu tiên và sau đó số lượng ghẻ trưởng thành giảm, thì tiếp tục với liệu pháp điều trị đã chọn. Nên tiếp tục điều trị thêm 4 tuần sau khi kiểm tra mẫu da cho kết quả âm tính lần thứ 2. Thông thường, người nuôi thú đều mong muốn cải thiện tình trạng sau tháng đầu điều trị. Nhưng việc kiểm tra mẫu da cho kết quả âm tính chỉ đạt được sau điều trị 2 – 4 tháng. Do đó, một quy trình điều trị Demodex trung bình mất khoảng 4 – 6 tháng. Với những trường hợp điều trị không hiệu quả, thay đổi thuốc là điều hiển nhiên và tỉ lệ thành công của thuốc thứ 2 thường đạt khoảng 70%. Cơ hội tương tự của việc điều trị sau khi tái phát cũng khoảng 70%. <br>
+                        <br>
+                        <h4>5. BỆNH ĐI ỈA RA MÁU, NÔN MỬA CHÓ CON</h4>
+                        <br>
+                        <h6>Triệu Chứng </h6> <br>
+                        &emsp;Chó đang khỏe mạnh bỗng bỏ ăn, ủ rũ, nôn mửa, hai ngày sau đi ỉa, ngày sau nữa ỉa ra máu tươi như nước chỉ uống nước, người gầy rộc và chết nhanh. <br>
+                        <br>
+                        <h6>Điều trị hiệu quả</h6> <br>
+                        &emsp;&emsp;- Thuốc: Atropin+ gentamycin+ lincomycin+ VB1+VB12 (THUỐC ỐNG TIÊM CỦA NGƯỜI) tùy thuộc trọng lượng của chó ta tiêm ngày 2 lần các thuốc kết hợp với nhau) <br>
+
+                        &emsp;&emsp;- Tiêm chưa thể chữa khỏi hẵn cho chó được vì chó ỉa ra máu hoại tử ruột rồi nên quan trọng hơn cả bạn cho ngay quả trứng gà bơm vào miệng chó(không ăn phải bắt ăn) ngày 1-2 quả <br>
+                        
+                        &emsp;Quan trọng nữa là lấy ngay 1 nắm to cây nhọ lồi cầm máu+ nắm cây mơ lông rửa sạch ,vẩy sạch nước dã lấy nước cốt đặc đổ cho chó uống ngày 2-3 lần tùy theo( trên thành phố khó tìm cây này nên có thể tiêm Vitamin K) nhưng hiệu quả phải kết hợp với ăn trứng gà và uống cây lọ nhồi+ mơ lông hoặc vitamin k chỉ trong 3-4 ngày chó khỏi hẳn các triệu chứng trên và ăn được, thường khi chó khỏi đa phần chó gầy còn bộ khung sương nhưng hồi phục rất nhanhh. <br>
+
+                    </p>
+                </div>
+
+            </div>
+            <br>
+            <div class="col-md-3">
+                <div class="sticky-sidebar">
+                    <h6>Tin nổi bật</h6>
+                    <ul class="aside-menu" style="font-size: medium; margin: 5px;">
+                        <li>
+                            <div style="display: flex; height: 50px;">
+                                <img src="../resource/images/take-care/cách-tự-làm-pate-cho-mèo-main.jpg" alt="new0"
+                                    width="50px" height="50px">
+                                <a href="#" style="overflow: hidden !important; height: 50px; padding-left: 5px;"> Cách
+                                    làm pate cho mèo con ăn không bao giờ ngán</a>
+                            </div>
+                        </li>
+                        <hr />
+                        <li>
+                            <div style="display: flex; height: 50px;">
+                                <img src="../resource/images/take-care/cac-benh-thuong-gap-o-phoc-soc-5.jpg" alt="new0"
+                                    width="50px" height="50px">
+                                <a href="#" style="overflow: hidden !important; height: 50px; padding-left: 5px;"> Các
+                                    Bệnh Thường Gặp Ở Chó Phốc Sóc</a>
+                            </div>
+                        </li>
+                        <hr />
+                        <li>
+                            <div style="display: flex; height: 50px;">
+                                <img src="../resource/images/take-care/elle-viet-nam-loai-cho-3-1024x512.jpg" alt="new0"
+                                    width="50px" height="50px">
+                                <a href="chamsoc-000.html"
+                                    style="overflow: hidden !important; height: 50px; padding-left: 5px;"> Hướng
+                                    dẫn dành cho người mới</a>
+                            </div>
+
+                        </li>
+                        <hr />
+                        <li>
+                            <div style="display: flex; height: 50px;">
+                                <img src="../resource/images/news/1_3.jpg" alt="new0" width="50px" height="50px">
+                                <a href="#" style="overflow: hidden !important; height: 50px; padding-left: 5px;"> Xả
+                                    thân bảo vệ chủ khỏi rắn độc, chó pitbull bị cắn chết ở Mỹ</a>
+                            </div>
+                        </li>
+                    </ul>
+                    <br />
+                    <div class="contact">
+                        <a href="../lien-he.html">
+                            <span>Thông Tin Liên Hệ </span>
+                        </a>
+                        <ul class="aside-menu" style="font-size: medium;">
+                            <li>
+                                Địa chỉ cửa hàng: 227 Đường Nguyễn Văn Cừ, Phường 4, Quận 5,
+                                Hồ Chí Minh
+                            </li>
+                            <hr />
+                            <li>Số điện thoại: 0975814755</li>
+                            <br />
+
+                            <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.637215381392!2d106.67900811480058!3d10.762417592331024!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752f1bfc262bf1%3A0x4e843897f2900135!2zMjI3IMSQxrDhu51uZyBOZ3V54buFbiBWxINuIEPhu6ssIFBoxrDhu51uZyA0LCBRdeG6rW4gNSwgSOG7kyBDaMOtIE1pbmg!5e0!3m2!1sen!2s!4v1585388062839!5m2!1sen!2s"
+                                width="100%" height="100%" frameborder="0" style="border:0;" allowfullscreen=""
+                                aria-hidden="false" tabindex="0"></iframe>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <br />
+    </div>
+    <!-- End Content -->
+    <div class="space50">&nbsp;</div>
+    <!-- Footer -->
+    <footer>
+        <div style="background-color: rgb(242, 241, 236); margin-top: 20px; z-index: 1;">
+            <div class="row">
+                <div class="col-md-4" style="padding: 50px; font-size: 22px;">
+                    <div class="row">
+                        <a class="link-brand" href="../lien-he.html"><img src="../resource/images/logo/Brand1.png"
+                                alt="Pet-Store" width="80%" height="80%" /></a>
+                    </div>
+                    <p>
+                        <i class="fas fa-home"></i> Địa chỉ cửa hàng: 227 Đường Nguyễn Văn
+                        Cừ, Phường 4, Quận 5, Hồ Chí Minh
+                    </p>
+                    <p><i class="fa fa-phone"></i> Số điện thoại: 0975814755</p>
+                    <p>
+                        <i class="fas fa-plus-square"></i> Địa chỉ phòng khám: 227 Đường
+                        Nguyễn Văn Cừ, Phường 4, Quận 5, Hồ Chí Minh
+                    </p>
+                    <p><i class="fa fa-phone"></i> Số điện thoại: 0975814755</p>
+                </div>
+                <div class="col-md-4">
+                    <h1 style="padding-top: 70px">Giờ làm việc</h1>
+                    <h6>Sáng từ 7:00 - 11:30</h6>
+                    <h6>Chiều từ 13:00 - 18:30</h6>
+                    <h6>Hoạt động từ thứ 2 đến chủ nhật hàng tuần</h6>
+                    <h6>Trừ những ngày lễ, tết</h6>
+                </div>
+                <div class="col-md-4">
+                    <h2 style="padding-top: 75px">Dịch vụ cung cấp</h2>
+                    <h6>Cung cấp thú cưng và phụ kiện</h6>
+                    <h6>Hỗ trợ chăm sóc thú cưng</h6>
+                    <h6>Tư vấn và hướng dẫn</h6>
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.637215381392!2d106.67900811480058!3d10.762417592331024!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752f1bfc262bf1%3A0x4e843897f2900135!2zMjI3IMSQxrDhu51uZyBOZ3V54buFbiBWxINuIEPhu6ssIFBoxrDhu51uZyA0LCBRdeG6rW4gNSwgSOG7kyBDaMOtIE1pbmg!5e0!3m2!1sen!2s!4v1585388062839!5m2!1sen!2s"
+                        frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!--End Footer -->
+</body>
+
+<script type="text/javascript" src="../resource/js/jquery-3.4.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
+<script type="text/javascript" src="../resource/bootstrap-4.4.1-dist/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src='https://kit.fontawesome.com/a076d05399.js'></script>
+<script src="../resource/js/script.js"></script>
+<script src="../resource/js/login.js"></script>
+<script src="../resource/js/shopping-cart.js"></script>
+
+</html>

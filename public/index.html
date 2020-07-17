@@ -161,11 +161,12 @@
                 </ul>
                 <div class="navbar-nav ml-auto">
                     <!--Searching-->
-                    <form class="form-inline my-2 my-md-0">
+                    <form class="search-form form-inline my-2 my-md-0">
                         <div>
-                            <input class="form-control mr-sm-2" type="search" placeholder="Tìm Kiếm Sản Phẩm"
+                            <input id="search-text" class="form-control mr-sm-2"  type="search" placeholder="Tìm Kiếm Sản Phẩm"
                                 aria-label="Search">
-                            <i class="fas fa-search" style="color: white; padding-right: 20px;"></i>
+                                <button class="search-btn" type="submit"><i class="fa fa-search"></i></button>
+            
                         </div>
 
                     </form>
@@ -307,7 +308,7 @@
                                         <p class="card-text"> Giá: 10.000.000 </p>
                                         <button data-name="Corgi-001" data-price="10000000"
                                             data-img="resource/images/pet/dog/corgi/corgi-0.jpg"
-                                            class="btn btn-primary">Mua</button>
+                                            class="add-to-cart btn btn-primary">Mua</button>
                                     </div>
                                 </div>
                             </div>
@@ -320,7 +321,7 @@
                                         <p class="card-text"> Giá: 8.500.000 </p>
                                         <button data-name="Samoyed - 000" data-price="8500000"
                                             data-img="resource/images/pet/dog/samoyed/samoyed-0.jpg"
-                                            class="btn btn-primary">Mua</button>
+                                            class="add-to-cart btn btn-primary">Mua</button>
                                     </div>
                                 </div>
                             </div>
@@ -333,7 +334,7 @@
                                         <p class="card-text"> Giá: 	6.500.000 </p>
                                         <button data-name="Mèo Tai Cụp - 001" data-price="6500000"
                                             data-img="resource/images/pet/cat/meo-tai-cup/tai-cup-1.jpg"
-                                            class="btn btn-primary">Mua</button>
+                                            class="add-to-cart btn btn-primary">Mua</button>
                                     </div>
                                 </div>
                             </div>
@@ -346,7 +347,7 @@
                                         <p class="card-text"> Giá: 	1.800.000 </p>
                                         <button data-name="Mèo Xiêm - 002" data-price="1800000"
                                             data-img="resource/images/pet/cat/meo-xiem/meo-xiem-1.jpg"
-                                            class="btn btn-primary">Mua</button>
+                                            class="add-to-cart btn btn-primary">Mua</button>
                                         </div>
                                     </div>
                                 </div>
@@ -392,7 +393,7 @@
                                         <p class="card-text"> Giá: 100.000 </p>
                                         <button data-name="Sữa Tắm S.O.S" data-price="100000"
                                             data-img="resource/images/pet/sua-tam/sua-tam-0.jpg"
-                                            class="btn btn-primary">Mua</button>
+                                            class="add-to-cart btn btn-primary">Mua</button>
                                     </div>
                                 </div>
                             </div>
@@ -421,7 +422,7 @@
                                         <p class="card-text"> Giá: 100.000 </p>
                                         <button data-name="Whiskas Vị Cá Thu" data-price="100000"
                                             data-img="resource/images/pet/thuc-an-meo/whiskas-cho-meo-lon-vi-ca-thu-va-ca-moi-400g.jpg"
-                                            class="btn btn-primary">Mua</button>
+                                            class="add-to-cart btn btn-primary">Mua</button>
                                     </div>
                                 </div>
                             </div>
@@ -453,10 +454,10 @@
                         <div class="col-md-3 col-sm-6 col-12">
                             <div class="card card-product mb-3">
                                 <a class="link-image" href="#"><img class="card-img-top"
-                                        src="resource/images/pet/Cham-soc/index/cach-tam-cho-cho.jpg"
-                                        alt="cham-soc-0"></a>
+                                        src="resource/images/take-care/3-6.jpg"
+                                        alt="cham-soc-0" height="200px"></a>
                                 <div class="card-body">
-                                    <h6 class="card-title"> Cách chăm sóc chó </h6>
+                                    <h6 class="card-title" style="height: 100px; overflow: hidden;"> Chăm sóc dinh dưỡng cho chó Husky </h6>
                                     <a href="#" class="btn btn-primary"> Xem thêm </a>
                                 </div>
                             </div>
@@ -464,9 +465,9 @@
                         <div class="col-md-3 col-sm-6 col-12">
                             <div class="card card-product mb-3">
                                 <a class="link-image" href="#"><img class="card-img-top"
-                                        src="resource/images/pet/Cham-soc/index/cham-soc-meo.jpg" alt="cham-soc-1"></a>
+                                        src="resource/images/take-care/cac-benh-thuong-gap-o-phoc-soc-5.jpg" alt="cham-soc-1" height="200px"></a>
                                 <div class="card-body">
-                                    <h6 class="card-title"> Cách chăm sóc mèo </h6>
+                                    <h6 class="card-title" style="height: 100px; overflow: hidden;"> Các Bệnh Thường Gặp Ở Chó Phốc Sóc </h6>
                                     <a href="#" class="btn btn-primary"> Xem thêm </a>
                                 </div>
                             </div>
@@ -474,10 +475,10 @@
                         <div class="col-md-3 col-sm-6 col-12">
                             <div class="card card-product mb-3">
                                 <a class="link-image" href="#"><img class="card-img-top"
-                                        src="resource/images/pet/Cham-soc/index/bẹnh-ho-cui-o-cho.jpg"
-                                        alt="cham-soc-2"></a>
+                                        src="resource/images/cat/shutterstock_402931909.jpg"
+                                        alt="cham-soc-2" height="200px"></a>
                                 <div class="card-body">
-                                    <h6 class="card-title"> Các loại bệnh thường gặp </h6>
+                                    <h6 class="card-title" style="height: 100px; overflow: hidden;"> 5 bệnh thường gặp ở thú cưng </h6>
                                     <a href="#" class="btn btn-primary"> Xem thêm </a>
                                 </div>
                             </div>
@@ -485,9 +486,9 @@
                         <div class="col-md-3 col-sm-6 col-12">
                             <div class="card card-product mb-3">
                                 <a class="link-image" href="#"><img class="card-img-top"
-                                        src="resource/images/pet/Cham-soc/index/vaccin-cho.jpg" alt="cham-soc-3"></a>
+                                        src="resource/images/take-care/cách-tự-làm-pate-cho-mèo-main.jpg" alt="cham-soc-3" height="200px"></a>
                                 <div class="card-body">
-                                    <h6 class="card-title"> Lịch trình tiêm ngừa vắc xin </h6>
+                                    <h6 class="card-title" style="height: 100px; overflow: hidden;"> Cách làm pate cho mèo con ăn không bao giờ ngán </h6>
                                     <a href="#" class="btn btn-primary"> Xem thêm </a>
                                 </div>
                             </div>

@@ -7,9 +7,12 @@ if (sessionStorage["shopping-cart-items"] != null) {
     displayShoppingCartItems();
 }
 
+let clickBuy = new Audio()
+clickBuy.src="https://www.soundjay.com/button/beep-07.wav"
 
 
 $(".add-to-cart").click(function () {
+    clickBuy.play()
     let button = $(this); // Lấy đối tượng mà người dùng click đặt tên là button
     let name = button.attr("data-name"); // name của sản phẩm là thuộc tính data-name của button
     let price = button.attr("data-price"); // price của sản phẩm là thuộc tính data-price của button

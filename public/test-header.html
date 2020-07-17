@@ -9,23 +9,37 @@
 
 
 </head>
+
 <body>
     <!-- The core Firebase JS SDK is always required and must be listed first -->
-<script src="/__/firebase/7.15.3/firebase-app.js"></script>
+    <script src="/__/firebase/7.15.3/firebase-app.js"></script>
 
-<!-- TODO: Add SDKs for Firebase products that you want to use
+    <!-- TODO: Add SDKs for Firebase products that you want to use
      https://firebase.google.com/docs/web/setup#available-libraries -->
-<script src="/__/firebase/7.15.3/firebase-analytics.js"></script>
+    <script src="/__/firebase/7.15.3/firebase-analytics.js"></script>
 
-<!-- Initialize Firebase -->
-<script src="/__/firebase/init.js"></script>
-<script src="/__/firebase/7.15.4/firebase-database.js"></script>
+    <!-- Initialize Firebase -->
+    <script src="/__/firebase/init.js"></script>
+    <script src="/__/firebase/7.15.4/firebase-database.js"></script>
+    <h2>Thêm Sản Phẩm</h2>
+    <input type="text" placeholder="tên sản phẩm" id="name">
+    <input type="text" placeholder="giá" id="price">
+    <input type="text" placeholder="url" id="url">
+    <input type="text" placeholder="Chi tiết" id="details">
+    <button id="Add">thêm</button>
+    <br>
+    <h2>Thêm Tin Tức</h2>
+    <input type="text" placeholder="ID" id="up-news-id">
+    <input type="text" placeholder="tên tiêu đề" id="up-news-title">
+    <input type="text" placeholder="Nội dung bài viết" id="up-news-content">
+    <button id="Add-news">thêm</button>
+    <br>
+    <h2>Thêm Tin Chăm Sóc</h2>
+    <input type="text" placeholder="ID" id="up-care-id">
+    <input type="text" placeholder="tên tiêu đề" id="up-care-title">
+    <input type="text" placeholder="Nội dung bài viết" id="up-care-content">
+    <button id="Add-care">thêm</button>
 
-<input type="text" placeholder="tên sản phẩm" id="name">
-<input type="text" placeholder="giá" id="price">
-<input type="text" placeholder="url" id="url">
-<input type="text" placeholder="Chi tiết" id="details">
-<button id="Add">thêm</button>
 </body>
 <script type="text/javascript" src="resource/js/jquery-3.4.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
@@ -33,30 +47,53 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script src='https://kit.fontawesome.com/a076d05399.js'></script>
 <script>
-let database = firebase.database();
-let ref = database.ref('products');
+    let database = firebase.database();
+    let ref = database.ref('products');
+    let refNews = database.ref('news');
+    let refCares = database.ref('cares');
 
 
 
+    $("#Add").click(function () {
+        let name = $("#name").val()
+        let price = $("#price").val()
+        let url = $("#url").val()
+        let details = $("#details").val()
+        let productInfo = {
+            name: name,
+            price: price,
+            url: url,
+            details: details
+        }
+        ref.orderByChild('name').equalTo(productInfo.name).on('value', snapshop => {
+            let resisterToken = JSON.stringify(snapshop.val())
+            if (resisterToken == "null") {
+                ref.push(productInfo)
+                alert("Thêm sản phẩm thành công")
+            }
+        })
+    })
 
-$("#Add").click(function(){
-    let name = $("#name").val()
-let price = $("#price").val()
-let url = $("#url").val()
-let details = $("#details").val()
-    let productInfo = {
-    name : name,
-    price : price,
-    url : url,
-    details : details
-}
-    ref.orderByChild('name').equalTo(productInfo.name).on('value', snapshop => {
-                let resisterToken = JSON.stringify(snapshop.val())
-                if (resisterToken == "null") {
-                    ref.push(productInfo)
-                    alert("Đăng ký thành công")
-                }
-            })
-})
+    $("#Add-news").click(function () {
+        let name = $("#name").val()
+        let price = $("#price").val()
+        let url = $("#url").val()
+        let details = $("#details").val()
+        let productInfo = {
+            name: name,
+            price: price,
+            url: url,
+            details: details
+        }
+        ref.orderByChild('name').equalTo(productInfo.name).on('value', snapshop => {
+            let resisterToken = JSON.stringify(snapshop.val())
+            if (resisterToken == "null") {
+                ref.push(productInfo)
+                alert("Đăng ký thành công")
+            }
+        })
+    })
+
 </script>
+
 </html>
