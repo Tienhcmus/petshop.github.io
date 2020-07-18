@@ -28,6 +28,12 @@
     <script src="/__/firebase/init.js"></script>
 
     <script src="/__/firebase/7.15.4/firebase-database.js"></script>
+    <script>
+        function convert(value) {
+            value = Number(value);
+            return new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'VND' }).format(value);
+        }
+    </script>
     <!-- Header -->
     <header>
         <!-- Navigation-->
@@ -328,29 +334,53 @@
             <div class="space60">&nbsp;</div>
             <div class="row">
                 <div class="col-9">
-                    <div class="row">
+                    <div class="row pet-info">
+
+                        <!-- 
                         <div class="col-sm-4">
-                            <img src="../../../resource/images/pet/dog/alaska/alaska-2.jpg" alt="" style="width: 270px; height: 340px;">
+                            <img src="../../../resource/images/pet/cat/meo-anh/meo-anh-0.jpg" alt="" style="width: 270px; height: 340px;">
                         </div>
                         <div class="col-sm-8">
                             <div class="single-item-body">
-                                <p class="single-item-title">Chó Alaska - 002</p>
+                                <p class="single-item-title">Mèo Anh - 000</p>
                                 <p class="single-item-price">
-                                    <span style="font-size: 30px;">Giá: 5.000.000</span>
-                                    &emsp;<a class="add-to-cart btn btn-outline-warning" data-name="Alaska - 002" data-price="5000000" data-img="resource/images/pet/dog/alaska/alaska-2.jpg" > Mua</a>
+                                    <span style="font-size: 30px;">Giá: 7.000.000</span>
+                                    &emsp;<a class="add-to-cart btn btn-outline-warning" data-name="Mèo Anh - 000" data-price="7000000" data-img="resource/images/pet/cat/meo-anh/meo-anh-0.jpg" > Mua</a>
                                 </p>
                             </div>
                             <div class="clearfix"></div>
                             <div class="space20">&nbsp;</div>
                             <div class="single-item-desc">
-                                <p>Alaska hay chính là là Alaska Malamute hoặc Mahlemuts là một trong những loài chó kéo xe tại vịnh Kotzebue, vùng đất Alaska. Những người dân nơi đây đã nuôi dưỡng và huấn luyện chúng để làm việc kéo xe dưới thời tiết lạnh giá. Sau đó, khi vùng đất này trở thành 1 bang của nước Mỹ thì Alaska nghiễm nhiên trở thành một loài động vật của Mỹ.</p>
+                                <p>Mèo Anh hiện là loài mèo được nuôi phổ biến tại nhiều gia đình trên thế giới trong đó có Việt Nam. Mèo Anh được phân chia thành 2 loại là mèo Anh lông ngắn (British Shorthair) và mèo Anh lông dài (British Longhair). Những chú mèo Anh thuộc hai giống này đều sở hữu ngoại hình vô cùng dễ thương, vì thế được rất nhiều người yêu thích. Họ không chỉ coi những chú mèo Anh là thú cưng mà chúng còn giống như những thành viên trong nhà.</p>
                                 <p>
                                     &nbsp;
                                     
                                     <div class="clearfix"></div>
                                 </p>
                             </div>
-                        </div>
+                        </div> -->
+
+                        <script>
+                            let database = firebase.database()
+                            let petInfoRef = database.ref('pet/cat/0')
+                            petInfoRef.on("value", snapshot => {
+                                let data = snapshot.val()
+                                let html = ''
+                                let price = convert(data.price)
+                                html += '<div class="col-sm-4" >'
+                                html += '<img src="../../../' + data.img +'" alt=""'
+                                html += 'style="width: 270px; height: 340px;"></div>'
+                                html += '<div class="col-sm-8"><div class="single-item-body">'
+                                html += '<p class="single-item-title">' + data.name +' </p><p class="single-item-price">'
+                                html += '<span style="font-size: 30px;">Giá: ' + price + '</span>'
+                                html += '&emsp;<a class="add-to-cart btn btn-outline-warning" data-name="' + data.name + '"'
+                                html += 'data-price="' + price + '" data-img="' + data.img + '"> Mua</a></p></div>'
+                                html += data.intro
+                                $(".pet-info:last").append(html)
+                        })
+                        </script>
+
+
                     </div>
                     <div class="desc">
                         <ul class="nav nav-tabs" role="tablist">
@@ -361,14 +391,14 @@
                         <div class="tab-content">
                             <div id="desc" class="container tab-pane active"><br>
                                 <h4>THÔNG TIN CƠ BẢN</h4>
-                                <p>+ Alaska Standard Trắng Xám Đực <br>
-                                    + Ngày sinh: 26/04/2020 <br>
-                                    + Ngày tiêm mũi 1: 12/06/2020 <br>
+                                <p>+ Anh Lông Ngắn Xanh Xám Đực <br>
+                                    + Ngày sinh: 12/01/2020 <br>
+                                    + Đã tẩy giun <br>
                                     + Có nguồn gốc rõ ràng <br>
                                     + Đảm bảo đạt tiêu chuẩn chiều cao, cân nặng… <br>
                                     + Không dị tật, bệnh tật</p>
                                 <br>
-                                <p class="center"><img src="../../../resource/images/pet/dog/alaska/0996d8bf--4d73.jpg" alt="alaska"></p>
+                                <p class="center"><img src="../../../resource/images/pet/cat/meo-anh/meo-anh-1-1.jpg" alt="long ngan"></p>
                                 <h4>GIẤY TỜ ĐI KÈM</h4>
                                 <p>+ Hợp đồng mua bán, giấy chứng nhận nguồn gốc rõ ràng, sổ tiêm phòng, giấy bảo hành và hướng dẫn chăm sóc chó con <br>
                                     + Bảo hành sức khỏe dài hạn <br>
@@ -424,30 +454,50 @@
             <div class="beta-products-list">
 
                 <h4>Sản Phẩm Cùng Loại</h4>
+
+                <!-- 
                 <div class="row">
                     <div class="col-sm-4">
                         <div class="card card-product">
-                            <a class="link-image" href="alaska-000.html"><img class="card-img-top" src="../../../resource/images/pet/dog/alaska/alaska-0.jpg"
-                                    alt="alaska-0"></a>
+                            <a class="link-image" href="meo-anh-001.html"><img class="card-img-top" src="../../../resource/images/pet/cat/meo-anh/meo-anh-1.jpg"
+                                    alt="pull-1"></a>
                             <div class="card-body">
-                                <h5 class="card-title"> Alaska - 000 </h5>
-                                <p class="card-text"> Giá: 5.000.000 </p>
-                                <a class="add-to-cart btn btn-primary" data-name="Chó Alaska - 000" data-price="5000000" data-img="resource/images/pet/dog/alaska/alaska-0.jpg">Mua</a>
+                                <h5 class="card-title"> Mèo Anh - 001 </h5>
+                                <p class="card-text"> Giá: 7.000.000 </p>
+                                <a class="add-to-cart btn btn-primary" data-name="Mèo Anh - 001" data-price="7000000" data-img="resource/images/pet/cat/meo-anh/meo-anh-1.jpg">Mua</a>
                             </div>
                         </div>
                     </div>
-                    <div class="col-sm-4">
-                        <div class="card card-product">
-                            <a class="link-image" href="alaska-001.html"><img class="card-img-top" src="../../../resource/images/pet/dog/alaska/alaska-1.jpg"
-                                    alt="alaska-1"></a>
-                            <div class="card-body">
-                                <h5 class="card-title"> Alaska - 001 </h5>
-                                <p class="card-text"> Giá: 5.000.000 </p>
-                                <a class="add-to-cart btn btn-primary" data-name="Chó Alaska - 001" data-price="5000000" data-img="resource/images/pet/dog/alaska/alaska-1.jpg">Mua</a>
-                            </div>
-                        </div>
-                    </div>
+                    
+                </div> -->
+
+                <div class="row same-pet">
+
+                    <script>
+                        let samePetRef = database.ref('pet/cat/1')
+                        samePetRef.on("value", snapshot => {
+    
+                            let data = snapshot.val()
+                            console.log(data.img)
+                            let html = ''
+                            let price = convert(data.price)
+                            html += '<div class="col-sm-4">'
+                            html += '<div class="card card-product">'
+                            html += '<a class="link-image" href="' + data.localurl + '"><img class="card-img-top"'
+                            html += 'src="../../../' + data.img + '" alt="pull-1"></a>'
+                            html += '<div class="card-body">'
+                            html += '<h5 class="card-title">' + data.name + '</h5>'
+                            html += '<p class="card-text"> Giá: ' + price + '</p>'
+                            html += '<a class="add-to-cart btn btn-primary" data-name="' + data.name + '" data-price="' + price + '"'
+                            html += 'data-img="' + data.img + '">Mua</a>'
+                            html += '   </div>'
+                            html += '   </div>'
+                            html += '   </div>'
+                            $(".same-pet:last").append(html)
+                        })
+                    </script>
                 </div>
+
             </div>
         </div>
     </div>
