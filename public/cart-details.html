@@ -28,6 +28,9 @@
     <script src="/__/firebase/init.js"></script>
 
     <script src="/__/firebase/7.15.4/firebase-database.js"></script>
+    <script>
+        let database = firebase.database()
+    </script>
     <!-- Header -->
     <header>
         <!-- Navigation-->
@@ -54,8 +57,7 @@
                                     </ul>
                                     <div class="dropdown-divider"></div>
                                     <p class="total-cost"></p>
-                                    <a href="cart-details.html"
-                                        class="check-out">Thanh Toán</a>
+                                    <a href="cart-details.html" class="check-out">Thanh Toán</a>
                                 </div>
                             </div>
                     </li>
@@ -93,20 +95,19 @@
             </ul>
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <a class="link-image" href="pet.html"><img
-                            src="resource/images/Banner/banner1.jpg" alt="pet"></a>
+                    <a class="link-image" href="pet.html"><img src="resource/images/Banner/banner1.jpg" alt="pet"></a>
                 </div>
                 <div class="carousel-item">
-                    <a class="link-image" href="product.html"><img
-                            src="resource/images/Banner/banner2.jpg" alt="Sanpham"></a>
+                    <a class="link-image" href="product.html"><img src="resource/images/Banner/banner2.jpg"
+                            alt="Sanpham"></a>
                 </div>
                 <div class="carousel-item">
-                    <a class="link-image" href="cham-soc.html"><img
-                            src="resource/images/Banner/banner3.jpg" alt="chamsoc"></a>
+                    <a class="link-image" href="cham-soc.html"><img src="resource/images/Banner/banner3.jpg"
+                            alt="chamsoc"></a>
                 </div>
                 <div class="carousel-item">
-                    <a class="link-image" href="tin-tuc.html"><img
-                            src="resource/images/Banner/banner4.jpg" alt="tintuc"></a>
+                    <a class="link-image" href="tin-tuc.html"><img src="resource/images/Banner/banner4.jpg"
+                            alt="tintuc"></a>
                 </div>
             </div>
             <!-- Left and right controls -->
@@ -128,47 +129,35 @@
                     </li>
                     <!-- Dropdown -->
                     <li class="nav-item dropdown">
-                        <a class="nav-link" href="pet.html"
-                            id="navbarDropdown"> Hệ thống thú cưng
+                        <a class="nav-link" href="pet.html" id="navbarDropdown"> Hệ thống thú cưng
                         </a>
                         <div class="dropdown-content">
-                            <a class="dropdown-item"
-                                href="danh-sach-cho.html"> Chó </a>
-                            <a class="dropdown-item"
-                                href="danh-sach-meo.html"> Mèo </a>
+                            <a class="dropdown-item" href="danh-sach-cho.html"> Chó </a>
+                            <a class="dropdown-item" href="danh-sach-meo.html"> Mèo </a>
                         </div>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link" href="product.html"
-                            id="navbarDropdown"> Sản phẩm
+                        <a class="nav-link" href="product.html" id="navbarDropdown"> Sản phẩm
                         </a>
                         <div class="dropdown-content">
-                            <a class="dropdown-item"
-                                href="product.html#dog-food"> Thức ăn cho
+                            <a class="dropdown-item" href="product.html#dog-food"> Thức ăn cho
                                 chó </a>
-                            <a class="dropdown-item"
-                                href="product.html#cat-food"> Thức ăn cho
+                            <a class="dropdown-item" href="product.html#cat-food"> Thức ăn cho
                                 mèo </a>
-                            <a class="dropdown-item"
-                                href="product.html#sua-tam"> Sữa tắm </a>
-                            <a class="dropdown-item"
-                                href="product.html#other-product"> Phụ kiện
+                            <a class="dropdown-item" href="product.html#sua-tam"> Sữa tắm </a>
+                            <a class="dropdown-item" href="product.html#other-product"> Phụ kiện
                             </a>
                         </div>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link" href="cham-soc.html"
-                            id="navbarDropdown"> Chăm sóc thú cưng
+                        <a class="nav-link" href="cham-soc.html" id="navbarDropdown"> Chăm sóc thú cưng
                         </a>
                         <div class="dropdown-content">
-                            <a class="dropdown-item"
-                                href="chamsoc/chamsoc-000.html"> Hướng dẫn
+                            <a class="dropdown-item" href="chamsoc/chamsoc-000.html"> Hướng dẫn
                                 dành cho người mới </a>
-                            <a class="dropdown-item"
-                                href="chamsoc/chamsoc-001.html"> Tiêm Ngừa
+                            <a class="dropdown-item" href="chamsoc/chamsoc-001.html"> Tiêm Ngừa
                                 Vaccine Cho Thú Cưng Và Những Điều Cần Biết </a>
-                            <a class="dropdown-item"
-                                href="chamsoc/chamsoc-002.html"> 5 Bệnh
+                            <a class="dropdown-item" href="chamsoc/chamsoc-002.html"> 5 Bệnh
                                 Thường Gặp Ở Thú Cưng </a>
 
                         </div>
@@ -338,13 +327,35 @@
                             <th>Xóa</th>
                         </tr>
                     </thead>
-                    <tbody>           
+                    <tbody>
                     </tbody>
                 </table>
             </div>
             <br>
             <p>Tổng tiền: <span id="sum"></span></p>
-            <a href="#" class="btn btn-danger"> Thanh Toán </a>
+            <button class="order-btn btn btn-danger" data-toggle="modal" data-target="#notificationModal"> Thanh Toán
+            </button>
+        </div>
+    </div>
+
+
+    <div class="modal" id="notificationModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <p id="nofi"></p>
+                    <div class="order-info">
+                        <input type="text" id="order-name" placeholder="Tên">
+                        <br>
+                        <input type="text" id="order-phone" placeholder="Số điện thoại">
+                        <br>
+                        <input type="text" id="order-addr" placeholder="Địa chỉ">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="accept-btn btn btn-primary" data-dismiss="modal">Xác Nhận</button>
+                </div>
+            </div>
         </div>
     </div>
     <!-- End Content -->
@@ -355,8 +366,8 @@
             <div class="row">
                 <div class="col-md-4" style="padding: 50px; font-size: 22px;">
                     <div class="row">
-                        <a class="link-brand" href="lien-he.html"><img src="resource/images/logo/Brand1.png" alt="Pet-Store"
-                                width="80%" height="80%" /></a>
+                        <a class="link-brand" href="lien-he.html"><img src="resource/images/logo/Brand1.png"
+                                alt="Pet-Store" width="80%" height="80%" /></a>
                     </div>
                     <p>
                         <i class="fas fa-home"></i> Địa chỉ cửa hàng: 227 Đường Nguyễn Văn
@@ -399,4 +410,61 @@
 <script src="resource/js/login.js"></script>
 <script src="resource/js/script.js"></script>
 <script src="resource/js/order.js"></script>
+<script>
+    $(".order-info").hide()
+    let today = new Date();
+    let date = today.getDate() + '-' + (today.getMonth() + 1) + '-' + today.getFullYear() + " " + today.getHours() + ":" + today.getMinutes();
+    $(".order-btn").click(function () {
+        let check = 0;
+        if (sessionStorage["isLogin"] == "true") {
+            $("#nofi").html('Nhấn xác nhận để hoàn tất')
+        } else {
+            $("#nofi").html('Bạn Chưa Đăng Nhập Vào Hệ Thống. <br> Vui Lòng Nhập Các Thông Tin Sau Hoặc Đăng Nhập')
+            $(".order-info").show()
+            check = 1;
+        }
+        let orderList = JSON.parse(sessionStorage["shopping-cart-items"].toString())
+        if (check == 1) {
+            $("accept-btn").click(function () {
+                let phone = $("#order-phone").val();
+                let name = $("#order-name").val();
+                let addr = $("#order-addr").val();
+                if (phone != '' && name != '' && addr != '') {
+                    let orderDetail = {
+                        name: name,
+                        phone: phone,
+                        address: addr,
+                        list: orderList,
+                        date: date
+                    }
+                    let orderRef = database.ref("order");
+                    orderRef.on("value", snapshot => {
+                        orderRef.push(orderDetail)
+                    })
+                }
+            })
+        } else {
+            $("accept-btn").click(function () {
+                let orderRef = database.ref('orders')
+                let phone = sessionStorage["phone"]
+                let name = sessionStorage["user"]
+                let addr = sessionStorage["addr"]
+                let orderDetail = {
+                    name: name,
+                    phone: phone,
+                    address: addr,
+                    list: orderList,
+                    date: date
+                }
+                let orderRef = database.ref("order");
+                orderRef.on("value", snapshot => {
+                    orderRef.push(orderDetail)
+                })
+            })
+        }
+
+    })
+
+</script>
+
 </html>

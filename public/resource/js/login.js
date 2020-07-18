@@ -201,9 +201,12 @@ $("#login-btn").click(function () {
                 $(".sign-in").show();
                 $(".unsignin").hide();
                 let user = userdata.name;
+                let addr = userdata.address;
                 login = true;
                 sessionStorage["isLogin"] = JSON.stringify(login);
                 sessionStorage["user"] = JSON.stringify(user);
+                sessionStorage["phone"] = phone;
+                sessionStorage["addr"] = addr;
                 $(".username").html(user);
             } else if(phone == "name" && originPassword == psw){
                 sessionStorage["isadmin"] = "1"
@@ -218,5 +221,6 @@ $(".logout").click(function () {
     $(".sign-in").hide();
     login = false;
     sessionStorage["isLogin"] = JSON.stringify(login);
+    sessionStorage["phone"] = "null";
     $(".unsignin").show();
 });
