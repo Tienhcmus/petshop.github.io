@@ -30,7 +30,7 @@
     <script src="/__/firebase/7.15.4/firebase-database.js"></script>
     <script>
         let database = firebase.database()
-     
+
         function convert(value) {
             value = Number(value);
             return new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'VND' }).format(value);
@@ -416,11 +416,14 @@
 <script src="resource/js/script.js"></script>
 <script src="resource/js/order.js"></script>
 <script>
+
     $(".order-info").hide()
     let today = new Date();
     let date = today.getDate() + '-' + (today.getMonth() + 1) + '-' + today.getFullYear() + " " + today.getHours() + ":" + today.getMinutes();
+    let orderRef = database.ref('order');
+    let listProduct = '';
+    let check = 0;
     $(".order-btn").click(function () {
-        let check = 0;
         if (sessionStorage["isLogin"] == "true") {
             $("#nofi").html('Nhấn xác nhận để hoàn tất')
         } else {
@@ -428,9 +431,12 @@
             $(".order-info").show()
             check = 1;
         }
-        let orderList = JSON.parse(sessionStorage["shopping-cart-items"].toString())
-        if (check == 1) {
-            $("accept-btn").click(function () {
+        listProduct = JSON.parse(sessionStorage["shopping-cart-items"].toString()) 
+        
+    })
+    
+    $(".accept-btn").click(function () {
+            if (check == 1) {
                 let phone = $("#order-phone").val();
                 let name = $("#order-name").val();
                 let addr = $("#order-addr").val();
@@ -439,17 +445,18 @@
                         name: name,
                         phone: phone,
                         address: addr,
-                        list: orderList,
+                        list: listProduct,
                         date: date
                     }
-                    let orderRef = database.ref("order");
-                    orderRef.on("value", snapshot => {
-                        orderRef.push(orderDetail)
+
+                    orderRef.orderByChild('date').equalTo(date).on("value", snapshot => {
+                        if(snapshot.val() == "null"){
+                            orderRef.push(orderDetail)
+                        }
+                        
                     })
                 }
-            })
-        } else {
-            $("accept-btn").click(function () {
+            } else {
                 let orderRef = database.ref('orders')
                 let phone = sessionStorage["phone"]
                 let name = sessionStorage["user"]
@@ -458,17 +465,17 @@
                     name: name,
                     phone: phone,
                     address: addr,
-                    list: orderList,
+                    list: listProduct,
                     date: date
                 }
-                let orderRef = database.ref("order");
-                orderRef.on("value", snapshot => {
-                    orderRef.push(orderDetail)
-                })
+                orderRef.orderByChild('date').equalTo(date).on("value", snapshot => {
+                        if(snapshot.val() == "null"){
+                            orderRef.push(orderDetail)
+                        }
+                        
+                    })
+            }
             })
-        }
-
-    })
 
 </script>
 

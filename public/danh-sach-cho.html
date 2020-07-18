@@ -29,6 +29,7 @@
 
     <script src="/__/firebase/7.15.4/firebase-database.js"></script>
     <script>
+        
         function convert(value) {
             value = Number(value);
             return new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'VND' }).format(value);
@@ -332,117 +333,138 @@
         <div id="content" class="space-top-none">
             <div class="space60">&nbsp;</div>
             <div class="row">
-                <div class="col-md-3">
-                    <div class="sticky-sidebar">
-                        <a href="#">
-                            <h6>Danh sách các loại chó</h6>
-                        </a>
-                        <ul class="aside-menu" style="font-size: medium;">
-                            <li><a href="#"><i class="fas fa-dog"></i> Chó Alaska</a></li>
-                            <hr>
-                            <li><a href="#"><i class="fas fa-dog"></i> Chó Chihuahua</a></li>
-                            <hr>
-                            <li><a href="#"><i class="fas fa-dog"></i> Chó Corgi</a></li>
-                            <hr>
-                            <li><a href="#"><i class="fas fa-dog"></i> Chó Pull</a></li>
-                            <hr>
-                            <li><a href="#"><i class="fas fa-dog"></i> Chó Samoyed</a></li>
-                            <hr>
-                            <li><a href="#"><i class="fas fa-dog"></i> Chó Shiba</a></li>
-                        </ul>
-                    </div>
-                </div>
+                
                 <div class="col-md-9">
                     <a href="danh-sach-cho.html">
                         <h4>Danh sách chó</h4>
                     </a>
                     <div class="product-group">
-                        <div class="row">
-                            <div class="col-sm-4">
-                                <div class="card card-product mb-3">
-                                    <a class="link-image" href="#"><img class="card-img-top"
-                                            src="resource/images/pet/dog/chihuahua/chihuahua-0.jpg" alt="Dog-2"></a>
-                                    <div class="card-body">
-                                        <h5 class="card-title" style="font-size: x-large;"> Chihuahua-000 </h5>
-                                        <p class="card-text"> Giá: 7.000.000 </p>
-                                        <button data-name="Chihuahua-000" data-price="7000000"
-                                            data-img="resource/images/pet/dog/chihuahua/chihuahua-0.jpg"
-                                            class="btn btn-primary">Mua</button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-4">
-                                <div class="card card-product mb-3">
-                                    <a class="link-image" href="#"><img class="card-img-top" src="resource/images/pet/dog/chihuahua/chihuahua-1.jpg"
-                                            alt="Dog-1"></a>
-                                    <div class="card-body">
-                                        <h5 class="card-title" style="font-size: x-large;"> Chihuahua-001 </h5>
-                                        <p class="card-text"> Giá: 7.000.000 </p>
-                                        <button data-name="Chihuahua-001" data-price="7000000"
-                                            data-img="resource/images/pet/dog/chihuahua/chihuahua-1.jpg"
-                                            class="btn btn-primary">Mua</button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-4">
-                                <div class="card card-product mb-3">
-                                    <a class="link-image" href="#"><img class="card-img-top" src="resource/images/pet/dog/alaska/alaska-0.jpg"
-                                            alt="Dog-2"></a>
-                                    <div class="card-body">
-                                        <h5 class="card-title" style="font-size: x-large;"> Alaska-000 </h5>
-                                        <p class="card-text"> Giá: 5.000.000 </p>
-                                        <button data-name="Alaska-000" data-price="5000000"
-                                            data-img="resource/images/pet/dog/alaska/alaska-0.jpg"
-                                            class="btn btn-primary">Mua</button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-4">
-                                <div class="card card-product mb-3">
-                                    <a class="link-image" href="#"><img class="card-img-top" src="resource/images/pet/dog/alaska/alaska-1.jpg"
-                                            alt="Dog-3"></a>
-                                    <div class="card-body">
-                                        <h5 class="card-title" style="font-size: x-large;"> Alaska-001 </h5>
-                                        <p class="card-text"> Giá: 5.000.000 </p>
-                                        <button data-name="Alaska-001" data-price="5000000"
-                                            data-img="resource/images/pet/dog/alaska/alaska-1.jpg"
-                                            class="btn btn-primary">Mua</button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-4">
-                                <div class="card card-product mb-3">
-                                    <a class="link-image" href="#"><img class="card-img-top" src="resource/images/pet/dog/pull/pull-0.jpg"
-                                            alt="Dog-4"></a>
-                                    <div class="card-body">
-                                        <h5 class="card-title" style="font-size: x-large;"> Pull-000 </h5>
-                                        <p class="card-text"> Giá: 7.000.000 </p>
-                                        <button data-name="Pull-000" data-price="7000000"
-                                            data-img="resource/images/pet/dog/pull/pull-0.jpg"
-                                            class="btn btn-primary">Mua</button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-4">
-                                <div class="card card-product mb-3">
-                                    <a class="link-image" href="#"><img class="card-img-top" src="resource/images/pet/dog/pull/pull-1.jpg"
-                                            alt="Dog-5"></a>
-                                    <div class="card-body">
-                                        <h5 class="card-title" style="font-size: x-large;"> Pull-001 </h5>
-                                        <p class="card-text"> Giá: 7.000.000 </p>
-                                        <button data-name="Pull-001" data-price="7000000"
-                                            data-img="resource/images/pet/dog/pull/pull-1.jpg"
-                                            class="btn btn-primary">Mua</button>
-                                    </div>
-                                </div>
-                            </div>
+                        <div id="dog-list" class="row">
+                            <script>
+                                let database = firebase.database()
+                                let doglistRef = database.ref('pet/dog')
+                                doglistRef.on("value", snapshot => {
+                                    let id = 0
+                                    let doglistData = snapshot.val()
+                                    doglistData.forEach(element => {
+                                        let price = convert(element.price)
+                                        let html = ''
+                                        html += '<div class="col-sm-4">'
+                                        html += '<div class="card card-product mb-3">'
+                                        html += '<a class="link-image" href="'+ element.url +'"><img class="card-img-top" src="' + element.img + '"'
+                                        html += 'alt="dog"></a>'
+                                        html += '<div class="card-body">'
+                                        html += '<h5 class="card-title" style="font-size: x-large;"> ' + element.name + '</h5>'
+                                        html += '<p class="card-text"> Giá: ' + price + '</p>'
+                                        html += '<button data-name="' + element.name + '" data-price="' + element.price + '"'
+                                        html += 'data-img="' + element.img + '"'
+                                        html += 'class="add-to-cart btn btn-primary">Mua</button>'
+                                        html += '</div>'
+                                        html += '</div>'
+                                        html += '</div>'
+                                        $("#dog-list:last").append(html)
+                                    });
+                                    $(".add-to-cart").click(function () { 
+                                        clickBuy.play()
+                                        let button = $(this); // Lấy đối tượng mà người dùng click đặt tên là button
+                                        let name = button.attr("data-name"); // name của sản phẩm là thuộc tính data-name của button
+                                        let price = button.attr("data-price"); // price của sản phẩm là thuộc tính data-price của button
+                                        let image = button.attr("data-img"); //image của sản phẩm là thuộc tính data-img của button
+                                        let quantity = 1; // Số lượng
+
+                                        let item = {
+                                            name: name,
+                                            price: price,
+                                            quantity: quantity,
+                                            image: image
+                                        };
+
+                                        let exists = false;
+                                        if (shoppingCartItems.length > 0) {
+                                            $.each(shoppingCartItems, function (index, value) {
+                                                // Nếu mặt hàng đã tồn tại trong giỏ hàng thì chỉ cần tăng số lượng mặt hàng đó trong giỏ hàng.
+                                                if (value.name == item.name) {
+                                                    value.quantity++;
+                                                    exists = true;
+                                                    return false;
+                                                }
+                                            });
+                                        }
+
+                                        // Nếu mặt hàng chưa tồn tại trong giỏ hàng thì bổ sung vào mảng
+                                        if (!exists) {
+                                            shoppingCartItems.push(item);
+                                        }
+
+                                        // Lưu thông tin vào sessionStorage
+                                        sessionStorage["shopping-cart-items"] = JSON.stringify(shoppingCartItems); // Chuyển thông tin mảng shoppingCartItems sang JSON trước khi lưu vào sessionStorage
+                                        // Gọi hàm hiển thị giỏ hàng
+                                        displayShoppingCartItems();
+                                    });
+                                }) 
+                            </script>
                         </div>
-                        <div>
-                            <ul class="pagination">
-                                <li class="page-item"><a class="page-link" href="#">1</a></li>
-                                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="sticky-sidebar">
+                        <h6>Tin nổi bật</h6>
+                        <ul class="aside-menu" style="font-size: medium; margin: 5px;">
+                            <li>
+                                <div style="display: flex; height: 50px;">
+                                    <img src="resource/images/take-care/cách-tự-làm-pate-cho-mèo-main.jpg" alt="new0"
+                                        width="50px" height="50px">
+                                    <a href="chamsoc/chamsoc-006.html" style="overflow: hidden !important; height: 50px; padding-left: 5px;"> Cách
+                                        làm pate cho mèo con ăn không bao giờ ngán</a>
+                                </div>
+                            </li>
+                            <hr />
+                            <li>
+                                <div style="display: flex; height: 50px;">
+                                    <img src="resource/images/take-care/cac-benh-thuong-gap-o-phoc-soc-5.jpg" alt="new0"
+                                        width="50px" height="50px">
+                                    <a href="chamsoc/chamsoc-005.html" style="overflow: hidden !important; height: 50px; padding-left: 5px;"> Các
+                                        Bệnh Thường Gặp Ở Chó Phốc Sóc</a>
+                                </div>
+                            </li>
+                            <hr />
+                            <li>
+                                <div style="display: flex; height: 50px;">
+                                    <img src="resource/images/take-care/elle-viet-nam-loai-cho-3-1024x512.jpg" alt="new0"
+                                        width="50px" height="50px">
+                                    <a href="chamsoc/chamsoc-000.html"
+                                        style="overflow: hidden !important; height: 50px; padding-left: 5px;"> Hướng
+                                        dẫn dành cho người mới</a>
+                                </div>
+    
+                            </li>
+                            <hr />
+                            <li>
+                                <div style="display: flex; height: 50px;">
+                                    <img src="resource/images/take-care/24b4d73b576b47d424501fdf1e7fd13a--huskies-puppies-mother-nature.jpg" alt="new0" width="50px" height="50px">
+                                    <a href="chamsoc/chamsoc-003.html" style="overflow: hidden !important; height: 50px; padding-left: 5px;"> Chăm Sóc Dinh Dưỡng Cho Chó Husky</a>
+                                </div>
+                            </li>
+                        </ul>
+                        <br />
+                        <div class="contact">
+                            <a href="../lien-he.html">
+                                <span>Thông Tin Liên Hệ </span>
+                            </a>
+                            <ul class="aside-menu" style="font-size: medium;">
+                                <li>
+                                    Địa chỉ cửa hàng: 227 Đường Nguyễn Văn Cừ, Phường 4, Quận 5,
+                                    Hồ Chí Minh
+                                </li>
+                                <hr />
+                                <li>Số điện thoại: 0975814755</li>
+                                <br />
+    
+                                <iframe
+                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.637215381392!2d106.67900811480058!3d10.762417592331024!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752f1bfc262bf1%3A0x4e843897f2900135!2zMjI3IMSQxrDhu51uZyBOZ3V54buFbiBWxINuIEPhu6ssIFBoxrDhu51uZyA0LCBRdeG6rW4gNSwgSOG7kyBDaMOtIE1pbmg!5e0!3m2!1sen!2s!4v1585388062839!5m2!1sen!2s"
+                                    width="100%" height="100%" frameborder="0" style="border:0;" allowfullscreen=""
+                                    aria-hidden="false" tabindex="0"></iframe>
                             </ul>
                         </div>
                     </div>
@@ -474,5 +496,48 @@
 <script src='https://kit.fontawesome.com/a076d05399.js'></script>
 <script src="resource/js/login.js"></script>
 <script src="resource/js/script.js"></script>
-<script src="resource/js/shopping-cart.js"></script>
+<script>
+let shoppingCartItems = [];
+
+// Kiểm tra nếu đã có sessionStorage["shopping-cart-items"] hay chưa?
+if (sessionStorage["shopping-cart-items"] != null) {
+    shoppingCartItems = JSON.parse(sessionStorage["shopping-cart-items"].toString());
+    // Hiển thị thông tin từ giỏ hàng
+    displayShoppingCartItems();
+}
+
+let clickBuy = new Audio()
+clickBuy.src = "https://www.soundjay.com/button/beep-07.wav"
+
+function displayShoppingCartItems() {
+    let count = 0
+    let sum = 0
+    if (sessionStorage["shopping-cart-items"] != null) {
+        shoppingCartItems = JSON.parse(sessionStorage["shopping-cart-items"].toString()); // Chuyển thông tin từ JSON trong sessionStorage sang mảng shoppingCartItems.       
+
+        shoppingCartItems.forEach(element => {
+            count += element.quantity;
+        });
+
+        $("#quantity-cart").html(count);
+        $(".shopping-cart > .shopping-cart-items").html("");
+        // Duyệt qua mảng shoppingCartItems để append từng item
+        $.each(shoppingCartItems, function (index, item) {
+            let price = convert(item.price)
+            let htmlString = "";
+            htmlString += "<li>";
+            htmlString += "<img src='" + item.image + "' alt='' />";
+            htmlString += "<span class='item-name'>" + item.name + "</span>";
+            htmlString += "<span class='item-price'>" + price + "</span>";
+            htmlString += "<span class='item-quantity'>Số lượng: " + item.quantity + "</span>";
+            htmlString += "</li>";
+            htmlString += "<div class='dropdown-divider'></div>";
+            $(".shopping-cart > .shopping-cart-items:last").append(htmlString);
+            sum += item.price * item.quantity;
+        });
+        let cost = convert(sum);
+        $(".total-cost").html("Tổng Tiền: " + cost)
+    }
+}
+</script>
 </html>
