@@ -28,6 +28,12 @@
     <script src="/__/firebase/init.js"></script>
 
     <script src="/__/firebase/7.15.4/firebase-database.js"></script>
+    <script>
+        function convert(value) {
+            value = Number(value);
+            return new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'VND' }).format(value);
+        }
+    </script>
     <!-- Header -->
     <header>
         <!-- Navigation-->
@@ -54,8 +60,7 @@
                                     </ul>
                                     <div class="dropdown-divider"></div>
                                     <p class="total-cost"></p>
-                                    <a href="cart-details.html"
-                                        class="check-out">Thanh Toán</a>
+                                    <a href="cart-details.html" class="check-out">Thanh Toán</a>
                                 </div>
                             </div>
                     </li>
@@ -93,20 +98,19 @@
             </ul>
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <a class="link-image" href="pet.html"><img
-                            src="resource/images/Banner/banner1.jpg" alt="pet"></a>
+                    <a class="link-image" href="pet.html"><img src="resource/images/Banner/banner1.jpg" alt="pet"></a>
                 </div>
                 <div class="carousel-item">
-                    <a class="link-image" href="product.html"><img
-                            src="resource/images/Banner/banner2.jpg" alt="Sanpham"></a>
+                    <a class="link-image" href="product.html"><img src="resource/images/Banner/banner2.jpg"
+                            alt="Sanpham"></a>
                 </div>
                 <div class="carousel-item">
-                    <a class="link-image" href="cham-soc.html"><img
-                            src="resource/images/Banner/banner3.jpg" alt="chamsoc"></a>
+                    <a class="link-image" href="cham-soc.html"><img src="resource/images/Banner/banner3.jpg"
+                            alt="chamsoc"></a>
                 </div>
                 <div class="carousel-item">
-                    <a class="link-image" href="tin-tuc.html"><img
-                            src="resource/images/Banner/banner4.jpg" alt="tintuc"></a>
+                    <a class="link-image" href="tin-tuc.html"><img src="resource/images/Banner/banner4.jpg"
+                            alt="tintuc"></a>
                 </div>
             </div>
             <!-- Left and right controls -->
@@ -128,47 +132,35 @@
                     </li>
                     <!-- Dropdown -->
                     <li class="nav-item dropdown">
-                        <a class="nav-link" href="pet.html"
-                            id="navbarDropdown"> Hệ thống thú cưng
+                        <a class="nav-link" href="pet.html" id="navbarDropdown"> Hệ thống thú cưng
                         </a>
                         <div class="dropdown-content">
-                            <a class="dropdown-item"
-                                href="danh-sach-cho.html"> Chó </a>
-                            <a class="dropdown-item"
-                                href="danh-sach-meo.html"> Mèo </a>
+                            <a class="dropdown-item" href="danh-sach-cho.html"> Chó </a>
+                            <a class="dropdown-item" href="danh-sach-meo.html"> Mèo </a>
                         </div>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link" href="product.html"
-                            id="navbarDropdown"> Sản phẩm
+                        <a class="nav-link" href="product.html" id="navbarDropdown"> Sản phẩm
                         </a>
                         <div class="dropdown-content">
-                            <a class="dropdown-item"
-                                href="product.html#dog-food"> Thức ăn cho
+                            <a class="dropdown-item" href="product.html#dog-food"> Thức ăn cho
                                 chó </a>
-                            <a class="dropdown-item"
-                                href="product.html#cat-food"> Thức ăn cho
+                            <a class="dropdown-item" href="product.html#cat-food"> Thức ăn cho
                                 mèo </a>
-                            <a class="dropdown-item"
-                                href="product.html#sua-tam"> Sữa tắm </a>
-                            <a class="dropdown-item"
-                                href="product.html#other-product"> Phụ kiện
+                            <a class="dropdown-item" href="product.html#sua-tam"> Sữa tắm </a>
+                            <a class="dropdown-item" href="product.html#other-product"> Phụ kiện
                             </a>
                         </div>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link" href="cham-soc.html"
-                            id="navbarDropdown"> Chăm sóc thú cưng
+                        <a class="nav-link" href="cham-soc.html" id="navbarDropdown"> Chăm sóc thú cưng
                         </a>
                         <div class="dropdown-content">
-                            <a class="dropdown-item"
-                                href="chamsoc/chamsoc-000.html"> Hướng dẫn
+                            <a class="dropdown-item" href="chamsoc/chamsoc-000.html"> Hướng dẫn
                                 dành cho người mới </a>
-                            <a class="dropdown-item"
-                                href="chamsoc/chamsoc-001.html"> Tiêm Ngừa
+                            <a class="dropdown-item" href="chamsoc/chamsoc-001.html"> Tiêm Ngừa
                                 Vaccine Cho Thú Cưng Và Những Điều Cần Biết </a>
-                            <a class="dropdown-item"
-                                href="chamsoc/chamsoc-002.html"> 5 Bệnh
+                            <a class="dropdown-item" href="chamsoc/chamsoc-002.html"> 5 Bệnh
                                 Thường Gặp Ở Thú Cưng </a>
 
                         </div>
@@ -348,7 +340,9 @@
                     <div id="dog-food" style="padding-top:70px;padding-bottom:70px">
                         <h4>Danh sách thức ăn cho chó</h4>
                         <div class="product-group">
-                            <div class="row">
+                            <div class="row" id="dogfoodlist">
+
+                                <!-- 
                                 <div class="col-sm-4">
                                     <div class="card card-product mb-3">
                                         <a class="link-image" href="#"><img class="card-img-top"
@@ -436,115 +430,77 @@
                                         </div>
                                     </div>
                                 </div>
+                            -->
+
+                                <script>
+                                    let database = firebase.database()
+                                    let doglistRef = database.ref('products')
+                                    let type = "Thức ăn cho chó"
+                                    doglistRef.orderByChild('type').equalTo(type).on("value", snapshot => {
+                                        let keys = Object.keys(snapshot.val())
+                                        let data = snapshot.val()
+                                        keys.forEach(element => {
+                                            console.log(data[element].name)
+                                            let price = convert(data[element].price)
+                                            let html = ''
+                                            html += '<div class="col-sm-4">'
+                                            html += '<div class="card card-product mb-3">'
+                                            html += '<a class="link-image" href="' + data[element].url + '"><img class="card-img-top" src="' + data[element].img + '"'
+                                            html += 'alt="dog"></a>'
+                                            html += '<div class="card-body">'
+                                            html += '<h5 class="card-title" style="font-size: x-large;"> ' + data[element].name + '</h5>'
+                                            html += '<p class="card-text"> Giá: ' + price + '</p>'
+                                            html += '<button data-name="' + data[element].name + '" data-price="' + data[element].price + '"'
+                                            html += 'data-img="' + data[element].img + '"'
+                                            html += 'class="add-to-cart btn btn-primary">Mua</button>'
+                                            html += '</div>'
+                                            html += '</div>'
+                                            html += '</div>'
+                                            $("#dogfoodlist:last").append(html)
+                                        });
+                                    }) 
+                                </script>
+
                             </div>
-                            <div>
-                                <ul class="pagination">
-                                    <li class="page-item"><a class="page-link" href="#">1</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">Next</a></li>
-                                </ul>
-                            </div>
+
                         </div>
                     </div>
                     <div class="space50">&nbsp;</div>
                     <div id="cat-food" style="padding-top:70px;padding-bottom:70px">
                         <h4>Danh sách thức ăn cho mèo</h4>
                         <div class="product-group">
-                            <div class="row">
-                                <div class="col-sm-4">
-                                    <div class="card card-product mb-3">
-                                        <a class="link-image" href="#"><img class="card-img-top"
-                                                src="resource/images/pet/thuc-an-meo/cats-rang.jpg"
-                                                alt="Cat-Food-0"></a>
-                                        <div class="card-body">
-                                            <h5 class="card-title"> CatsRang </h5>
-                                            <p class="card-text"> Giá: 100.000 </p>
-                                            <button data-name="CatsRang" data-price="100000"
-                                                data-img="resource/images/pet/thuc-an-meo/cats-rang.jpg"
-                                                class="add-to-cart btn btn-primary">Mua</button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-4">
-                                    <div class="card card-product mb-3">
-                                        <a class="link-image" href="#"><img class="card-img-top"
-                                                src="resource/images/pet/thuc-an-meo/me-o-adult-350g.jpg"
-                                                alt="Cat-Food-1"></a>
-                                        <div class="card-body">
-                                            <h5 class="card-title"> Me-O Adult </h5>
-                                            <p class="card-text"> Giá: 100.000 </p>
-                                            <button data-name="Me-O Adult" data-price="100000"
-                                                data-img="resource/images/pet/thuc-an-meo/me-o-adult-350g.jpg"
-                                                class="add-to-cart btn btn-primary">Mua</button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-4">
-                                    <div class="card card-product mb-3">
-                                        <a class="link-image" href="#"><img class="card-img-top"
-                                                src="resource/images/pet/thuc-an-meo/pate-cho-meo-royal-canin-mother-babycat-ultra-soft-mousse.jpg"
-                                                alt="Cat-Food-2"></a>
-                                        <div class="card-body">
-                                            <h5 class="card-title"> Pate Royal Canin </h5>
-                                            <p class="card-text"> Giá: 100.000 </p>
-                                            <button data-name="Pate Royal Canin" data-price="100000"
-                                                data-img="resource/images/pet/thuc-an-meo/pate-cho-meo-royal-canin-mother-babycat-ultra-soft-mousse.jpg"
-                                                class="btn btn-primary">Mua</button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-4">
-                                    <div class="card card-product mb-3">
-                                        <a class="link-image" href="#"><img class="card-img-top"
-                                                src="resource/images/pet/thuc-an-meo/royal-canin-kitten.jpg"
-                                                alt="Cat-Food-3"></a>
-                                        <div class="card-body">
-                                            <h5 class="card-title"> Royal Canin Kitten </h5>
-                                            <p class="card-text"> Giá: 100.000 </p>
-                                            <button data-name="Royal Canin Kitten" data-price="100000"
-                                                data-img="resource/images/pet/thuc-an-meo/royal-canin-kitten.jpg"
-                                                class="btn btn-primary">Mua</button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-4">
-                                    <div class="card card-product mb-3">
-                                        <a class="link-image" href="#"><img class="card-img-top"
-                                                src="resource/images/pet/thuc-an-meo/royal-canin.jpg"
-                                                alt="Cat-Food-4"></a>
-                                        <div class="card-body">
-                                            <h5 class="card-title"> Royal Canin Indoor </h5>
-                                            <p class="card-text"> Giá: 100.000 </p>
-                                            <button data-name="Royal Canin Indoor" data-price="100000"
-                                                data-img="resource/images/pet/thuc-an-meo/royal-canin.jpg"
-                                                class="btn btn-primary">Mua</button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-4">
-                                    <div class="card card-product mb-3">
-                                        <a class="link-image" href="#"><img class="card-img-top"
-                                                src="resource/images/pet/thuc-an-meo/whiskas-cho-meo-lon-vi-ca-thu-va-ca-moi-400g.jpg"
-                                                alt="Cat-Food-5"></a>
-                                        <div class="card-body">
-                                            <h5 class="card-title"> Whiskas Vị Cá Thu </h5>
-                                            <p class="card-text"> Giá: 100.000 </p>
-                                            <button data-name="Whiskas Vị Cá Thu" data-price="100000"
-                                                data-img="resource/images/pet/thuc-an-meo/whiskas-cho-meo-lon-vi-ca-thu-va-ca-moi-400g.jpg"
-                                                class="btn btn-primary">Mua</button>
-                                        </div>
-                                    </div>
-                                </div>
+                            <div class="row" id="catfoodlist">
+                                
+                                <script>
+                                    let catlistRef = database.ref('products')
+                                    let cattype = "Thức ăn cho mèo"
+                                    catlistRef.orderByChild('type').equalTo(cattype).on("value", snapshot => {
+                                        let keys = Object.keys(snapshot.val())
+                                        let data = snapshot.val()
+                                        keys.forEach(element => {
+                                            console.log(data[element].name)
+                                            let price = convert(data[element].price)
+                                            let html = ''
+                                            html += '<div class="col-sm-4">'
+                                            html += '<div class="card card-product mb-3">'
+                                            html += '<a class="link-image" href="' + data[element].url + '"><img class="card-img-top" src="' + data[element].img + '"'
+                                            html += 'alt="dog"></a>'
+                                            html += '<div class="card-body">'
+                                            html += '<h5 class="card-title" style="font-size: x-large;"> ' + data[element].name + '</h5>'
+                                            html += '<p class="card-text"> Giá: ' + price + '</p>'
+                                            html += '<button data-name="' + data[element].name + '" data-price="' + data[element].price + '"'
+                                            html += 'data-img="' + data[element].img + '"'
+                                            html += 'class="add-to-cart btn btn-primary">Mua</button>'
+                                            html += '</div>'
+                                            html += '</div>'
+                                            html += '</div>'
+                                            $("#catfoodlist:last").append(html)
+                                        });
+                                    }) 
+                                </script>
+
                             </div>
-                            <div>
-                                <ul class="pagination">
-                                    <li class="page-item"><a class="page-link" href="#">1</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">Next</a></li>
-                                </ul>
-                            </div>
+
                         </div>
                     </div>
                     <div class="space50">&nbsp;</div>
@@ -552,75 +508,34 @@
                     <div id="sua-tam" style="padding-top:70px;padding-bottom:70px">
                         <h4>Danh sách các loại sữa tắm</h4>
                         <div class="product-group">
-                            <div class="row">
-                                <div class="col-sm-4">
-                                    <div class="card card-product mb-3">
-                                        <a class="link-image" href="#"><img class="card-img-top"
-                                                src="resource/images/pet/sua-tam/sua-tam-0.jpg" alt="Shampoo-0"></a>
-                                        <div class="card-body">
-                                            <h5 class="card-title"> Sữa Tắm S.O.S </h5>
-                                            <p class="card-text"> Giá: 100.000 </p>
-                                            <button data-name="Sữa Tắm S.O.S" data-price="100000"
-                                                data-img="resource/images/pet/sua-tam/sua-tam-0.jpg"
-                                                class="btn btn-primary">Mua</button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-4">
-                                    <div class="card card-product mb-3">
-                                        <a class="link-image" href="#"><img class="card-img-top"
-                                                src="resource/images/pet/sua-tam/sua-tam-1.jpg" alt="Shampoo-1"></a>
-                                        <div class="card-body">
-                                            <h5 class="card-title"> Sữa Tắm Bio Derma </h5>
-                                            <p class="card-text"> Giá: 100.000 </p>
-                                            <button data-name="Sữa Tắm Bio Derma" data-price="100000"
-                                                data-img="resource/images/pet/sua-tam/sua-tam-1.jpg"
-                                                class="btn btn-primary">Mua</button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-4">
-                                    <div class="card card-product mb-3">
-                                        <a class="link-image" href="#"><img class="card-img-top"
-                                                src="resource/images/pet/sua-tam/sua-tam-2.jpg"
-                                                alt="Shampoo-Food-2"></a>
-                                        <div class="card-body">
-                                            <h5 class="card-title"> Sữa Tắm Joyce & Dolls </h5>
-                                            <p class="card-text"> Giá: 100.000 </p>
-                                            <button data-name="Sữa Tắm Joyce & Dolls" data-price="100000"
-                                                data-img="resource/images/pet/sua-tam/sua-tam-2.jpg"
-                                                class="btn btn-primary">Mua</button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-4">
-                                    <div class="card card-product mb-3">
-                                        <a class="link-image" href="#"><img class="card-img-top"
-                                                src="resource/images/pet/sua-tam/sua-tam-3.jpg"
-                                                alt="Shampoo-Food-3"></a>
-                                        <div class="card-body">
-                                            <h5 class="card-title"> Sữa Tắm Fay </h5>
-                                            <p class="card-text"> Giá: 100.000 </p>
-                                            <button data-name="Sữa Tắm Fay" data-price="100000"
-                                                data-img="resource/images/pet/sua-tam/sua-tam-3.jpg"
-                                                class="btn btn-primary">Mua</button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-4">
-                                    <div class="card card-product mb-3">
-                                        <a class="link-image" href="#"><img class="card-img-top"
-                                                src="resource/images/pet/sua-tam/sua-tam-4.jpg"
-                                                alt="Shampoo-Food-4"></a>
-                                        <div class="card-body">
-                                            <h5 class="card-title"> Sữa Tắm Perfect Coat </h5>
-                                            <p class="card-text"> Giá: 100.000 </p>
-                                            <button data-name="Sữa Tắm Perfect Coat" data-price="100000"
-                                                data-img="resource/images/pet/sua-tam/sua-tam-4.jpg"
-                                                class="btn btn-primary">Mua</button>
-                                        </div>
-                                    </div>
-                                </div>
+                            <div class="row" id="shampoolist">
+                                <script>
+                                    let shampoolistRef = database.ref('products')
+                                    let shampootype = "Sữa tắm"
+                                    shampoolistRef.orderByChild('type').equalTo(shampootype).on("value", snapshot => {
+                                        let keys = Object.keys(snapshot.val())
+                                        let data = snapshot.val()
+                                        keys.forEach(element => {
+                                            console.log(data[element].name)
+                                            let price = convert(data[element].price)
+                                            let html = ''
+                                            html += '<div class="col-sm-4">'
+                                            html += '<div class="card card-product mb-3">'
+                                            html += '<a class="link-image" href="' + data[element].url + '"><img class="card-img-top" src="' + data[element].img + '"'
+                                            html += 'alt="dog"></a>'
+                                            html += '<div class="card-body">'
+                                            html += '<h5 class="card-title" style="font-size: x-large;"> ' + data[element].name + '</h5>'
+                                            html += '<p class="card-text"> Giá: ' + price + '</p>'
+                                            html += '<button data-name="' + data[element].name + '" data-price="' + data[element].price + '"'
+                                            html += 'data-img="' + data[element].img + '"'
+                                            html += 'class="add-to-cart btn btn-primary">Mua</button>'
+                                            html += '</div>'
+                                            html += '</div>'
+                                            html += '</div>'
+                                            $("#shampoolist:last").append(html)
+                                        });
+                                    }) 
+                                </script>
                             </div>
                         </div>
                     </div>
@@ -629,100 +544,36 @@
                     <div id="medicine" style="padding-top:70px;padding-bottom:70px">
                         <h4>Thuốc và Vaccine</h4>
                         <div class="product-group">
-                            <div class="row">
-                                <div class="col-sm-4">
-                                    <div class="card card-product mb-3">
-                                        <a class="link-image" href="#"><img class="card-img-top"
-                                                src="resource/images/pet/Cham-soc/index/vaccin/thuoc-tay-giun-cho-cho-drontal-dang-nuoc.jpg"
-                                                alt="Medicine-4"></a>
-                                        <div class="card-body">
-                                            <h5 class="card-title"> Drontal </h5>
-                                            <p class="card-text"> Giá: 100.000 </p>
-                                            <button data-name="Drontal" data-price="100000"
-                                                data-img="resource/images/pet/Cham-soc/index/vaccin/thuoc-tay-giun-cho-cho-drontal-dang-nuoc.jpg"
-                                                class="btn btn-primary">Mua</button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-4">
-                                    <div class="card card-product mb-3">
-                                        <a class="link-image" href="#"><img class="card-img-top"
-                                                src="resource/images/pet/Cham-soc/index/vaccin/1458_0_81mtzs1cpbl__sl1500_.jpg"
-                                                alt="Medicine-1"></a>
-                                        <div class="card-body">
-                                            <h5 class="card-title"> Frontline Plus </h5>
-                                            <p class="card-text"> Giá: 100.000 </p>
-                                            <button data-name="Frontline Plus" data-price="100000"
-                                                data-img="resource/images/pet/Cham-soc/index/vaccin/1458_0_81mtzs1cpbl__sl1500_.jpg"
-                                                class="btn btn-primary">Mua</button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-4">
-                                    <div class="card card-product mb-3">
-                                        <a class="link-image" href="#"><img class="card-img-top"
-                                                src="resource/images/pet/Cham-soc/index/vaccin/844_vita_cal.jpg"
-                                                alt="Medicine-2"></a>
-                                        <div class="card-body">
-                                            <h5 class="card-title"> Vita Cal </h5>
-                                            <p class="card-text"> Giá: 100.000 </p>
-                                            <button data-name="Vita Cal" data-price="100000"
-                                                data-img="resource/images/pet/Cham-soc/index/vaccin/844_vita_cal.jpg"
-                                                class="btn btn-primary">Mua</button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-4">
-                                    <div class="card card-product mb-3">
-                                        <a class="link-image" href="#"><img class="card-img-top"
-                                                src="resource/images/pet/Cham-soc/index/vaccin/Capture-5-5.jpg"
-                                                alt="Medicine-3"></a>
-                                        <div class="card-body">
-                                            <h5 class="card-title"> Liv Von </h5>
-                                            <p class="card-text"> Giá: 100.000 </p>
-                                            <button data-name="Liv Von" data-price="100000"
-                                                data-img="resource/images/pet/Cham-soc/index/vaccin/Capture-5-5.jpg"
-                                                class="btn btn-primary">Mua</button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-4">
-                                    <div class="card card-product mb-3">
-                                        <a class="link-image" href="#"><img class="card-img-top"
-                                                src="resource/images/pet/Cham-soc/index/vaccin/unnamed.jpg"
-                                                alt="Medicine-5"></a>
-                                        <div class="card-body">
-                                            <h5 class="card-title"> Multi Vitamin Paste </h5>
-                                            <p class="card-text"> Giá: 100.000 </p>
-                                            <button data-name="Multi Vitamin Paste" data-price="100000"
-                                                data-img="resource/images/pet/Cham-soc/index/vaccin/unnamed.jpg"
-                                                class="btn btn-primary">Mua</button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-4">
-                                    <div class="card card-product mb-3">
-                                        <a class="link-image" href="#"><img class="card-img-top"
-                                                src="resource/images/pet/Cham-soc/index/vaccin/10941368_671347559658292_7129742342375355851_n-600x363.jpg"
-                                                alt="Medicine-0"></a>
-                                        <div class="card-body">
-                                            <h5 class="card-title"> Nutri Plus Gel</h5>
-                                            <p class="card-text"> Giá: 100.000 </p>
-                                            <button data-name="Nutri Plus Gel" data-price="100000"
-                                                data-img="resource/images/pet/Cham-soc/index/vaccin/10941368_671347559658292_7129742342375355851_n-600x363.jpg"
-                                                class="btn btn-primary">Mua</button>
-                                        </div>
-                                    </div>
-                                </div>
+                            <div class="row" id="medicinelist">
+                                <script>
+                                    let mdRef = database.ref('products')
+                                    let mdtype = "Thuốc"
+                                    mdRef.orderByChild('type').equalTo(mdtype).on("value", snapshot => {
+                                        let keys = Object.keys(snapshot.val())
+                                        let data = snapshot.val()
+                                        keys.forEach(element => {
+                                            console.log(data[element].name)
+                                            let price = convert(data[element].price)
+                                            let html = ''
+                                            html += '<div class="col-sm-4">'
+                                            html += '<div class="card card-product mb-3">'
+                                            html += '<a class="link-image" href="' + data[element].url + '"><img class="card-img-top" src="' + data[element].img + '"'
+                                            html += 'alt="dog"></a>'
+                                            html += '<div class="card-body">'
+                                            html += '<h5 class="card-title" style="font-size: x-large;"> ' + data[element].name + '</h5>'
+                                            html += '<p class="card-text"> Giá: ' + price + '</p>'
+                                            html += '<button data-name="' + data[element].name + '" data-price="' + data[element].price + '"'
+                                            html += 'data-img="' + data[element].img + '"'
+                                            html += 'class="add-to-cart btn btn-primary">Mua</button>'
+                                            html += '</div>'
+                                            html += '</div>'
+                                            html += '</div>'
+                                            $("#medicinelist:last").append(html)
+                                        });
+                                    }) 
+                                </script>
                             </div>
-                            <div>
-                                <ul class="pagination">
-                                    <li class="page-item"><a class="page-link" href="#">1</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">Next</a></li>
-                                </ul>
-                            </div>
+
                         </div>
                     </div>
 
@@ -730,94 +581,37 @@
                     <div id="other-product" style="padding-top:70px;padding-bottom:70px">
                         <h4>Sản Phẩm Khác</h4>
                         <div class="product-group">
-                            <div class="row">
-                                <div class="col-sm-4">
-                                    <div class="card card-product mb-3">
-                                        <a class="link-image" href="#"><img class="card-img-top"
-                                                src="resource/images/pet/phu-kien/vong-co-0.jpg" alt=""></a>
-                                        <div class="card-body">
-                                            <h5 class="card-title"> Vòng Cổ - 001 </h5>
-                                            <p class="card-text"> Giá: 100.000 </p>
-                                            <button data-name="Vòng Cổ - 001" data-price="100000"
-                                                data-img="resource/images/pet/phu-kien/vong-co-0.jpg"
-                                                class="add-to-cart btn btn-primary">Mua</button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-4">
-                                    <div class="card card-product mb-3">
-                                        <a class="link-image" href="#"><img class="card-img-top"
-                                                src="resource/images/pet/phu-kien/vong-co-1.jpg" alt=""></a>
-                                        <div class="card-body">
-                                            <h5 class="card-title"> Vòng Cổ - 002 </h5>
-                                            <p class="card-text"> Giá: 100.000 </p>
-                                            <button data-name="Vòng Cổ - 002" data-price="100000"
-                                                data-img="resource/images/pet/phu-kien/vong-co-1.jpg"
-                                                class="add-to-cart btn btn-primary">Mua</button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-4">
-                                    <div class="card card-product mb-3">
-                                        <a class="link-image" href="#"><img class="card-img-top"
-                                                src="resource/images/pet/phu-kien/vong-co-2.jpg" alt=""></a>
-                                        <div class="card-body">
-                                            <h5 class="card-title"> Vòng Cổ - 003 </h5>
-                                            <p class="card-text"> Giá: 100.000 </p>
-                                            <button data-name="Vòng Cổ - 003" data-price="100000"
-                                                data-img="resource/images/pet/phu-kien/vong-co-2.jpg"
-                                                class="add-to-cart btn btn-primary">Mua</button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-4">
-                                    <div class="card card-product mb-3">
-                                        <a class="link-image" href="#"><img class="card-img-top"
-                                                src="resource/images/pet/phu-kien/vong-co-3.jpg" alt=""></a>
-                                        <div class="card-body">
-                                            <h5 class="card-title"> Vòng Dây Lục Lạc </h5>
-                                            <p class="card-text"> Giá: 100.000 </p>
-                                            <button data-name="Vòng Dây Lục Lạc" data-price="100000"
-                                                data-img="resource/images/pet/phu-kien/vong-co-3.jpg"
-                                                class="add-to-cart btn btn-primary">Mua</button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-4">
-                                    <div class="card card-product mb-3">
-                                        <a class="link-image" href="#"><img class="card-img-top"
-                                                src="resource/images/pet/phu-kien/vong-co-4.jpg" alt=""></a>
-                                        <div class="card-body">
-                                            <h5 class="card-title"> Vòng Kim Loại </h5>
-                                            <p class="card-text"> Giá: 100.000 </p>
-                                            <button data-name="Vòng Kim Loại" data-price="100000"
-                                                data-img="resource/images/pet/phu-kien/vong-co-4.jpg"
-                                                class="add-to-cart btn btn-primary">Mua</button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-4">
-                                    <div class="card card-product mb-3">
-                                        <a class="link-image" href="#"><img class="card-img-top"
-                                                src="resource/images/pet/phu-kien/vong-co-5.jpg" alt=""></a>
-                                        <div class="card-body">
-                                            <h5 class="card-title"> Vòng Cổ Gai Cho Chó </h5>
-                                            <p class="card-text"> Giá: 100.000 </p>
-                                            <button data-name="Vòng Cổ Gai Cho Chó" data-price="100000"
-                                                data-img="resource/images/pet/phu-kien/vong-co-5.jpg"
-                                                class="add-to-cart btn btn-primary">Mua</button>
-                                        </div>
-                                    </div>
-                                </div>
+                            <div class="row" id="phukien">
+                                <script>
+                                    let pkRef = database.ref('products')
+                                    let pktype = "Phụ kiện"
+                                    pkRef.orderByChild('type').equalTo(pktype).on("value", snapshot => {
+                                        let keys = Object.keys(snapshot.val())
+                                        let data = snapshot.val()
+                                        keys.forEach(element => {
+                                            console.log(data[element].name)
+                                            let price = convert(data[element].price)
+                                            let html = ''
+                                            html += '<div class="col-sm-4">'
+                                            html += '<div class="card card-product mb-3">'
+                                            html += '<a class="link-image" href="' + data[element].url + '"><img class="card-img-top" src="' + data[element].img + '"'
+                                            html += 'alt="dog"></a>'
+                                            html += '<div class="card-body">'
+                                            html += '<h5 class="card-title" style="font-size: x-large;"> ' + data[element].name + '</h5>'
+                                            html += '<p class="card-text"> Giá: ' + price + '</p>'
+                                            html += '<button data-name="' + data[element].name + '" data-price="' + data[element].price + '"'
+                                            html += 'data-img="' + data[element].img + '"'
+                                            html += 'class="add-to-cart btn btn-primary">Mua</button>'
+                                            html += '</div>'
+                                            html += '</div>'
+                                            html += '</div>'
+                                            $("#phukien:last").append(html)
+                                        });
+                                    }) 
+                                </script>
+  
                             </div>
-                            <div>
-                                <ul class="pagination">
-                                    <li class="page-item"><a class="page-link" href="#">1</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">Next</a></li>
-                                </ul>
-                            </div>
+
                         </div>
                     </div>
                 </div>
