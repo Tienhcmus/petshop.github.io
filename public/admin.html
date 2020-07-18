@@ -13,6 +13,7 @@
     <link rel="stylesheet" type="text/css" href="resource/css/modal.css" />
     <link rel="stylesheet" href="resource/css/admin.css">
     <link href="https://fonts.googleapis.com/css2?family=Jura:wght@300;400&display=swap" rel="stylesheet">
+
 </head>
 
 <body data-spy="scroll" data-target=".sticky-sidebar .dropdown-content" data-offset="50">
@@ -202,11 +203,212 @@
                                     </div>
                                 </div>
                             </div>
+
+                            <div class="product-list">
+                                <button type="button" class="btn btn-primary" data-toggle="collapse"
+                                    data-target="#doglist">Danh Sách Chó</button>
+                                <br>
+                                <div id="doglist" class="collapse">
+                                    <script>
+                                        let database = firebase.database()
+                                        let dogRef = database.ref('pet/dog')
+                                        function loaddoglist() {
+
+                                            dogRef.on("value", snapshot => {
+                                                let doglistData = snapshot.val()
+                                                doglistData.forEach(element => {
+                                                    let html = ''
+                                                    html += '<br>'
+                                                    html += '<div style="box-sizing: border-box; margin-left: 10px; border: 1px solid black; margin-top: 10px">'
+                                                    html += '<img  src="' + element.img + '" alt="abc" width="100px" height="100px">'
+                                                    html += '<p >Name : ' + element.name + '</p>'
+                                                    html += '<p >Price : ' + element.price + '</p>'
+                                                    html += '<p >Img: ' + element.img + '</p>'
+                                                    html += '<p >Type : ' + element.type + '</p>'
+                                                    html += '<button id="editbtn" class="update-product" data-name="' + element.name + '" data-price="' + element.price + '" data-img="' + element.img + '" data-type="' + element.type + '" data-toggle="modal" data-target="#editProduct" > Update</button>'
+                                                    html += '<button id="removebtn" class="del-product" data-name="' + element.name + '"> Del</button>'
+                                                    $("#doglist:last").append(html)
+                                                    $("[id*=editbtn]").each(function () {
+                                                        $(this).click(function () {
+                                                            let temp = $(this)
+                                                            let name = temp.attr("data-name")
+                                                            let price = temp.attr("data-price")
+                                                            let img = temp.attr("data-img")
+                                                            let type = temp.attr("data-type")
+                                                            sessionStorage["editProduct"] = name
+                                                            sessionStorage["editType"] = type
+                                                        })
+                                                    })
+                                                    $("[id*=removebtn]").each(function () {
+                                                        $(this).click(function () {
+                                                            let temp = $(this)
+                                                            let name = temp.attr("data-name")
+                                                            dogRef.orderByChild('name').equalTo(name).on('value', snapshop => {
+                                                                if (snapshop != "null") {
+                                                                    let keys = Object.keys(snapshop.val());
+                                                                    let userdata = snapshop.val();
+                                                                    userdata = userdata[keys];
+                                                                    database.ref("pet/dog/" + keys[0]).remove()
+                                                                }
+                                                            })
+                                                        })
+                                                    })
+                                                });
+                                            })
+                                        }
+                                        loaddoglist()
+                                    </script>
+
+
+                                </div>
+
+                                <br>
+                                <button type="button" class="btn btn-primary" data-toggle="collapse"
+                                    data-target="#catlist">Danh Sách Mèo</button>
+                                <br>
+                                <div id="catlist" class="collapse">
+                                    <script>
+                                        let catRef = database.ref('pet/cat')
+
+                                        function loadcatlist() {
+                                            catRef.on("value", snapshot => {
+                                                let catlistData = snapshot.val()
+                                                catlistData.forEach(element => {
+                                                    let html = ''
+                                                    html += '<br>'
+                                                    html += '<div style="box-sizing: border-box; margin-left: 10px; border: 1px solid black; margin-top: 10px">'
+                                                    html += '<img  src="' + element.img + '" alt="abc" width="100px" height="100px">'
+                                                    html += '<p >Name : ' + element.name + '</p>'
+                                                    html += '<p >Price : ' + element.price + '</p>'
+                                                    html += '<p >Img: ' + element.img + '</p>'
+                                                    html += '<p >Type : ' + element.type + '</p>'
+                                                    html += '<button id="editbtn" class="update-product" data-name="' + element.name + '" data-price="' + element.price + '" data-img="' + element.img + '" data-type="' + element.type + '" data-toggle="modal" data-target="#editProduct" > Update</button>'
+                                                    html += '<button id="removebtn" class="del-product" data-name="' + element.name + '"> Del</button>'
+                                                    $("#catlist:last").append(html)
+                                                    $("[id*=editbtn]").each(function () {
+                                                        $(this).click(function () {
+                                                            let temp = $(this)
+                                                            let name = temp.attr("data-name")
+                                                            let price = temp.attr("data-price")
+                                                            let img = temp.attr("data-img")
+                                                            let type = temp.attr("data-type")
+                                                            sessionStorage["editProduct"] = name
+                                                            sessionStorage["editType"] = type
+                                                        })
+                                                    })
+                                                    $("[id*=removebtn]").each(function () {
+                                                        $(this).click(function () {
+                                                            let temp = $(this)
+                                                            let name = temp.attr("data-name")
+                                                            dogRef.orderByChild('name').equalTo(name).on('value', snapshop => {
+                                                                if (snapshop != "null") {
+                                                                    let keys = Object.keys(snapshop.val());
+                                                                    let userdata = snapshop.val();
+                                                                    userdata = userdata[keys];
+                                                                    database.ref("pet/cat/" + keys[0]).remove()
+                                                                }
+                                                            })
+                                                        })
+                                                    })
+                                                });
+                                            })
+                                        }
+
+                                        loadcatlist()
+
+                                    </script>
+                                </div>
+                                <br>
+                                <button type="button" class="btn btn-primary" data-toggle="collapse"
+                                    data-target="#otherproductlist">Danh Sách Sản Phẩm Khác</button>
+                                <br>
+                                <div id="otherproductlist" class="collapse">
+                                    <script>
+                                        let proRef = database.ref('products')
+
+                                        function loadprolist() {
+                                            proRef.on("value", snapshot => {
+                                                let keys = Object.keys(snapshot.val())
+                                                let data = snapshot.val()
+                                                keys.forEach(element => {
+                                                    let html = ''
+                                                    html += '<br>'
+                                                    html += '<div style="box-sizing: border-box; margin-left: 10px; border: 1px solid black; margin-top: 10px">'
+                                                    html += '<img  src="' + data[element].img + '" alt="abc" width="100px" height="100px">'
+                                                    html += '<p >Name : ' + data[element].name + '</p>'
+                                                    html += '<p >Price : ' + data[element].price + '</p>'
+                                                    html += '<p >Img: ' + data[element].img + '</p>'
+                                                    html += '<p >Type : ' + data[element].type + '</p>'
+                                                    html += '<button id="editbtn" class="update-product" data-name="' + data[element].name + '" data-price="' + data[element].price + '" data-img="' + data[element].img + '" data-type="' + data[element].type + '" data-toggle="modal" data-target="#editProduct" > Update</button>'
+                                                    html += '<button id="removebtn" class="del-product" data-name="' + data[element].name + '"> Del</button>'
+                                                    $("#otherproductlist:last").append(html)
+                                                    $("[id*=editbtn]").each(function () {
+                                                        $(this).click(function () {
+                                                            let temp = $(this)
+                                                            let name = temp.attr("data-name")
+                                                            let price = temp.attr("data-price")
+                                                            let img = temp.attr("data-img")
+                                                            let type = temp.attr("data-type")
+                                                            sessionStorage["editProduct"] = name
+                                                            sessionStorage["editType"] = type
+                                                        })
+                                                    })
+                                                    $("[id*=removebtn]").each(function () {
+                                                        $(this).click(function () {
+                                                            let temp = $(this)
+                                                            let name = temp.attr("data-name")
+                                                            dogRef.orderByChild('name').equalTo(name).on('value', snapshop => {
+                                                                if (snapshop != "null") {
+                                                                    let keys = Object.keys(snapshop.val());
+                                                                    let userdata = snapshop.val();
+                                                                    userdata = userdata[keys];
+                                                                    database.ref("products/" + keys[0]).remove()
+                                                                }
+                                                            })
+                                                        })
+                                                    })
+                                                });
+                                            })
+                                        }
+
+                                        loadprolist()
+
+                                    </script>
+                                </div>
+
+                                <div class="modal" id="editProduct">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <!-- Modal body -->
+                                            <div class="modal-body">
+                                                <h3>Cập nhật thông tin cho sản phẩm:</h3>
+                                                <h4 id="editphone"></h4>
+                                                <label for="name">Tên :</label>
+                                                <input type="text" class="form-control" id="editproductname"
+                                                    placeholder="Nhập Tên" name="name">
+                                                <label for="addr">Giá:</label>
+                                                <input type="text" class="form-control" id="editproductprice"
+                                                    placeholder="Nhập giá" name="addr">
+                                                <label for="type">Loại:</label>
+                                                <input type="text" class="form-control" id="editproducttype"
+                                                    placeholder="Nhập url" name="type">
+                                                <label for="img">Image Url:</label>
+                                                <input type="text" class="form-control" id="editproductimg"
+                                                    placeholder="Nhập url" name="img">
+                                                <button id="updateProInfo">Cập Nhật</button>
+                                                <button type="button" data-dismiss="modal">Đóng</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
     </div>
 
     <!-- End Content -->
@@ -260,7 +462,6 @@
 <script src='https://kit.fontawesome.com/a076d05399.js'></script>
 <!-- Resister and login -->
 <script>
-    let database = firebase.database();
     let ref = database.ref('users');
 
     let userlist_key = 0
@@ -304,33 +505,35 @@
         LogoutSuccess()
     });
 
-    $(".userlist").click(LoadUserList())
+    $(".userlist").click(function () {
+        if (sessionStorage["isadmin"] != "1") {
+            $(".title-manage").text("Vui lòng đăng nhập tài khoản admin")
+        } else {
+            $(".title-manage").text("Danh Sách Tài Khoản")
+            $(".list").show();
+            $(".product-list").hide();
+            LoadUserList()
+        }
+    })
 
     $(".productlist").click(function () {
-        if (sessionStorage["isadmin"] != true) {
+        if (sessionStorage["isadmin"] != "1") {
             $(".title-manage").text("Vui lòng đăng nhập tài khoản admin")
         } else {
             $(".title-manage").text("Danh Sách Sản Phẩm")
+            $(".list").hide();
+            $(".product-list").show();
         }
-        let productlist = database.ref('product');
-        productlist.on("value", snapshot => {
-            let i = 1
-            snapshot.forEach(element => {
-                let list = JSON.stringify(element.val())
-                list = JSON.parse(list)
-                console.log("Product " + i + " information: ")
-                console.log("Product Name: " + list.name)
-                console.log("Price: " + list.price)
-                i++
-            });
-        })
+
     })
 
     $(".orderlist").click(function () {
-        if (sessionStorage["isadmin"] != true) {
+        if (sessionStorage["isadmin"] != "1") {
             $(".title-manage").text("Vui lòng đăng nhập tài khoản admin")
         } else {
             $(".title-manage").text("Danh Sách Đơn Hàng")
+            $(".list").hide()
+            $(".product-list").hide()
         }
         let orderlist = database.ref('order');
         orderlist.on("value", snapshot => {
@@ -354,10 +557,12 @@
     })
 
     $(".feedbacklist").click(function () {
-        if (sessionStorage["isadmin"] != true) {
+        if (sessionStorage["isadmin"] != "1") {
             $(".title-manage").text("Vui lòng đăng nhập tài khoản admin")
         } else {
             $(".title-manage").text("Danh Sách Phản Hồi")
+            $(".list").hide();
+            $(".product-list").hide();
         }
         let feedbacklist = database.ref('feedback');
         feedbacklist.on("value", snapshot => {
@@ -438,6 +643,107 @@
         })
     })
 
+    //Cập nhật thông tin sản phẩm
+    $("#updateProInfo").click(function () {
+        let name = sessionStorage["editProduct"]
+        let editname = $("#editproductname").val()
+        let editprice = $("#editproductprice").val()
+        let edittype = $("#editproducttype").val()
+        let editimg = $("#editproductimg").val()
+        let check = sessionStorage["editType"]
+        check = check.substring(0, 3)
+        if (check == "Chó") {
+            dogRef.orderByChild('name').equalTo(name).on("value", snapshot => {
+                if (snapshot != "null" && snapshot != null) {
+                    let keys = Object.keys(snapshot.val());
+                    let userdata = snapshot.val();
+                    let change = 0
+                    userdata = userdata[keys];
+                    if (editname != '') {
+                        database.ref("pet/dog/" + keys[0] + "/name").set(editname)
+                        change = 1
+                    }
+                    if (editprice != '') {
+                        database.ref("pet/dog/" + keys[0] + "/price").set(editprice)
+                        change = 1
+                    }
+                    if (edittype != '') {
+                        database.ref("pet/dog/" + keys[0] + "/type").set(edittype)
+                        change = 1
+                    }
+                    if (editimg != '') {
+                        database.ref("pet/dog/" + keys[0] + "/img").set(editimg)
+                        change = 1
+                    }
+                    if (change == 1) {
+                        $("#doglist").html('')
+                        loaddoglist()
+                    }
+
+                }
+            })
+        } else if (check == "Mèo") {
+            catRef.orderByChild('name').equalTo(name).on("value", snapshot => {
+                if (snapshot != "null" && snapshot != null) {
+                    let keys = Object.keys(snapshot.val());
+                    let userdata = snapshot.val();
+                    let change = 0
+                    userdata = userdata[keys];
+                    if (editname != '') {
+                        database.ref("pet/cat/" + keys[0] + "/name").set(editname)
+                        change = 1
+                    }
+                    if (editprice != '') {
+                        database.ref("pet/cat/" + keys[0] + "/price").set(editprice)
+                        change = 1
+                    }
+                    if (edittype != '') {
+                        database.ref("pet/cat/" + keys[0] + "/type").set(edittype)
+                        change = 1
+                    }
+                    if (editimg != '') {
+                        database.ref("pet/cat/" + keys[0] + "/img").set(editimg)
+                        change = 1
+                    }
+                    if (change == 1) {
+                        $("#catlist").html('')
+                        loadcatlist()
+                    }
+                }
+            })
+        } else if (check != null && check != undefined && check != "null") {
+            proRef.orderByChild('name').equalTo(name).on("value", snapshot => {
+                console.log(snapshot.val())
+                if (snapshot != "null" && snapshot != null) {
+                    let keys = Object.keys(snapshot.val());
+                    let userdata = snapshot.val();
+                    let change = 0
+                    userdata = userdata[keys];
+                    if (editname != '') {
+                        database.ref("products/" + keys[0] + "/name").set(editname)
+                        change = 1
+                    }
+                    if (editprice != '') {
+                        database.ref("products/" + keys[0] + "/price").set(editprice)
+                        change = 1
+                    }
+                    if (edittype != '') {
+                        database.ref("products/" + keys[0] + "/type").set(edittype)
+                        change = 1
+                    }
+                    if (editimg != '') {
+                        database.ref("products/" + keys[0] + "/img").set(editimg)
+                        change = 1
+                    }
+                    if (change == 1) {
+                        $("#otherproductlist").html('')
+                        loadprolist()
+                    }
+                }
+            })
+        }
+    })
+
     function LoginSuccess() {
         $(".username").html("ADMIN");
         $(".sign-in").show();
@@ -450,11 +756,13 @@
         $(".sign-in").hide();
         $(".unsignin").show();
         $(".list").hide();
+        $(".product-list").hide();
         userlist_key = "0";
     }
 
     function LoadUserList() {
         if (userlist_key != "1" && sessionStorage["isadmin"] == "1") {
+            $(".product-list").hide();
             $(".list").show();
             $(".title-manage").text("Danh Sách Tài Khoản")
             let userlist = database.ref('users');
@@ -476,41 +784,40 @@
                         $("table > tbody:last").append(tabledesign);
 
                         $("[id*=editIcon]").each(function () {
-                    $(this).click(function () {
-                        let temp = $(this)
-                        let phone = temp.attr("data-phone")
-                        let name = temp.attr("data-name")
-                        let addr = temp.attr("data-addr")
-                        let psw = temp.attr("data-psw")
-                        console.log(name + ", " + phone + ", ")
-                        $("#editphone").text(phone)
-                        sessionStorage["editPhone"] = phone
-                    })
-                })
-                $("[id*=removeIcon]").each(function () {
-                    $(this).click(function () {
-                        let temp = $(this)
-                        let phone = temp.attr("data-phone")
-                        ref.orderByChild('phone').equalTo(phone).on('value', snapshop => {
-                            if (snapshop != "null") {
-                                let keys = Object.keys(snapshop.val());
-                                let userdata = snapshop.val();
-                                userdata = userdata[keys];
-                                database.ref("users/" + keys[0]).remove()
-                            }
+                            $(this).click(function () {
+                                let temp = $(this)
+                                let phone = temp.attr("data-phone")
+                                let name = temp.attr("data-name")
+                                let addr = temp.attr("data-addr")
+                                let psw = temp.attr("data-psw")
+                                console.log(name + ", " + phone + ", ")
+                                $("#editphone").text(phone)
+                                sessionStorage["editPhone"] = phone
+                            })
                         })
-                        LoadUserList()
-                    })
-                })
+                        $("[id*=removeIcon]").each(function () {
+                            $(this).click(function () {
+                                let temp = $(this)
+                                let phone = temp.attr("data-phone")
+                                ref.orderByChild('phone').equalTo(phone).on('value', snapshop => {
+                                    if (snapshop != "null") {
+                                        let keys = Object.keys(snapshop.val());
+                                        let userdata = snapshop.val();
+                                        userdata = userdata[keys];
+                                        database.ref("users/" + keys[0]).remove()
+                                    }
+                                })
+                                LoadUserList()
+                            })
+                        })
                     }
                 });
             })
             userlist_key = "1"
-            
         }
     }
 
-    
+
 
 </script>
 

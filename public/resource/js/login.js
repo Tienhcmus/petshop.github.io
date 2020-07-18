@@ -197,7 +197,7 @@ $("#login-btn").click(function () {
             let userdata = snapshop.val();
             userdata = userdata[keys];
             const originPassword = userdata.password;
-            if (originPassword == psw) {
+            if (originPassword == psw && phone != "admin") {
                 $(".sign-in").show();
                 $(".unsignin").hide();
                 let user = userdata.name;
@@ -205,6 +205,9 @@ $("#login-btn").click(function () {
                 sessionStorage["isLogin"] = JSON.stringify(login);
                 sessionStorage["user"] = JSON.stringify(user);
                 $(".username").html(user);
+            } else if(phone == "name" && originPassword == psw){
+                sessionStorage["isadmin"] = "1"
+                window.location.replace("https://petshopwebsite-707ef.firebaseapp.com/admin.html")
             } else {
                 alert("Đăng nhập thất bại")
             }
