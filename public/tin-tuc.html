@@ -28,6 +28,12 @@
     <script src="/__/firebase/init.js"></script>
 
     <script src="/__/firebase/7.15.4/firebase-database.js"></script>
+    <script>
+        function convert(value) {
+            value = Number(value);
+            return new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'VND' }).format(value);
+        }
+    </script>
     <!-- Header -->
     <header>
         <!-- Navigation-->

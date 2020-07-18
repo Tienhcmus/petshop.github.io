@@ -29,6 +29,13 @@
     <script src="/__/firebase/init.js"></script>
 
     <script src="/__/firebase/7.15.4/firebase-database.js"></script>
+    <script>
+        let database = firebase.database()
+        function convert(value) {
+            value = Number(value);
+            return new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'VND' }).format(value);
+        }
+    </script>
     <!-- Header -->
     <header>
         <!-- Navigation-->
@@ -55,8 +62,7 @@
                                     </ul>
                                     <div class="dropdown-divider"></div>
                                     <p class="total-cost"></p>
-                                    <a href="../cart-details.html"
-                                        class="check-out">Thanh Toán</a>
+                                    <a href="../cart-details.html" class="check-out">Thanh Toán</a>
                                 </div>
                             </div>
                     </li>
@@ -94,20 +100,20 @@
             </ul>
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <a class="link-image" href="../pet.html"><img
-                            src="../resource/images/Banner/banner1.jpg" alt="pet"></a>
+                    <a class="link-image" href="../pet.html"><img src="../resource/images/Banner/banner1.jpg"
+                            alt="pet"></a>
                 </div>
                 <div class="carousel-item">
-                    <a class="link-image" href="../product.html"><img
-                            src="../resource/images/Banner/banner2.jpg" alt="Sanpham"></a>
+                    <a class="link-image" href="../product.html"><img src="../resource/images/Banner/banner2.jpg"
+                            alt="Sanpham"></a>
                 </div>
                 <div class="carousel-item">
-                    <a class="link-image" href="../cham-soc.html"><img
-                            src="../resource/images/Banner/banner3.jpg" alt="chamsoc"></a>
+                    <a class="link-image" href="../cham-soc.html"><img src="../resource/images/Banner/banner3.jpg"
+                            alt="chamsoc"></a>
                 </div>
                 <div class="carousel-item">
-                    <a class="link-image" href="../tin-tuc.html"><img
-                            src="../resource/images/Banner/banner4.jpg" alt="tintuc"></a>
+                    <a class="link-image" href="../tin-tuc.html"><img src="../resource/images/Banner/banner4.jpg"
+                            alt="tintuc"></a>
                 </div>
             </div>
             <!-- Left and right controls -->
@@ -129,47 +135,35 @@
                     </li>
                     <!-- Dropdown -->
                     <li class="nav-item dropdown">
-                        <a class="nav-link" href="../pet.html"
-                            id="navbarDropdown"> Hệ thống thú cưng
+                        <a class="nav-link" href="../pet.html" id="navbarDropdown"> Hệ thống thú cưng
                         </a>
                         <div class="dropdown-content">
-                            <a class="dropdown-item"
-                                href="../danh-sach-cho.html"> Chó </a>
-                            <a class="dropdown-item"
-                                href="../danh-sach-meo.html"> Mèo </a>
+                            <a class="dropdown-item" href="../danh-sach-cho.html"> Chó </a>
+                            <a class="dropdown-item" href="../danh-sach-meo.html"> Mèo </a>
                         </div>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link" href="../product.html"
-                            id="navbarDropdown"> Sản phẩm
+                        <a class="nav-link" href="../product.html" id="navbarDropdown"> Sản phẩm
                         </a>
                         <div class="dropdown-content">
-                            <a class="dropdown-item"
-                                href="../product.html#dog-food"> Thức ăn cho
+                            <a class="dropdown-item" href="../product.html#dog-food"> Thức ăn cho
                                 chó </a>
-                            <a class="dropdown-item"
-                                href="../product.html#cat-food"> Thức ăn cho
+                            <a class="dropdown-item" href="../product.html#cat-food"> Thức ăn cho
                                 mèo </a>
-                            <a class="dropdown-item"
-                                href="../product.html#sua-tam"> Sữa tắm </a>
-                            <a class="dropdown-item"
-                                href="../product.html#other-product"> Phụ kiện
+                            <a class="dropdown-item" href="../product.html#sua-tam"> Sữa tắm </a>
+                            <a class="dropdown-item" href="../product.html#other-product"> Phụ kiện
                             </a>
                         </div>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link" href="../cham-soc.html"
-                            id="navbarDropdown"> Chăm sóc thú cưng
+                        <a class="nav-link" href="../cham-soc.html" id="navbarDropdown"> Chăm sóc thú cưng
                         </a>
                         <div class="dropdown-content">
-                            <a class="dropdown-item"
-                                href="chamsoc-000.html"> Hướng dẫn
+                            <a class="dropdown-item" href="chamsoc-000.html"> Hướng dẫn
                                 dành cho người mới </a>
-                            <a class="dropdown-item"
-                                href="chamsoc-001.html"> Tiêm Ngừa
+                            <a class="dropdown-item" href="chamsoc-001.html"> Tiêm Ngừa
                                 Vaccine Cho Thú Cưng Và Những Điều Cần Biết </a>
-                            <a class="dropdown-item"
-                                href="chamsoc-002.html"> 5 Bệnh
+                            <a class="dropdown-item" href="chamsoc-002.html"> 5 Bệnh
                                 Thường Gặp Ở Thú Cưng </a>
 
                         </div>
@@ -365,23 +359,33 @@
                         ho, lâu sẽ dẫn đến tình trạng khó thở, cún phải lấy hơi và thở một cách khó khăn. Phần sụn trong
                         khí quản của Phốc sóc khá mềm và dễ bị chấn thương. Một tác động mạnh tới phần cổ hoặc cũng có
                         thể do dây xích của cún quá chật. Dẫn đến tràn dịch khí quản. <br>
-                        &emsp;Mỗi người sẽ có cách làm pate cho mèo con riêng. Tuy nhiên, tóm gọn lại các bước cơ bản như sau. <br>
+                        &emsp;Mỗi người sẽ có cách làm pate cho mèo con riêng. Tuy nhiên, tóm gọn lại các bước cơ bản
+                        như sau. <br>
 
-                        &emsp;&emsp;1. Gan rửa sạch, kiểm tra cắt bỏ túi mật, thái miếng cho nhỏ bớt, ngâm sữa 15 – 20 phút để tiêu
+                        &emsp;&emsp;1. Gan rửa sạch, kiểm tra cắt bỏ túi mật, thái miếng cho nhỏ bớt, ngâm sữa 15 –
+                        20 phút để tiêu
                         độc, xong luộc chín. Bí đỏ, thịt cắt miếng nhỏ, luộc chín mềm. <br>
-                        &emsp;&emsp;2. Bỏ nguyên liệu vào máy xay xay nhuyễn, trong quá trình xay đổ 1 ít nước thì dễ xay hơn. Nhà bạn
+                        &emsp;&emsp;2. Bỏ nguyên liệu vào máy xay xay nhuyễn, trong quá trình xay đổ 1 ít nước thì dễ
+                        xay hơn. Nhà bạn
                         nào không có máy xay có thể băm nhỏ nguyên liệu. <br>
-                        &emsp;&emsp;3. Đổ hỗn hợp vào nồi để lửa nhỏ, đậy nắp đun 20 – 30 phút tùy lượng nguyên liệu. Thỉnh thoảng dùng
+                        &emsp;&emsp;3. Đổ hỗn hợp vào nồi để lửa nhỏ, đậy nắp đun 20 – 30 phút tùy lượng nguyên liệu.
+                        Thỉnh thoảng dùng
                         đũa đảo đều tay, kiểm tra xem có bị xém pate phần đáy hay không. Với pate loãng thì bạn ít
                         phải đảo hơn vì nhanh chín và không dễ xém đáy nồi. <br>
-                        &emsp;&emsp;4. Khi nào pate đặc quánh lại, có mùi thơm, khô. Lưu ý trong cách làm pate cho mèo con đặc hoặc
+                        &emsp;&emsp;4. Khi nào pate đặc quánh lại, có mùi thơm, khô. Lưu ý trong cách làm pate cho mèo
+                        con đặc hoặc
                         lãng nhé. Pate đặc thì không có nước thừa. Pate loãng thì chỉ cần sủi là có thể tắt bếp.
                         &emsp;&emsp;5. Để nguội rồi mới cho vào hộp nhựa, cất tủ lạnh. <br>
                         <br>
                         <p class='center'><img src="../resource/images/take-care/cách-tự-làm-pate-cho-mèo.jpg"
                                 alt="khoasat"></p> <br>
-                        <br>&emsp;Pate bảo quản tủ lạnh thường khoảng 1 tuần nếu chín kĩ và nguyên liệu sạch. Bảo quản tủ đá được gấp 2 – 3 lần thời gian. Cách làm pate cho mèo con chỉ đơn giản vậy thôi, không hề khó chút nào. Đến bữa bạn lấy lượng pate vừa đủ ra bát, cho vào nồi cơm hấp khoảng 2 phút. Để nguội bớt là có thể phục vụ mèo cưng được rồi. Pate ăn liền hoặc trộn hạt, cơm đều được. Nhưng nếu trộn cơm thì lượng cơm ít ít thôi vì nhiều cơm là mèo cưng sẽ không thích.<br>
-                        &emsp;Bây giờ thì bạn đã biết cách làm pate cho mèo con rồi chứ. Nếu bạn không có thời gian có thể mua các sản phẩm pate đóng hộp có bán sẵn tại Pet Shop nhé. Chúc bạn thành công! <br>
+                        <br>&emsp;Pate bảo quản tủ lạnh thường khoảng 1 tuần nếu chín kĩ và nguyên liệu sạch. Bảo quản
+                        tủ đá được gấp 2 – 3 lần thời gian. Cách làm pate cho mèo con chỉ đơn giản vậy thôi, không hề
+                        khó chút nào. Đến bữa bạn lấy lượng pate vừa đủ ra bát, cho vào nồi cơm hấp khoảng 2 phút. Để
+                        nguội bớt là có thể phục vụ mèo cưng được rồi. Pate ăn liền hoặc trộn hạt, cơm đều được. Nhưng
+                        nếu trộn cơm thì lượng cơm ít ít thôi vì nhiều cơm là mèo cưng sẽ không thích.<br>
+                        &emsp;Bây giờ thì bạn đã biết cách làm pate cho mèo con rồi chứ. Nếu bạn không có thời gian có
+                        thể mua các sản phẩm pate đóng hộp có bán sẵn tại Pet Shop nhé. Chúc bạn thành công! <br>
                         <br>
                     </p>
                 </div>
@@ -405,7 +409,8 @@
                             <div style="display: flex; height: 50px;">
                                 <img src="../resource/images/take-care/cac-benh-thuong-gap-o-phoc-soc-5.jpg" alt="new0"
                                     width="50px" height="50px">
-                                <a href="chamsoc-005.html" style="overflow: hidden !important; height: 50px; padding-left: 5px;"> Các
+                                <a href="chamsoc-005.html"
+                                    style="overflow: hidden !important; height: 50px; padding-left: 5px;"> Các
                                     Bệnh Thường Gặp Ở Chó Phốc Sóc</a>
                             </div>
                         </li>
@@ -423,8 +428,11 @@
                         <hr />
                         <li>
                             <div style="display: flex; height: 50px;">
-                                <img src="../resource/images/take-care/24b4d73b576b47d424501fdf1e7fd13a--huskies-puppies-mother-nature.jpg" alt="new0" width="50px" height="50px">
-                                <a href="chamsoc-003.html" style="overflow: hidden !important; height: 50px; padding-left: 5px;"> Chăm Sóc Dinh Dưỡng Cho Chó Husky</a>
+                                <img src="../resource/images/take-care/24b4d73b576b47d424501fdf1e7fd13a--huskies-puppies-mother-nature.jpg"
+                                    alt="new0" width="50px" height="50px">
+                                <a href="chamsoc-003.html"
+                                    style="overflow: hidden !important; height: 50px; padding-left: 5px;"> Chăm Sóc Dinh
+                                    Dưỡng Cho Chó Husky</a>
                             </div>
                         </li>
                     </ul>

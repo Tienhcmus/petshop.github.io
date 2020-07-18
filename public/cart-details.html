@@ -30,6 +30,11 @@
     <script src="/__/firebase/7.15.4/firebase-database.js"></script>
     <script>
         let database = firebase.database()
+     
+        function convert(value) {
+            value = Number(value);
+            return new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'VND' }).format(value);
+        }
     </script>
     <!-- Header -->
     <header>
