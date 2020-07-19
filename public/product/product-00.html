@@ -5,15 +5,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Pet Shop</title>
+    <title>SEMINAR</title>
     <!-- Import Bootstrap, js and font awesome -->
-    <link rel="stylesheet" type="text/css" href="../../../resource/bootstrap-4.4.1-dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="../resource/bootstrap-4.4.1-dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="../../../resource/css/stylesheet.css" />
-    <link rel="stylesheet" type="text/css" href="../../../resource/css/cart.css" />
-    <link rel="stylesheet" type="text/css" href="../../../resource/css/card-news-stysheet.css" />
-    <link rel="stylesheet" type="text/css" href="../../../resource/css/modal.css" />
+    <link rel="stylesheet" type="text/css" href="../resource/css/stylesheet.css" />
+    <link rel="stylesheet" type="text/css" href="../resource/css/cart.css" />
+    <link rel="stylesheet" type="text/css" href="../resource/css/card-news-stysheet.css" />
+    <link rel="stylesheet" type="text/css" href="../resource/css/modal.css" />
     <link href="https://fonts.googleapis.com/css2?family=Jura:wght@300;400&display=swap" rel="stylesheet">
+
 </head>
 
 <body data-spy="scroll" data-target=".sticky-sidebar .dropdown-content" data-offset="50">
@@ -34,7 +35,7 @@
             value = Number(value);
             return new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'VND' }).format(value);
         }
-        </script>
+    </script>
     <!-- Header -->
     <header>
         <!-- Navigation-->
@@ -42,8 +43,8 @@
             style="background-color: rgb(242, 241, 236); padding-top: 0; padding-bottom: 0;">
             <div class="container-fluid">
                 <!-- Logo -->
-                <a class="navbar-brand" href="https://petshopwebsite-707ef.firebaseapp.com/" style="width: 100px;">
-                    <img src="../../../resource/images/logo/Brand1.png" alt="pet-store" width="150%" height="150%">
+                <a class="navbar-brand" href="../index.html" style="width: 100px;">
+                    <img src="../resource/images/logo/Brand1.png" alt="pet-store" width="150%" height="150%">
                 </a>
                 <!-- Login -->
                 <ul class="navbar-nav ml-auto" style="font-size: large;">
@@ -61,8 +62,7 @@
                                     </ul>
                                     <div class="dropdown-divider"></div>
                                     <p class="total-cost"></p>
-                                    <a href="https://petshopwebsite-707ef.firebaseapp.com/cart-details.html"
-                                        class="check-out">Thanh Toán</a>
+                                    <a href="../cart-details.html" class="check-out">Thanh Toán</a>
                                 </div>
                             </div>
                     </li>
@@ -100,20 +100,20 @@
             </ul>
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <a class="link-image" href="https://petshopwebsite-707ef.firebaseapp.com/pet.html"><img
-                            src="../../../resource/images/Banner/banner1.jpg" alt="pet"></a>
+                    <a class="link-image" href="../pet.html"><img src="../resource/images/Banner/banner1.jpg"
+                            alt="pet"></a>
                 </div>
                 <div class="carousel-item">
-                    <a class="link-image" href="https://petshopwebsite-707ef.firebaseapp.com/product.html"><img
-                            src="../../../resource/images/Banner/banner2.jpg" alt="Sanpham"></a>
+                    <a class="link-image" href="../product.html"><img src="../resource/images/Banner/banner2.jpg"
+                            alt="Sanpham"></a>
                 </div>
                 <div class="carousel-item">
-                    <a class="link-image" href="https://petshopwebsite-707ef.firebaseapp.com/cham-soc.html"><img
-                            src="../../../resource/images/Banner/banner3.jpg" alt="chamsoc"></a>
+                    <a class="link-image" href="../cham-soc.html"><img src="../resource/images/Banner/banner3.jpg"
+                            alt="chamsoc"></a>
                 </div>
                 <div class="carousel-item">
-                    <a class="link-image" href="https://petshopwebsite-707ef.firebaseapp.com/tin-tuc.html"><img
-                            src="../../../resource/images/Banner/banner4.jpg" alt="tintuc"></a>
+                    <a class="link-image" href="../tin-tuc.html"><img src="../resource/images/Banner/banner4.jpg"
+                            alt="tintuc"></a>
                 </div>
             </div>
             <!-- Left and right controls -->
@@ -131,64 +131,62 @@
                 <!-- Links -->
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="https://petshopwebsite-707ef.firebaseapp.com/"> Trang chủ </a>
+                        <a class="nav-link" href="../index.html"> Trang chủ </a>
                     </li>
                     <!-- Dropdown -->
                     <li class="nav-item dropdown">
-                        <a class="nav-link" href="https://petshopwebsite-707ef.firebaseapp.com/pet.html"
-                            id="navbarDropdown"> Hệ thống thú cưng
+                        <a class="nav-link" href="../pet.html" id="navbarDropdown"> Hệ thống thú cưng
                         </a>
                         <div class="dropdown-content">
-                            <a class="dropdown-item"
-                                href="https://petshopwebsite-707ef.firebaseapp.com/danh-sach-cho.html"> Chó </a>
-                            <a class="dropdown-item"
-                                href="https://petshopwebsite-707ef.firebaseapp.com/danh-sach-meo.html"> Mèo </a>
+                            <a class="dropdown-item" href="../danh-sach-cho.html"> Chó </a>
+                            <a class="dropdown-item" href="../danh-sach-meo.html"> Mèo </a>
                         </div>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link" href="https://petshopwebsite-707ef.firebaseapp.com/product.html"
-                            id="navbarDropdown"> Sản phẩm
+                        <a class="nav-link" href="../product.html" id="navbarDropdown"> Sản phẩm
                         </a>
                         <div class="dropdown-content">
-                            <a class="dropdown-item"
-                                href="https://petshopwebsite-707ef.firebaseapp.com/product.html#dog-food"> Thức ăn cho
+                            <a class="dropdown-item" href="../product.html#dog-food"> Thức ăn cho
                                 chó </a>
-                            <a class="dropdown-item"
-                                href="https://petshopwebsite-707ef.firebaseapp.com/product.html#cat-food"> Thức ăn cho
+                            <a class="dropdown-item" href="../product.html#cat-food"> Thức ăn cho
                                 mèo </a>
-                            <a class="dropdown-item"
-                                href="https://petshopwebsite-707ef.firebaseapp.com/product.html#sua-tam"> Sữa tắm </a>
-                            <a class="dropdown-item"
-                                href="https://petshopwebsite-707ef.firebaseapp.com/product.html#other-product"> Phụ kiện
+                            <a class="dropdown-item" href="../product.html#sua-tam"> Sữa tắm </a>
+                            <a class="dropdown-item" href="../product.html#other-product"> Phụ kiện
                             </a>
                         </div>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link" href="https://petshopwebsite-707ef.firebaseapp.com/cham-soc.html"
-                            id="navbarDropdown"> Chăm sóc thú cưng
+                        <a class="nav-link" href="../cham-soc.html" id="navbarDropdown"> Chăm sóc thú cưng
                         </a>
                         <div class="dropdown-content">
-                            <a class="dropdown-item"
-                                href="https://petshopwebsite-707ef.firebaseapp.com/chamsoc/chamsoc-000.html"> Hướng dẫn
+                            <a class="dropdown-item" href="chamsoc-000.html"> Hướng dẫn
                                 dành cho người mới </a>
-                            <a class="dropdown-item"
-                                href="https://petshopwebsite-707ef.firebaseapp.com/chamsoc/chamsoc-001.html"> Tiêm Ngừa
+                            <a class="dropdown-item" href="chamsoc-001.html"> Tiêm Ngừa
                                 Vaccine Cho Thú Cưng Và Những Điều Cần Biết </a>
-                            <a class="dropdown-item"
-                                href="https://petshopwebsite-707ef.firebaseapp.com/chamsoc/chamsoc-002.html"> 5 Bệnh
+                            <a class="dropdown-item" href="chamsoc-002.html"> 5 Bệnh
                                 Thường Gặp Ở Thú Cưng </a>
 
                         </div>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="https://petshopwebsite-707ef.firebaseapp.com/tin-tuc.html"> Tin tức
+                        <a class="nav-link" href="../tin-tuc.html"> Tin tức
                             thú cưng </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="https://petshopwebsite-707ef.firebaseapp.com/lien-he.html"> Liên hệ
+                        <a class="nav-link" href="../lien-he.html"> Liên hệ
                         </a>
                     </li>
                 </ul>
+                <div class="navbar-nav ml-auto">
+                    <!--Searching-->
+                    <form class="search-form form-inline my-2 my-md-0">
+                        <div>
+                            <input id="search-text" class="form-control mr-sm-2" type="search"
+                                placeholder="Tìm Kiếm Sản Phẩm" aria-label="Search">
+                            <button class="search-btn" type="submit"><i class="fa fa-search"></i></button>
+                        </div>
+                    </form>
+                </div>
             </nav>
         </div>
         <!-- Modal Sign up -->
@@ -295,12 +293,11 @@
                             <button id="login-btn" class="loginbtn">Đăng Nhập</button>
                         </div>
                         <div class="container forgotpsw" style="padding-top: 0px;">
-                            <a href="https://petshopwebsite-707ef.firebaseapp.com/lien-he.html">Quên Mật Khẩu?</a>
+                            <a href="../lien-he.html">Quên Mật Khẩu?</a>
                         </div>
                     </form>
                 </div>
             </div>
-
         </div>
     </header>
     <!--End Header -->
@@ -325,30 +322,28 @@
             <div class="space60">&nbsp;</div>
             <div class="row">
                 <div class="col-9">
-                    <div class="row">
-                        <div class="col-sm-4">
-                            <img src="../../../resource/images/pet/dog/alaska/alaska-2.jpg" alt="" style="width: 270px; height: 340px;">
-                        </div>
-                        <div class="col-sm-8">
-                            <div class="single-item-body">
-                                <p class="single-item-title">Chó Alaska - 002</p>
-                                <p class="single-item-price">
-                                    <span style="font-size: 30px;">Giá: 5.000.000</span>
-                                    &emsp;<a class="add-to-cart btn btn-outline-warning" data-name="Alaska - 002" data-price="5000000" data-img="resource/images/pet/dog/alaska/alaska-2.jpg" > Mua</a>
-                                </p>
-                            </div>
-                            <div class="clearfix"></div>
-                            <div class="space20">&nbsp;</div>
-                            <div class="single-item-desc">
-                                <p>Alaska hay chính là là Alaska Malamute hoặc Mahlemuts là một trong những loài chó kéo xe tại vịnh Kotzebue, vùng đất Alaska. Những người dân nơi đây đã nuôi dưỡng và huấn luyện chúng để làm việc kéo xe dưới thời tiết lạnh giá. Sau đó, khi vùng đất này trở thành 1 bang của nước Mỹ thì Alaska nghiễm nhiên trở thành một loài động vật của Mỹ.</p>
-                                <p>
-                                    &nbsp;
-                                    
-                                    <div class="clearfix"></div>
-                                </p>
-                            </div>
-                        </div>
+                    <div class="row pet-info">
+                        <script>
+                            let petInfoRef = database.ref('products/0')
+                            petInfoRef.on("value", snapshot => {
+                                let data = snapshot.val()
+                                let html = ''
+                                let price = convert(data.price)
+                                html += '<div class="col-sm-4" >'
+                                html += '<img src="../' + data.img + '" alt=""'
+                                html += 'style="width: 270px; height: 340px;"></div>'
+                                html += '<div class="col-sm-8"><div class="single-item-body">'
+                                html += '<p class="single-item-title">' + data.name + ' </p><p class="single-item-price">'
+                                html += '<span style="font-size: 30px;">Giá: ' + price + '</span>'
+                                html += '&emsp;<a class="add-to-cart btn btn-outline-warning" data-name="' + data.name + '"'
+                                html += 'data-price="' + data.price + '" data-img="' + data.img + '"> Mua</a></p></div>'
+                                html += '<div class="clearfix"></div> <div class="space20">&nbsp;</div> <div class="single-item-desc">'
+                                html += '<p>' + data.type + '</p> <p> &nbsp; <div class="clearfix"></div> </p> </div> </div> </div>'
+                                $(".pet-info:last").append(html)
+                            })
+                        </script>
                     </div>
+                    <br>
                     <div class="desc">
                         <ul class="nav nav-tabs" role="tablist">
                             <li class="nav-item">
@@ -358,28 +353,31 @@
                         <div class="tab-content">
                             <div id="desc" class="container tab-pane active"><br>
                                 <h4>THÔNG TIN CƠ BẢN</h4>
-                                <p>+ Alaska Standard Trắng Xám Đực <br>
-                                    + Ngày sinh: 26/04/2020 <br>
-                                    + Ngày tiêm mũi 1: 12/06/2020 <br>
-                                    + Có nguồn gốc rõ ràng <br>
-                                    + Đảm bảo đạt tiêu chuẩn chiều cao, cân nặng… <br>
-                                    + Không dị tật, bệnh tật</p>
-                                <br>
-                                <p class="center"><img src="../../../resource/images/pet/dog/alaska/0996d8bf--4d73.jpg" alt="alaska"></p>
-                                <h4>GIẤY TỜ ĐI KÈM</h4>
-                                <p>+ Hợp đồng mua bán, giấy chứng nhận nguồn gốc rõ ràng, sổ tiêm phòng, giấy bảo hành và hướng dẫn chăm sóc chó con <br>
-                                    + Bảo hành sức khỏe dài hạn <br>
-                                    + Hỗ trợ khám chữa bệnh tại nhà (Tp.HCM). <br>
-                                    + Bảo hành toàn diện 3 ngày đầu tiên. <br>
-                                    + Hỗ trợ vận chuyển toàn quốc
+                                <p>Thức Ăn Cho Chó Trưởng Thành Hương Vị Thịt Bò Nướng Classic Pets (20kg) gồm các thành
+                                    phần dinh dưỡng cho thú cưng. <br>
+                                    Tinh bột: là nguồn năng lượng chính trong cơ thể của thú nuôi, ngoài ra tinh bột
+                                    trong thức ăn viên khô giúp ngăn chặn bệnh táo bón ruột. <br>
+                                    Chất béo kích thích sự ăn uống ngon miệng, cung cấp axit béo cần thiết giúp duy trì
+                                    làn da và bộ lông khỏe mạnh mượt mà. <br>
+                                    Khoáng chất hình thành xương và sụn (như Ca và P), tạo ra các phản ứng Enzyme giúp
+                                    tiêu hóa tốt, duy trì và cân bằng chất lỏng, ổn định sự co thắtcủa cơ bắp và chức
+                                    năng thần kinh, giúp cho Răng và Xương cứng cáp, khỏe mạnh <br>
+                                    Vitamin giúp chống lão hóa, cân bằng Canxi trong máu, tạo khoáng chất cho xương và
+                                    răng, ổn định thể trạng trong sinh sản, tăng cường hệ miễn dịch, tăng cường thị
+                                    giác.Nước là một môi trường lỏng cho máu và hệ thống bạch huyết giúp ổn định nhiệt
+                                    độ cơ thể. <br>
+                                    Giúp hệ tiêu hóa khỏe mạnh và hấp thụ tốt chất dinh dưỡng Vitamin và khoáng chất.
+                                    Chất đạm giúp cơ thể phát triển toàn diện Bổ sung Vitamin E và Selen tăng cường hệ
+                                    thống miễn dịch tự nhiên <br>
+                                    Cân bằng tối ưu giữa Omega 3 và Omega 6 giúp hỗ trợ sự phát triển cho da và bộ lông.
                                 </p>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-3">      
+                <div class="col-3">
                     <div class="widget">
-                        <h6 class="widget-title">Sản Phẩm Mới</h6>
+                        <h6 class="widget-title">Sản Phẩm Bán Chạy</h6>
                         <div class="widget-body">
                             <div class="beta-sales beta-lists">
                                 <script>
@@ -391,8 +389,8 @@
                                             let html = ''
                                             let price = convert(data[element].price)
                                             html += '<div class="beta-sales beta-lists"> <div class="media beta-sales-item">'
-                                            html += '<a href="../../../product/' + data[element].url + '">'
-                                            html += '<img src="../../../' + data[element].img + '" alt=""></a><div class="media-body">'
+                                            html += '<a href="' + data[element].url + '">'
+                                            html += '<img src="../' + data[element].img + '" alt=""></a><div class="media-body">'
                                             html += '<p>' + data[element].name + '</p>'
                                             html += '<span class="beta-sales-price">Giá: ' + price + '</span></div></div></div><br>'
                                             $(".beta-sales:last").append(html)
@@ -409,42 +407,87 @@
             <div class="beta-products-list">
 
                 <h4>Sản Phẩm Cùng Loại</h4>
-                <div class="row">
-                    <div class="col-sm-4">
-                        <div class="card card-product">
-                            <a class="link-image" href="alaska-000.html"><img class="card-img-top" src="../../../resource/images/pet/dog/alaska/alaska-0.jpg"
-                                    alt="alaska-0"></a>
-                            <div class="card-body">
-                                <h5 class="card-title"> Alaska - 000 </h5>
-                                <p class="card-text"> Giá: 5.000.000 </p>
-                                <a class="add-to-cart btn btn-primary" data-name="Alaska - 000" data-price="5000000" data-img="resource/images/pet/dog/alaska/alaska-0.jpg">Mua</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-4">
-                        <div class="card card-product">
-                            <a class="link-image" href="alaska-001.html"><img class="card-img-top" src="../../../resource/images/pet/dog/alaska/alaska-1.jpg"
-                                    alt="alaska-1"></a>
-                            <div class="card-body">
-                                <h5 class="card-title"> Alaska - 001 </h5>
-                                <p class="card-text"> Giá: 5.000.000 </p>
-                                <a class="add-to-cart btn btn-primary" data-name="Alaska - 001" data-price="5000000" data-img="resource/images/pet/dog/alaska/alaska-1.jpg">Mua</a>
-                            </div>
-                        </div>
-                    </div>
+                <div class="row same-product">
+                    <script>
+                        let sameProductRef = database.ref('products')
+                        let type = "Thức ăn cho chó"
+                        sameProductRef.orderByChild('type').equalTo(type).on("value", snapshot => {
+                            let keys = Object.keys(snapshot.val())
+                            let data = snapshot.val()
+                            keys.forEach(element => {
+                                let html = ''
+                                let price = convert(data[element].price)
+                                html += '<div class="col-sm-3">'
+                                html += '<div class="card card-product">'
+                                html += '<a class="link-image" href="' + data[element].url + '"><img class="card-img-top"'
+                                html += 'src="../' + data[element].img + '" alt="pull-1"></a>'
+                                html += '<div class="card-body">'
+                                html += '<h5 class="card-title">' + data[element].name + '</h5>'
+                                html += '<p class="card-text"> Giá: ' + price + '</p>'
+                                html += '<a class="add-to-cart btn btn-primary" data-name="' + data[element].name + '" data-price="' + data[element].price + '"'
+                                html += 'data-img="' + data[element].img + '">Mua</a>'
+                                html += '   </div>'
+                                html += '   </div>'
+                                html += '   </div>'
+                                $(".same-product:last").append(html)
+                            })
+                            $(".add-to-cart").click(function () {
+                                clickBuy.play()
+                                let button = $(this); // Lấy đối tượng mà người dùng click đặt tên là button
+                                let name = button.attr("data-name"); // name của sản phẩm là thuộc tính data-name của button
+                                let price = button.attr("data-price"); // price của sản phẩm là thuộc tính data-price của button
+                                let image = button.attr("data-img"); //image của sản phẩm là thuộc tính data-img của button
+                                let quantity = 1; // Số lượng
+
+                                let item = {
+                                    name: name,
+                                    price: price,
+                                    quantity: quantity,
+                                    image: image
+                                };
+
+                                let exists = false;
+                                if (shoppingCartItems.length > 0) {
+                                    $.each(shoppingCartItems, function (index, value) {
+                                        // Nếu mặt hàng đã tồn tại trong giỏ hàng thì chỉ cần tăng số lượng mặt hàng đó trong giỏ hàng.
+                                        if (value.name == item.name) {
+                                            value.quantity++;
+                                            exists = true;
+                                            return false;
+                                        }
+                                    });
+                                }
+
+                                // Nếu mặt hàng chưa tồn tại trong giỏ hàng thì bổ sung vào mảng
+                                if (!exists) {
+                                    shoppingCartItems.push(item);
+                                }
+
+                                // Lưu thông tin vào sessionStorage
+                                sessionStorage["shopping-cart-items"] = JSON.stringify(shoppingCartItems); // Chuyển thông tin mảng shoppingCartItems sang JSON trước khi lưu vào sessionStorage
+                                // Gọi hàm hiển thị giỏ hàng
+                                displayShoppingCartItems();
+                            });
+
+                        })
+                    </script>
                 </div>
             </div>
         </div>
     </div>
-    <!-- End Content-->
+    <!-- End Content -->
 
+
+
+
+    <div class="space50">&nbsp;</div>
     <!-- Footer -->
     <footer class="footer-script">
         <script>
             let footerRef = database.ref();
             footerRef.on("value", snapshot => {
                 let html = ''
-                html += snapshot.child("footer03").val()
+                html += snapshot.child("footer01").val()
                 $(".footer-script").html(html)
             })
         </script>
@@ -452,12 +495,59 @@
     <!--End Footer -->
 </body>
 
-<script type="text/javascript" src="../../../resource/js/jquery-3.4.1.min.js"></script>
+<script type="text/javascript" src="../resource/js/jquery-3.4.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
-<script type="text/javascript" src="../../../resource/bootstrap-4.4.1-dist/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../resource/bootstrap-4.4.1-dist/js/bootstrap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script src='https://kit.fontawesome.com/a076d05399.js'></script>
-<script src="../../../resource/js/login.js"></script>
-<script src="../../../resource/js/script.js"></script>
-<script src="../../../resource/js/shopping-cart-03.js"></script>
+<script src="../resource/js/script.js"></script>
+<script src="../resource/js/login.js"></script>
+<script>
+    let shoppingCartItems = [];
+
+    // Kiểm tra nếu đã có sessionStorage["shopping-cart-items"] hay chưa?
+    if (sessionStorage["shopping-cart-items"] != null) {
+        shoppingCartItems = JSON.parse(sessionStorage["shopping-cart-items"].toString());
+        // Hiển thị thông tin từ giỏ hàng
+        displayShoppingCartItems();
+    }
+
+    let clickBuy = new Audio()
+    clickBuy.src = "https://www.soundjay.com/button/beep-07.wav"
+
+
+
+
+    function displayShoppingCartItems() {
+        let count = 0
+        let sum = 0
+        if (sessionStorage["shopping-cart-items"] != null) {
+            shoppingCartItems = JSON.parse(sessionStorage["shopping-cart-items"].toString()); // Chuyển thông tin từ JSON trong sessionStorage sang mảng shoppingCartItems.       
+
+            shoppingCartItems.forEach(element => {
+                count += element.quantity;
+            });
+
+            $("#quantity-cart").html(count);
+            $(".shopping-cart > .shopping-cart-items").html("");
+            // Duyệt qua mảng shoppingCartItems để append từng item
+            $.each(shoppingCartItems, function (index, item) {
+                let price = item.price
+                let htmlString = "";
+                htmlString += "<li>";
+                htmlString += "<img src='../" + item.image + "' alt='' />";
+                htmlString += "<span class='item-name'>" + item.name + "</span>";
+                htmlString += "<span class='item-price'>" + price + "</span>";
+                htmlString += "<span class='item-quantity'>Số lượng: " + item.quantity + "</span>";
+                htmlString += "</li>";
+                htmlString += "<div class='dropdown-divider'></div>";
+                $(".shopping-cart > .shopping-cart-items:last").append(htmlString);
+                sum += item.price * item.quantity;
+            });
+            let cost = convert(sum);
+            $(".total-cost").html("Tổng Tiền: " + cost)
+        }
+    }
+</script>
+
 </html>

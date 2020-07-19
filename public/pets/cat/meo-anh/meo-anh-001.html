@@ -37,7 +37,7 @@
     </script>
     <script>
         let database = firebase.database()
-        </script>
+    </script>
     <header>
         <!-- Navigation-->
         <nav class="navbar navbar-expand-md"
@@ -339,7 +339,6 @@
                 <div class="col-9">
                     <div class="row pet-info">
                         <script>
-                            let database = firebase.database()
                             let petInfoRef = database.ref('pet/cat/1')
                             petInfoRef.on("value", snapshot => {
                                 let data = snapshot.val()
@@ -395,39 +394,23 @@
                     <h6 class="widget-title">Sản Phẩm Mới</h6>
                     <div class="widget-body">
                         <div class="beta-sales beta-lists">
-                            <div class="beta-sales beta-lists">
-                                <div class="media beta-sales-item">
-                                    <a href="../../../product.html"><img
-                                            src="../../../resource/images/pet/phu-kien/vong-co-5.jpg" alt=""></a>
-                                    <div class="media-body">
-                                        <p>Vòng Cổ - 005 </p>
-                                        <span class="beta-sales-price">Giá: 100.000</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <hr>
-                            <div class="beta-sales beta-lists">
-                                <div class="media beta-sales-item">
-                                    <a href="../../../product.html"><img
-                                            src="../../../resource/images/pet/sua-tam/sua-tam-0.jpg" alt=""></a>
-                                    <div class="media-body">
-                                        <p>Sữa Tắm S.O.S </p>
-                                        <span class="beta-sales-price">Giá: 100.000</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <hr>
-                            <div class="beta-sales beta-lists">
-                                <div class="media beta-sales-item">
-                                    <a href="../../../product.html"><img
-                                            src="../../../resource/images/pet/thuc-an-meo/whiskas-junior.jpg"
-                                            alt=""></a>
-                                    <div class="media-body">
-                                        <p>Whiskas Junior </p>
-                                        <span class="beta-sales-price">Giá: 100.000</span>
-                                    </div>
-                                </div>
-                            </div>
+                            <script>
+                                let bestsellerRef = database.ref('products')
+                                bestsellerRef.orderByChild('bestseller').equalTo("1").on("value", snapshot => {
+                                    let keys = Object.keys(snapshot.val())
+                                    let data = snapshot.val()
+                                    keys.forEach(element => {
+                                        let html = ''
+                                        let price = convert(data[element].price)
+                                        html += '<div class="beta-sales beta-lists"> <div class="media beta-sales-item">'
+                                        html += '<a href="../../../product/' + data[element].url + '">'
+                                        html += '<img src="../../../' + data[element].img + '" alt=""></a><div class="media-body">'
+                                        html += '<p>' + data[element].name + '</p>'
+                                        html += '<span class="beta-sales-price">Giá: ' + price + '</span></div></div></div><br>'
+                                        $(".beta-sales:last").append(html)
+                                    });
+                                })
+                            </script>
                         </div>
                     </div>
                 </div>
@@ -439,7 +422,6 @@
 
             <h4>Sản Phẩm Cùng Loại</h4>
             <div class="row same-pet">
-
                 <script>
                     let samePetRef = database.ref('pet/cat/0')
                     samePetRef.on("value", snapshot => {
@@ -461,6 +443,43 @@
                         html += '   </div>'
                         html += '   </div>'
                         $(".same-pet:last").append(html)
+                        $(".add-to-cart").click(function () {
+                                    clickBuy.play()
+                                    let button = $(this); // Lấy đối tượng mà người dùng click đặt tên là button
+                                    let name = button.attr("data-name"); // name của sản phẩm là thuộc tính data-name của button
+                                    let price = button.attr("data-price"); // price của sản phẩm là thuộc tính data-price của button
+                                    let image = button.attr("data-img"); //image của sản phẩm là thuộc tính data-img của button
+                                    let quantity = 1; // Số lượng
+
+                                    let item = {
+                                        name: name,
+                                        price: price,
+                                        quantity: quantity,
+                                        image: image
+                                    };
+
+                                    let exists = false;
+                                    if (shoppingCartItems.length > 0) {
+                                        $.each(shoppingCartItems, function (index, value) {
+                                            // Nếu mặt hàng đã tồn tại trong giỏ hàng thì chỉ cần tăng số lượng mặt hàng đó trong giỏ hàng.
+                                            if (value.name == item.name) {
+                                                value.quantity++;
+                                                exists = true;
+                                                return false;
+                                            }
+                                        });
+                                    }
+
+                                    // Nếu mặt hàng chưa tồn tại trong giỏ hàng thì bổ sung vào mảng
+                                    if (!exists) {
+                                        shoppingCartItems.push(item);
+                                    }
+
+                                    // Lưu thông tin vào sessionStorage
+                                    sessionStorage["shopping-cart-items"] = JSON.stringify(shoppingCartItems); // Chuyển thông tin mảng shoppingCartItems sang JSON trước khi lưu vào sessionStorage
+                                    // Gọi hàm hiển thị giỏ hàng
+                                    displayShoppingCartItems();
+                                });
                     })
                 </script>
             </div>
@@ -490,6 +509,52 @@
 <script src='https://kit.fontawesome.com/a076d05399.js'></script>
 <script src="../../../resource/js/login.js"></script>
 <script src="../../../resource/js/script.js"></script>
-<script src="../../../resource/js/shopping-cart-03.js"></script>
+<script>
+    let shoppingCartItems = [];
+
+    // Kiểm tra nếu đã có sessionStorage["shopping-cart-items"] hay chưa?
+    if (sessionStorage["shopping-cart-items"] != null) {
+        shoppingCartItems = JSON.parse(sessionStorage["shopping-cart-items"].toString());
+        // Hiển thị thông tin từ giỏ hàng
+        displayShoppingCartItems();
+    }
+
+    let clickBuy = new Audio()
+    clickBuy.src = "https://www.soundjay.com/button/beep-07.wav"
+
+
+
+
+    function displayShoppingCartItems() {
+        let count = 0
+        let sum = 0
+        if (sessionStorage["shopping-cart-items"] != null) {
+            shoppingCartItems = JSON.parse(sessionStorage["shopping-cart-items"].toString()); // Chuyển thông tin từ JSON trong sessionStorage sang mảng shoppingCartItems.       
+
+            shoppingCartItems.forEach(element => {
+                count += element.quantity;
+            });
+
+            $("#quantity-cart").html(count);
+            $(".shopping-cart > .shopping-cart-items").html("");
+            // Duyệt qua mảng shoppingCartItems để append từng item
+            $.each(shoppingCartItems, function (index, item) {
+                let price = item.price
+                let htmlString = "";
+                htmlString += "<li>";
+                htmlString += "<img src='../../../" + item.image + "' alt='' />";
+                htmlString += "<span class='item-name'>" + item.name + "</span>";
+                htmlString += "<span class='item-price'>" + price + "</span>";
+                htmlString += "<span class='item-quantity'>Số lượng: " + item.quantity + "</span>";
+                htmlString += "</li>";
+                htmlString += "<div class='dropdown-divider'></div>";
+                $(".shopping-cart > .shopping-cart-items:last").append(htmlString);
+                sum += item.price * item.quantity;
+            });
+            let cost = convert(sum);
+            $(".total-cost").html("Tổng Tiền: " + cost)
+        }
+    }
+</script>
 
 </html>

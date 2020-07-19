@@ -12,43 +12,7 @@ $(document).ready(function () {
     clickBuy.src = "https://www.soundjay.com/button/beep-07.wav"
 
 
-    $(".add-to-cart").click(function () {
-        clickBuy.play()
-        let button = $(this); // Lấy đối tượng mà người dùng click đặt tên là button
-        let name = button.attr("data-name"); // name của sản phẩm là thuộc tính data-name của button
-        let price = button.attr("data-price"); // price của sản phẩm là thuộc tính data-price của button
-        let image = button.attr("data-img"); //image của sản phẩm là thuộc tính data-img của button
-        let quantity = 1; // Số lượng
-
-        let item = {
-            name: name,
-            price: price,
-            quantity: quantity,
-            image: image
-        };
-
-        let exists = false;
-        if (shoppingCartItems.length > 0) {
-            $.each(shoppingCartItems, function (index, value) {
-                // Nếu mặt hàng đã tồn tại trong giỏ hàng thì chỉ cần tăng số lượng mặt hàng đó trong giỏ hàng.
-                if (value.name == item.name) {
-                    value.quantity++;
-                    exists = true;
-                    return false;
-                }
-            });
-        }
-
-        // Nếu mặt hàng chưa tồn tại trong giỏ hàng thì bổ sung vào mảng
-        if (!exists) {
-            shoppingCartItems.push(item);
-        }
-
-        // Lưu thông tin vào sessionStorage
-        sessionStorage["shopping-cart-items"] = JSON.stringify(shoppingCartItems); // Chuyển thông tin mảng shoppingCartItems sang JSON trước khi lưu vào sessionStorage
-        // Gọi hàm hiển thị giỏ hàng
-        displayShoppingCartItems();
-    });
+    
 
     function displayShoppingCartItems() {
         let count = 0
