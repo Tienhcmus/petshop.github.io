@@ -14,6 +14,7 @@ function displayOrderList() {
             count += element.quantity;
         });
 
+        $("#sumproduct").html(count);
         $("#quantity-cart").html(count);
         $(".shopping-cart > .shopping-cart-items").html("");
         $("table > tbody").html("");
@@ -112,9 +113,3 @@ function addtable(item, sum) {
     $("#sum").html(totalcost);
 
 };
-
-
-function convert(value){
-    value = Number(value);
-    return new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'VND' }).format(value);
-}

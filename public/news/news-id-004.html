@@ -325,7 +325,7 @@
             let content = database.ref('content/news');
             content.on("value", snapshot => {
                 let html = ''
-                html += snapshot.child("news003").val()
+                html += snapshot.child("news004").val()
                 $(".content-script").html(html)
             })
      </script>
