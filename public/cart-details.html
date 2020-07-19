@@ -342,13 +342,14 @@
                     <div class="order-info">
                         <input type="text" id="order-name" placeholder="Tên">
                         <br>
-                        <input type="text" id="order-phone" placeholder="Số điện thoại">
+                        <input type="number" id="order-phone" placeholder="Số điện thoại">
                         <br>
                         <input type="text" id="order-addr" placeholder="Địa chỉ">
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="accept-btn btn btn-primary" data-dismiss="modal">Xác Nhận</button>
+                    <button class="accept btn btn-primary"> Xác nhận </button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Đóng</button>
                 </div>
             </div>
         </div>
@@ -404,7 +405,126 @@
 <script src='https://kit.fontawesome.com/a076d05399.js'></script>
 <script src="resource/js/login.js"></script>
 <script src="resource/js/script.js"></script>
-<script src="resource/js/order.js"></script>
+
+<script>
+    let orderList = [];
+
+    if (sessionStorage["shopping-cart-items"] != null) {
+        orderList = JSON.parse(sessionStorage["shopping-cart-items"].toString());
+        displayOrderList();
+
+    }
+    function displayOrderList() {
+        let count = 0;
+        if (sessionStorage["shopping-cart-items"] != null) {
+            orderList = JSON.parse(sessionStorage["shopping-cart-items"].toString());
+
+            orderList.forEach(element => {
+                count += element.quantity;
+            });
+
+            $("#sumproduct").html(count);
+            $("#quantity-cart").html(count);
+            $(".shopping-cart > .shopping-cart-items").html("");
+            $("table > tbody").html("");
+
+            let sum = 0;
+            // Duyệt qua mảng shoppingCartItems để append từng item
+            $.each(orderList, function (index, item) {
+                sum += item.price * item.quantity;
+                addcart(item, sum);
+                addtable(item, sum);
+            });
+        }
+        $('.plus').click(function () {
+            let plus = $(this);
+            let name = plus.attr('data-name');
+
+            orderList.forEach(element => {
+                if (element.name == name) {
+                    element.quantity++;
+                    sessionStorage["shopping-cart-items"] = JSON.stringify(orderList);
+                    displayOrderList();
+                    return false;
+                }
+            });
+        });
+
+        $('.minus').click(function () {
+            let minus = $(this);
+            let name = minus.attr('data-name');
+
+            orderList.forEach(element => {
+                if (element.name == name && element.quantity > 0) {
+                    element.quantity--;
+                    sessionStorage["shopping-cart-items"] = JSON.stringify(orderList);
+                    displayOrderList();
+                    return false;
+                }
+            });
+        });
+
+        $("[id*=remove]").each(function () {
+            $(this).click(function () {
+                let remove = $(this);
+                let name = remove.attr('data-name');
+                orderList.forEach(element => {
+                    if (element.name == name) {
+                        orderList.splice(orderList.indexOf(element), 1);
+                        sessionStorage["shopping-cart-items"] = JSON.stringify(orderList);
+                        displayOrderList();
+                        return false;
+                    }
+                });
+            })
+        })
+
+    }
+
+    function addcart(item, sum) {
+        let cartHtmlString = "";
+
+        let price = convert(item.price)
+
+        cartHtmlString += "<li>";
+        cartHtmlString += "<img src='" + item.image + "' alt='' />";
+        cartHtmlString += "<span class='item-name'>" + item.name + "</span>";
+        cartHtmlString += "<span class='item-price'>" + price + "</span>";
+        cartHtmlString += "<span class='item-quantity'>Số lượng: " + item.quantity + "</span>";
+        cartHtmlString += "</li>";
+        cartHtmlString += "<div class='dropdown-divider'></div>";
+        $(".shopping-cart > .shopping-cart-items:last").append(cartHtmlString);
+
+        let totalcost = convert(sum)
+        $(".total-cost").html("Tổng Tiền: " + totalcost);
+    };
+
+    function addtable(item, sum) {
+        let orderlistHtmlString = "";
+
+        let price = convert(item.price)
+        let cost = item.price * item.quantity
+        cost = convert(cost)
+
+        orderlistHtmlString += "<tr>";
+        orderlistHtmlString += "<td><img src='" + item.image + "' alt=''></td>";
+        orderlistHtmlString += "<td id='cellname' class='cell'>" + item.name + " </td>";
+        orderlistHtmlString += "<td class='cell'> <span id='cellprice'>" + price + "</span></td>";
+        orderlistHtmlString += "<td class='cell'><button class='edit minus fas fa-minus' data-name='" + item.name + "'></button>";
+        orderlistHtmlString += "<span id='cellamount'>" + item.quantity + "</span>";
+        orderlistHtmlString += "<button class='edit plus fas fa-plus' data-name='" + item.name + "'></button></td>";
+        orderlistHtmlString += "<td id='cellsum' class='cell'>" + cost + "</td>";
+        orderlistHtmlString += "<td class='cell'><button id='remove' type='button' data-name='" + item.name + "' class='btn btn-danger btn-sm'>X</button></td>";
+        orderlistHtmlString += "</tr>";
+        $("table > tbody:last").append(orderlistHtmlString);
+
+        let totalcost = convert(sum)
+        $("#sum").html(totalcost);
+
+    };
+</script>
+
+
 <script>
 
     $(".order-info").hide()
@@ -421,36 +541,16 @@
             $(".order-info").show()
             check = 1;
         }
-        listProduct = JSON.parse(sessionStorage["shopping-cart-items"].toString()) 
-        
-    })
-    
-    $(".accept-btn").click(function () {
-            if (check == 1) {
-                let phone = $("#order-phone").val();
-                let name = $("#order-name").val();
-                let addr = $("#order-addr").val();
-                if (phone != '' && name != '' && addr != '') {
-                    let orderDetail = {
-                        name: name,
-                        phone: phone,
-                        address: addr,
-                        list: listProduct,
-                        date: date
-                    }
+        listProduct = JSON.parse(sessionStorage["shopping-cart-items"].toString())
 
-                    orderRef.orderByChild('date').equalTo(date).on("value", snapshot => {
-                        if(snapshot.val() == "null"){
-                            orderRef.push(orderDetail)
-                        }
-                        
-                    })
-                }
-            } else {
-                let orderRef = database.ref('orders')
-                let phone = sessionStorage["phone"]
-                let name = sessionStorage["user"]
-                let addr = sessionStorage["addr"]
+    })
+
+    $(".accept").click(function () {
+        if (check == 1) {
+            let phone = $("#order-phone").val();
+            let name = $("#order-name").val();
+            let addr = $("#order-addr").val();
+            if (phone != '' && name != '' && addr != '') {
                 let orderDetail = {
                     name: name,
                     phone: phone,
@@ -458,14 +558,36 @@
                     list: listProduct,
                     date: date
                 }
-                orderRef.orderByChild('date').equalTo(date).on("value", snapshot => {
-                        if(snapshot.val() == "null"){
-                            orderRef.push(orderDetail)
-                        }
-                        
-                    })
+
+                orderRef.on("value", snapshot => {
+                    orderRef.push(orderDetail)
+                    sessionStorage["shopping-cart-items"].clear();
+                    displayOrderList();
+                    alert("Đặt hàng thành công")
+                })
+            } else {
+                alert("Vui lòng điền đủ các thông tin hoàn tất đơn hàng !")
             }
+        } else {
+            let orderRef = database.ref('orders')
+            let phone = sessionStorage["phone"]
+            let name = sessionStorage["user"]
+            let addr = sessionStorage["addr"]
+            let orderDetail = {
+                name: name,
+                phone: phone,
+                address: addr,
+                list: listProduct,
+                date: date
+            }
+            orderRef.on("value", snapshot => {
+                orderRef.push(orderDetail)
+                sessionStorage["shopping-cart-items"].clear();
+                displayOrderList();
+                alert("Đặt hàng thành công")
             })
+        }
+    })
 
 </script>
 
