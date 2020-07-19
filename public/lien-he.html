@@ -29,6 +29,7 @@
 
     <script src="/__/firebase/7.15.4/firebase-database.js"></script>
     <script>
+        let database = firebase.database()
         function convert(value) {
             value = Number(value);
             return new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'VND' }).format(value);
@@ -60,8 +61,7 @@
                                     </ul>
                                     <div class="dropdown-divider"></div>
                                     <p class="total-cost"></p>
-                                    <a href="cart-details.html"
-                                        class="check-out">Thanh Toán</a>
+                                    <a href="cart-details.html" class="check-out">Thanh Toán</a>
                                 </div>
                             </div>
                     </li>
@@ -99,20 +99,19 @@
             </ul>
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <a class="link-image" href="pet.html"><img
-                            src="resource/images/Banner/banner1.jpg" alt="pet"></a>
+                    <a class="link-image" href="pet.html"><img src="resource/images/Banner/banner1.jpg" alt="pet"></a>
                 </div>
                 <div class="carousel-item">
-                    <a class="link-image" href="product.html"><img
-                            src="resource/images/Banner/banner2.jpg" alt="Sanpham"></a>
+                    <a class="link-image" href="product.html"><img src="resource/images/Banner/banner2.jpg"
+                            alt="Sanpham"></a>
                 </div>
                 <div class="carousel-item">
-                    <a class="link-image" href="cham-soc.html"><img
-                            src="resource/images/Banner/banner3.jpg" alt="chamsoc"></a>
+                    <a class="link-image" href="cham-soc.html"><img src="resource/images/Banner/banner3.jpg"
+                            alt="chamsoc"></a>
                 </div>
                 <div class="carousel-item">
-                    <a class="link-image" href="tin-tuc.html"><img
-                            src="resource/images/Banner/banner4.jpg" alt="tintuc"></a>
+                    <a class="link-image" href="tin-tuc.html"><img src="resource/images/Banner/banner4.jpg"
+                            alt="tintuc"></a>
                 </div>
             </div>
             <!-- Left and right controls -->
@@ -134,47 +133,35 @@
                     </li>
                     <!-- Dropdown -->
                     <li class="nav-item dropdown">
-                        <a class="nav-link" href="pet.html"
-                            id="navbarDropdown"> Hệ thống thú cưng
+                        <a class="nav-link" href="pet.html" id="navbarDropdown"> Hệ thống thú cưng
                         </a>
                         <div class="dropdown-content">
-                            <a class="dropdown-item"
-                                href="danh-sach-cho.html"> Chó </a>
-                            <a class="dropdown-item"
-                                href="danh-sach-meo.html"> Mèo </a>
+                            <a class="dropdown-item" href="danh-sach-cho.html"> Chó </a>
+                            <a class="dropdown-item" href="danh-sach-meo.html"> Mèo </a>
                         </div>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link" href="product.html"
-                            id="navbarDropdown"> Sản phẩm
+                        <a class="nav-link" href="product.html" id="navbarDropdown"> Sản phẩm
                         </a>
                         <div class="dropdown-content">
-                            <a class="dropdown-item"
-                                href="product.html#dog-food"> Thức ăn cho
+                            <a class="dropdown-item" href="product.html#dog-food"> Thức ăn cho
                                 chó </a>
-                            <a class="dropdown-item"
-                                href="product.html#cat-food"> Thức ăn cho
+                            <a class="dropdown-item" href="product.html#cat-food"> Thức ăn cho
                                 mèo </a>
-                            <a class="dropdown-item"
-                                href="product.html#sua-tam"> Sữa tắm </a>
-                            <a class="dropdown-item"
-                                href="product.html#other-product"> Phụ kiện
+                            <a class="dropdown-item" href="product.html#sua-tam"> Sữa tắm </a>
+                            <a class="dropdown-item" href="product.html#other-product"> Phụ kiện
                             </a>
                         </div>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link" href="cham-soc.html"
-                            id="navbarDropdown"> Chăm sóc thú cưng
+                        <a class="nav-link" href="cham-soc.html" id="navbarDropdown"> Chăm sóc thú cưng
                         </a>
                         <div class="dropdown-content">
-                            <a class="dropdown-item"
-                                href="chamsoc/chamsoc-000.html"> Hướng dẫn
+                            <a class="dropdown-item" href="chamsoc/chamsoc-000.html"> Hướng dẫn
                                 dành cho người mới </a>
-                            <a class="dropdown-item"
-                                href="chamsoc/chamsoc-001.html"> Tiêm Ngừa
+                            <a class="dropdown-item" href="chamsoc/chamsoc-001.html"> Tiêm Ngừa
                                 Vaccine Cho Thú Cưng Và Những Điều Cần Biết </a>
-                            <a class="dropdown-item"
-                                href="chamsoc/chamsoc-002.html"> 5 Bệnh
+                            <a class="dropdown-item" href="chamsoc/chamsoc-002.html"> 5 Bệnh
                                 Thường Gặp Ở Thú Cưng </a>
 
                         </div>
@@ -334,20 +321,26 @@
                     trong quá trình chăm sóc thú cưng và cần được tư vấn</p>
                 <div class="space20">&nbsp;</div>
                 <div class="container" style="padding: 0px;">
-                    <form class="contact">
-                        <label for="fname">Tên</label>
-                        <input type="text" id="fname" name="firstname" placeholder="Nhập tên của bạn">
+                    <form id="contact-form" class="contact" action="#" method="POST">
+                        <label for="fname">Tên</label> <span id="ct-name" class="error-contact"> *** Vui lòng nhập tên
+                            ***</span>
+                        <input type="text" id="contact-name" name="firstname" placeholder="Nhập tên của bạn">
 
-                        <label for="lname">Họ</label>
-                        <input type="text" id="lname" name="lastname" placeholder="Nhập họ của bạn">
+                        <label for="phone">Số điện thoại</label> <span id="ct-phone" class="error-contact"> *** Vui lòng
+                            nhập số điện thoại ***</span>
+                        <input type="text" id="contact-phone" name="contact-phone"
+                            placeholder="Nhập số điện thoại của bạn">
 
-                        <label for="lname">Email</label>
-                        <input type="text" id="mail" name="mail" placeholder="Nhập địa chỉ email">
+                        <label for="mail">Email</label> <span id="ct-mail" class="error-contact"> *** Vui lòng nhập mail
+                            ***</span>
+                        <input type="text" id="contact-mail" name="mail" placeholder="Nhập địa chỉ email">
 
-                        <label for="subject">Nội dung</label>
-                        <textarea id="subject" name="subject" placeholder="Nội dung cần trao đổi"
+                        <label for="subject">Nội dung</label> <span id="ct-text" class="error-contact"> *** Vui lòng
+                            nhập nội dung ***</span>
+                        <textarea id="contact-text" name="subject" placeholder="Nội dung cần trao đổi"
                             style="height:200px"></textarea>
-                        <input type="submit" value="Gửi">
+                        <input id="submit-btn" type="submit" value="Gửi">
+                        <span id="nofi">Gửi thành công</span>
                     </form>
                 </div>
             </div>
@@ -368,18 +361,18 @@
     </div>
     <!-- End Content -->
     <div class="space50">&nbsp;</div>
-   <!-- Footer -->
-   <footer class="footer-script">
-    <script>
-        let footerRef = database.ref();
-        footerRef.on("value", snapshot => {
-            let html = ''
-            html += snapshot.child("footer").val()
-            $(".footer-script").html(html)
-        })
-    </script>
-</footer>
-<!--End Footer -->
+    <!-- Footer -->
+    <footer class="footer-script">
+        <script>
+            let footerRef = database.ref();
+            footerRef.on("value", snapshot => {
+                let html = ''
+                html += snapshot.child("footer").val()
+                $(".footer-script").html(html)
+            })
+        </script>
+    </footer>
+    <!--End Footer -->
 </body>
 
 <script type="text/javascript" src="resource/js/jquery-3.4.1.min.js"></script>
@@ -390,4 +383,67 @@
 <script src="resource/js/login.js"></script>
 <script src="resource/js/script.js"></script>
 <script src="resource/js/shopping-cart.js"></script>
+<script>
+
+    $("#ct-name").hide()
+    $("#ct-phone").hide()
+    $("#ct-mail").hide()
+    $("#ct-text").hide()
+    $("#nofi").hide()
+    $("#contact-form").submit(function (e) {
+        e.preventDefault()
+        let name = $("#contact-name").val()
+        let phone = $("#contact-phone").val()
+        let mail = $("#contact-mail").val()
+        let content = $("#contact-text").val()
+        let today = new Date();
+        let date = today.getDate() + '-' + (today.getMonth() + 1) + '-' + today.getFullYear() + " " + today.getHours() + ":" + today.getMinutes();
+        let contactRef = database.ref("contact/" + date)
+        let canPush = 1
+        if (name == "" || name == null || name == undefined) {
+            $("#ct-name").show()
+            canPush = 0
+        } else {
+            $("#ct-name").hide()
+        }
+        if (phone == "" || phone == null || phone == undefined) {
+            $("#ct-phone").show()
+            canPush = 0
+        } else {
+            $("#ct-phone").hide()
+        }
+        if (mail == "" || mail == null || mail == undefined) {
+            $("#ct-mail").show()
+            canPush = 0
+        } else {
+            $("#ct-mail").hide()
+        }
+        if (content == "" || content == null || content == undefined) {
+            $("#ct-text").show()
+            canPush = 0
+        } else {
+            $("#ct-text").hide()
+        }
+        if (canPush == 1) {
+            let contact = {
+                name: name,
+                phone: phone,
+                mail: mail,
+                text: content
+            }
+            contactRef.orderByChild('phone').equalTo(contact.phone).on("value", snapshot => {
+                console.log(snapshot.val())
+                if (snapshot.val() == "null" || snapshot.val() == null) {
+                    contactRef.push(contact)
+                    $("#nofi").show()
+                    $("#nofi").hide(3000)
+                }
+            })
+        }
+
+    })
+
+
+</script>
+
 </html>

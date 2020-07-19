@@ -308,7 +308,7 @@
     </div>
     <div class="container">
         <div class="space-top-none">
-            <h6>Giỏ hàng của bạn có <span id="sumproduct"> 3 </span> sản phẩm</h6>
+            <h6>Giỏ hàng của bạn có <span id="sumproduct"> </span> sản phẩm</h6>
             <hr>
             <div class="table-wrapper-scroll-y my-custom-scrollbar">
                 <table id="table" class="table table-bordered text-center">
@@ -348,7 +348,7 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button class="accept btn btn-primary"> Xác nhận </button>
+                    <button class="get-order btn btn-primary"> Xác nhận </button>
                     <button type="button" class="btn btn-primary" data-dismiss="modal">Đóng</button>
                 </div>
             </div>
@@ -527,12 +527,11 @@
 
 <script>
 
-    $(".order-info").hide()
-    let today = new Date();
-    let date = today.getDate() + '-' + (today.getMonth() + 1) + '-' + today.getFullYear() + " " + today.getHours() + ":" + today.getMinutes();
-    let orderRef = database.ref('order');
-    let listProduct = '';
     let check = 0;
+    $(".order-info").hide()
+
+    let listProduct = '';
+
     $(".order-btn").click(function () {
         if (sessionStorage["isLogin"] == "true") {
             $("#nofi").html('Nhấn xác nhận để hoàn tất')
@@ -545,7 +544,10 @@
 
     })
 
-    $(".accept").click(function () {
+    $(".get-order").click(function () {
+        let today = new Date();
+        let date = today.getDate() + '-' + (today.getMonth() + 1) + '-' + today.getFullYear() + " " + today.getHours() + ":" + today.getMinutes();
+        let orderRef = database.ref('order/' + date);
         if (check == 1) {
             let phone = $("#order-phone").val();
             let name = $("#order-name").val();
@@ -559,20 +561,25 @@
                     date: date
                 }
 
-                orderRef.on("value", snapshot => {
-                    orderRef.push(orderDetail)
-                    sessionStorage["shopping-cart-items"].clear();
-                    displayOrderList();
-                    alert("Đặt hàng thành công")
+                orderRef.orderByChild('phone').equalTo(orderDetail.phone).on("value", snapshot => {
+                    console.log(snapshot.val())
+                    if (snapshot.val() == "null" || snapshot.val() == null) {
+                        orderRef.push(orderDetail)
+                        sessionStorage.removeItem("shopping-cart-items")
+                        $(".shopping-cart > .shopping-cart-items").html("");
+                        $("table > tbody").html("");
+                    } else {
+                        alert("Đặt hàng thành công")
+                    }
                 })
             } else {
                 alert("Vui lòng điền đủ các thông tin hoàn tất đơn hàng !")
             }
         } else {
-            let orderRef = database.ref('orders')
             let phone = sessionStorage["phone"]
             let name = sessionStorage["user"]
             let addr = sessionStorage["addr"]
+            console.log(name)
             let orderDetail = {
                 name: name,
                 phone: phone,
@@ -580,11 +587,17 @@
                 list: listProduct,
                 date: date
             }
-            orderRef.on("value", snapshot => {
-                orderRef.push(orderDetail)
-                sessionStorage["shopping-cart-items"].clear();
-                displayOrderList();
-                alert("Đặt hàng thành công")
+
+            orderRef.orderByChild('phone').equalTo(orderDetail.phone).on("value", snapshot => {
+                if (snapshot.val() == "null" || snapshot.val() == null) {
+                    orderRef.push(orderDetail)
+
+                    sessionStorage.removeItem("shopping-cart-items")
+                    $(".shopping-cart > .shopping-cart-items").html("");
+                    $("table > tbody").html("");
+                } else {
+                    alert("Đặt hàng thành công")
+                }
             })
         }
     })

@@ -360,3 +360,11 @@ input[type="radio"] {
 .news-form{
   height: auto;
 }
+.error-contact{
+  color: red;
+  font-style: italic;
+  font-size: 18px;
+}
+#nofi{
+  color: green;
+}
